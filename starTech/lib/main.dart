@@ -1,6 +1,9 @@
 // Pacote Material
-import 'package:aula01/pagina.dart';
+import 'Home.dart';
 import 'package:flutter/material.dart';
+import 'Celulares.dart';
+import 'Portateis.dart';
+import 'Tvs.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const Pagina(),
+      home: const Home(),
     );
   }
 }
