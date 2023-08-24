@@ -1,35 +1,16 @@
-<h1 align="center">Star Tech</h1>
+# hackadev
 
-<p align="center">Bem-vindo ao repositório do projeto Star Tech! Este é um espaço dedicado à colaboração entre membros do nosso grupo para desenvolver e aprimorar nosso E-commerce. 
-Aqui, vamos compartilhar ideias, códigos, documentos e acompanhar o progresso do projeto. </p>
+A new Flutter project.
 
-<h4 align="center"> 
-	🚧  Star Tech 🚀 Em construção...  🚧
-</h4>
+## Getting Started
 
-### Features
+This project is a starting point for a Flutter application.
 
-- [ ]  Home
-- [ ] Listar 3 categorias principais
-- [ ] Listagem de produtos
-- [ ] Menu de navegação
+A few resources to get you started if this is your first Flutter project:
 
-### 🛠 Tecnologias
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-As seguintes ferramentas foram usadas na construção do projeto:
-
-- Dart
-- Flutter
-
-### Colaboradores: 
-
-- Juliana Rodrigues - Monitora
-- Sofia Mansur - Vice-Monitora
-- Vitória Alves Araujo - Time de desenvolvimento 
-- Aline Braz da Silva - Time de desenvolvimento
-- Beatriz Santos - Time de desenvolvimento
-- Talitha Mendes - Time de desenvolvimento
-- Tâmara Ribeiro - Time de desenvolvimento
-- Jessica Kesia da Silva - Time de desenvolvimento
-- Gabriela Dourado França - Time de desenvolvimento
- 
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
