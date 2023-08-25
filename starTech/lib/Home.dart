@@ -34,8 +34,55 @@ class ConteudoPagina extends State {
               ),
             ),
           ),
+          
         ],
-      ),  
+        
+      ),
+      bottomNavigationBar: BottomNavigation(),  
     );
   }
 }
+
+class BottomNavigation extends StatefulWidget {
+  const BottomNavigation({super.key});
+
+  @override
+  State<StatefulWidget> createState() {
+    return BottomNavigationWidget();
+  }
+}
+ 
+class BottomNavigationWidget extends State <BottomNavigation> {
+ int selectedPageIndex = 0;
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home_outlined, color: Colors.black),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.list_outlined, color: Colors.black),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.shopping_bag_outlined, color: Colors.black),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.favorite_outline, color: Colors.black),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person_outline, color: Colors.black),
+          label: '',
+        ),
+      ],
+      
+      
+    );
+  }
+}
+
+
