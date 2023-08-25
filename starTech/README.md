@@ -26,10 +26,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - Juliana Rodrigues - Monitora
 - Sofia Mansur - Vice-Monitora
 - Vitória Alves Araujo - Time de desenvolvimento 
-- Aline Braz da Silva - Time de desenvolvimento
 - Beatriz Santos - Time de desenvolvimento
 - Talitha Mendes - Time de desenvolvimento
 - Tâmara Ribeiro - Time de desenvolvimento
-- Jessica Kesia da Silva - Time de desenvolvimento
 - Gabriela Dourado França - Time de desenvolvimento
  
