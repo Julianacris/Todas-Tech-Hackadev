@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackadev/widgets/produto.dart';
+import 'package:hackadev/widgets/search_bar.dart';
 
 class Produtos extends StatefulWidget {
   const Produtos({super.key});
@@ -13,9 +14,23 @@ class Produtos extends StatefulWidget {
 class ProdutosState extends State {
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: <Widget>[
-        Produto(),
+        const AppSearchBar(),
+        Flexible(
+            child: GridView.count(
+          primary: false,
+          padding: const EdgeInsets.all(20),
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          crossAxisCount: 2,
+          children: const <Widget>[
+            Produto(),
+            Produto(),
+            Produto(),
+            Produto()
+          ],
+        ))
       ],
     );
   }

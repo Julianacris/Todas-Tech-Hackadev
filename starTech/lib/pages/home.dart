@@ -14,11 +14,23 @@ class Home extends StatefulWidget {
 class HomeState extends State {
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: <Widget>[
-        AppSearchBar(),
-        Produto(),
-        Produto(),
+        const AppSearchBar(),
+        Flexible(
+            child: GridView.count(
+          primary: false,
+          padding: const EdgeInsets.all(20),
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          crossAxisCount: 2,
+          children: const <Widget>[
+            Produto(),
+            Produto(),
+            Produto(),
+            Produto()
+          ],
+        ))
       ],
     );
   }
