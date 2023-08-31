@@ -1,25 +1,68 @@
-// ignore_for_file: avoid_unnecessary_containers
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
-class Destaques extends StatefulWidget {
-  const Destaques({super.key});
+void main() {
+  runApp(MyApp());
+}
 
+class MyApp extends StatelessWidget {
   @override
-  State<StatefulWidget> createState() {
-    return DestaquesState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: HomePage(),
+    );
   }
 }
 
-class DestaquesState extends State {
+class HomePage extends StatelessWidget {
   @override
-   Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
+    return Scaffold(
+
+      body: Center(
+        child: PinkBox(),
+      ),
+    );
+  }
+}
+
+class PinkBox extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return Container(
-      color: Colors.pink,
-      height: 170,
-      child: Center(
-        child: Text('Destaques'),
+      width: 300,
+      height: 200,
+      decoration: BoxDecoration(
+        color: Colors.pink,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Destaques para você:',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+          SizedBox(height: 10),
+          Text(
+            'Produtos com até 70% OFF',
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.white,
+            ),
+          ),
+          SizedBox(height: 5),
+          Text(
+            '#VemPraStar',
+            style: TextStyle(
+              fontSize: 14,
+              color: Colors.white,
+            ),
+          ),
+        ],
       ),
     );
   }
