@@ -1,8 +1,10 @@
+// ignore: avoid_web_libraries_in_flutter, unused_import
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:hackadev/widgets/search_bar.dart';
-import 'package:hackadev/widgets/recomendados.dart';
 import 'package:hackadev/widgets/categorias.dart';
-import 'package:hackadev/widgets/destaques.dart';
+import 'package:hackadev/functions/Todos.dart';
 
 class Produtos extends StatefulWidget {
   const Produtos({super.key});
@@ -21,10 +23,8 @@ class ProdutosState extends State {
         children: [
           AppSearchBar(),
           Categorias(),
-          SizedBox(height: 20), // Espaçamento entre as seções
-          //Destaques(),
           SizedBox(height: 30),
-          Flexible(child: Recomendados()),
+          Flexible(child: TodosProd()),
         ],
       );
   }

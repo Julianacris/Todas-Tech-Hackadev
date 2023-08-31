@@ -3,20 +3,20 @@ import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:hackadev/widgets/search_bar.dart';
-import 'package:hackadev/functions/recomendados.dart';
+import 'package:hackadev/functions/Celulares.dart';
 import 'package:hackadev/widgets/categorias.dart';
-import 'package:hackadev/widgets/destaques.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+
+class CelularesPg extends StatefulWidget {
+  const CelularesPg({super.key});
 
   @override
   State<StatefulWidget> createState() {
-    return HomeState();
+    return CelularesPgState();
   }
 }
 
-class HomeState extends State {
+class CelularesPgState extends State {
   @override
   Widget build(BuildContext context) {
    return const Column(
@@ -24,10 +24,8 @@ class HomeState extends State {
         children: [
           AppSearchBar(),
           Categorias(),
-          SizedBox(height: 20), // Espaçamento entre as seções
-          //Destaques(),
           SizedBox(height: 30),
-          Flexible(child: Recomendados()),
+          Flexible(child: Celulares()),
         ],
       );
   }

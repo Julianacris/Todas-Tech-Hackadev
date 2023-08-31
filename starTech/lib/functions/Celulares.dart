@@ -1,19 +1,17 @@
-// ignore_for_file: avoid_unnecessary_containers
-
+// ignore_for_file: file_names
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hackadev/widgets/produto.dart';
 
-class Recomendados extends StatefulWidget {
-  const Recomendados({super.key});
+class Celulares extends StatefulWidget {
+  const Celulares({super.key});
 
   @override
   State<StatefulWidget> createState() {
-    return RecomendadosState();
+    return CelularesState();
   }
 }
 
-class RecomendadosState extends State {
+class CelularesState extends State {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
@@ -23,7 +21,7 @@ class RecomendadosState extends State {
           mainAxisSpacing: 10,
           crossAxisCount: 2,
           children: const <Widget>[
-            Produto(preco: ' R\$ 10,00', nome: "iPhone", pathImagem: 'assets/images/imagem1.png'),
+            Produto(preco: ' R\$ 10,00', nome: "iPhone2", pathImagem: 'assets/images/imagem1.png'),
             Produto(preco: ' R\$ 20,00', nome: "Teste", pathImagem: 'assets/images/imagem2.webp'),
           ],
         );
