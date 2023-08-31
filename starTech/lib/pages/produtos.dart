@@ -22,7 +22,7 @@ class ProdutosState extends State {
           AppSearchBar(),
           Categorias(),
           SizedBox(height: 20), // Espaçamento entre as seções
-          Destaques(),
+          //Destaques(),
           SizedBox(height: 30),
           Flexible(child: Recomendados()),
         ],
