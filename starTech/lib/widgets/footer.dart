@@ -6,8 +6,6 @@ import 'favoritos.dart';
 
 
 
-
-
 class Footer extends StatefulWidget {
   const Footer({super.key});
 
@@ -20,7 +18,7 @@ class Footer extends StatefulWidget {
 class FooterState extends State<Footer> {
  int opcaoSelecionada = 0;
 
-  List<Icon> iconList = [
+  List<Icon> iconList = const [
     Icon(Icons.home_outlined, color: Colors.black),
     Icon(Icons.shopping_cart_outlined, color: Colors.black),
     Icon(Icons.favorite_outline, color: Colors.black),
@@ -67,7 +65,7 @@ class FooterState extends State<Footer> {
   Widget decorateIcon(Icon icon) {
     return Container(
       
-      padding: EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8.0),
       width: 50,
       height: 50,
       decoration: BoxDecoration(

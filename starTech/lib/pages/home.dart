@@ -19,21 +19,17 @@ class Home extends StatefulWidget {
 class HomeState extends State {
   @override
   Widget build(BuildContext context) {
-   return Scaffold(
-
-    body: Column(
+   return const Column(
         crossAxisAlignment: CrossAxisAlignment.stretch, // Estende as seções horizontalmente
         children: [
           AppSearchBar(),
           Categorias(),
           SizedBox(height: 20), // Espaçamento entre as seções
           Destaques(),
-          SizedBox(height: 30), // Espaçamento entre as seções
-          Recomendados(),
+          SizedBox(height: 30),
+          Flexible(child: Recomendados()),
         ],
-      ),
-
-   );
+      );
    
    
    /* return Column(
