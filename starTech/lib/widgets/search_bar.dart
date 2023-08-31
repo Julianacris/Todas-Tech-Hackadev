@@ -25,8 +25,6 @@ class AppSearchBarState extends State {
                 children: [
                   Expanded(
                     child: Container(
-                      height: 45,
-                      width: 32,
                       alignment: Alignment.centerLeft, // Alinhar à esquerda
                       padding: const EdgeInsets.symmetric(vertical: 5),
                       decoration: BoxDecoration(
@@ -40,13 +38,14 @@ class AppSearchBarState extends State {
                           hintText: "O que você procura hoje?",
                           enabledBorder: const UnderlineInputBorder(
                             borderSide: BorderSide(
-                                color: Colors.transparent), // Remove a linha abaixo do hintText
+                                color: Colors
+                                    .transparent), // Remove a linha abaixo do hintText
                           ),
                           icon: Padding(
                             padding: const EdgeInsets.only(
                                 right: 20,
-                                left: 20
-                              ), // Espaçamento à direita e a esquerda do ícone
+                                left:
+                                    20), // Espaçamento à direita e a esquerda do ícone
                             child: SvgPicture.asset(
                                 "assets/icons/search.svg",
                                 color: const Color.fromARGB(255, 205, 0, 106)), // Ícone de pesquisa rosa
