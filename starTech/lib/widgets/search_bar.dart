@@ -16,7 +16,7 @@ class AppSearchBarState extends State {
 
     return Padding(
           padding:
-              const EdgeInsets.symmetric(horizontal: 20, vertical: 130),
+              const EdgeInsets.symmetric(horizontal: 20, vertical: 80),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[

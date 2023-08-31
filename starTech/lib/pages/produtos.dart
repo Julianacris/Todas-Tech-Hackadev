@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hackadev/widgets/produto.dart';
+import 'package:hackadev/widgets/recomendados.dart';
 import 'package:hackadev/widgets/search_bar.dart';
 
 class Produtos extends StatefulWidget {
@@ -25,10 +25,11 @@ class ProdutosState extends State {
           mainAxisSpacing: 10,
           crossAxisCount: 2,
           children: const <Widget>[
-            Produto(),
-            Produto(),
-            Produto(),
-            Produto()
+            Recomendados(),
+            Recomendados(),
+            Recomendados(),
+            Recomendados(),
+            
           ],
         ))
       ],
