@@ -23,7 +23,8 @@ class RecomendadosState extends State {
           children: const <Widget>[
             
             Produto(preco: ' R\$ 399,00', nome: "Purificador de Água", pathImagem: 'assets/images/imagem2.webp'),
-            Produto(preco: ' R\$ 3.499,00', nome: "IPhone 13 128gb", pathImagem: 'assets/images/imagem1.png'),
+            Produto(preco: ' R\$ 3.499,00', nome: "IPhone 13 128gb", 
+            pathImagem: 'assets/images/imagem1.png'),
             
           ],
         );

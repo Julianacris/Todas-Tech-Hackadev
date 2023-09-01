@@ -23,8 +23,18 @@ class CelularesState extends State {
           mainAxisSpacing: 10,
           crossAxisCount: 2,
           children: const <Widget>[
-            Produto(preco: ' R\$ 10,00', nome: "iPhone2", pathImagem: 'assets/images/imagem1.png'),
-            Produto(preco: ' R\$ 20,00', nome: "Teste", pathImagem: 'assets/images/imagem2.webp'),
+            Produto(preco: ' R\$ 2.099,00', nome: "Motorola Edge", 
+            pathImagem: 'assets/images/celular-motorola.png'),
+            Produto(preco: ' R\$ 3.099,00', nome: "Iphone 12 64gb", 
+            pathImagem: 'assets/images/iphone-branco.png'),
+            Produto(preco: ' R\$ 3.499,00', nome: "Iphone 13 128gb", 
+            pathImagem: 'assets/images/iphone-amarelo.png'),
+            Produto(preco: ' R\$ 1.299,00', nome: "Sansung S21", 
+            pathImagem: 'assets/images/celular-sansung.png'),
+            Produto(preco: ' R\$ 4.399,00', nome: "Sansung S22 Ultra", 
+            pathImagem: 'assets/images/celular-sansung-s22.png'),
+            Produto(preco: ' R\$ 3.499,00', nome: "Iphone 13 128gb", 
+            pathImagem: 'assets/images/iphone-azul.png'),
           ],
         );
   }
