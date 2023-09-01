@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 
-
 class Destaques extends StatefulWidget {
   const Destaques({super.key});
 

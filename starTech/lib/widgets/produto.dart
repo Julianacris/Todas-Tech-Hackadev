@@ -24,12 +24,16 @@ class ProdutoState extends State<Produto> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
+       
         Container(
+          width: 200,
+          height: 200,
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
+              
               color: Colors.white,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: Colors.pink.shade100, width: 8)),
+              border: Border.all(color:const Color.fromARGB(255, 205, 0, 106), width: 2)),
           child: Column(
             children: [
               Container(
@@ -40,8 +44,8 @@ class ProdutoState extends State<Produto> {
                         fontWeight: FontWeight.bold)),
               ),
               Container(
-                height: 180.0,
-                width: 180.0,
+                height: 120.0,
+                width: 120.0,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(widget.pathImagem),
@@ -53,7 +57,7 @@ class ProdutoState extends State<Produto> {
                   height: 15.0,
                   width: 100.0,
                   decoration: BoxDecoration(
-                      color: Colors.pink[800],
+                      color: const Color.fromARGB(255, 205, 0, 106),
                       borderRadius: BorderRadius.circular(15)),
                   child: Align(
                     alignment: Alignment.center,

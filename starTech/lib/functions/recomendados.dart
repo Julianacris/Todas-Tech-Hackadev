@@ -19,9 +19,12 @@ class RecomendadosState extends State {
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
           crossAxisCount: 2,
+          
           children: const <Widget>[
-            Produto(preco: ' R\$ 10,00', nome: "iPhone", pathImagem: 'assets/images/imagem1.png'),
-            Produto(preco: ' R\$ 20,00', nome: "Teste", pathImagem: 'assets/images/imagem2.webp'),
+            
+            Produto(preco: ' R\$ 399,00', nome: "Purificador de Água", pathImagem: 'assets/images/imagem2.webp'),
+            Produto(preco: ' R\$ 3.499,00', nome: "IPhone 13 128gb", pathImagem: 'assets/images/imagem1.png'),
+            
           ],
         );
   }
