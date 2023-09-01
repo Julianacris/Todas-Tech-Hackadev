@@ -41,7 +41,7 @@ class DestaquesState extends State {
           
           
           width: 380,
-          height: 180,
+          height: 140,
           decoration: BoxDecoration(
             color: const Color.fromARGB(255, 205, 0, 106),
             borderRadius: BorderRadius.circular(20),

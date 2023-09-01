@@ -30,7 +30,6 @@ class ProdutoState extends State<Produto> {
           height: 200,
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-              
               color: Colors.white,
               borderRadius: BorderRadius.circular(12),
               border: Border.all(color:const Color.fromARGB(255, 205, 0, 106), width: 2)),
