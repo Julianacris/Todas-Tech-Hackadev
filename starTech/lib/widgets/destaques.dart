@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Destaques extends StatefulWidget {
   const Destaques({super.key});
@@ -38,7 +38,7 @@ class DestaquesState extends State {
           width: 380,
           height: 160,
           decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 205, 0, 106),
+            color: Color.fromARGB(255, 205, 0, 106),
             borderRadius: BorderRadius.circular(20),
             border: Border.all(style: BorderStyle.none),
           ),
