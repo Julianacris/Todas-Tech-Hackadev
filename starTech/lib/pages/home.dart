@@ -28,6 +28,7 @@ class HomeState extends State {
           Categorias(),
           SizedBox(height: 20), // Espaçamento entre as seções
           Destaques(),
+          SizedBox(height: 5),
           SizedBox(
             height: 25,
             child: Text("Recomendados para você:", 
