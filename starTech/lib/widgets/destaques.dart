@@ -18,40 +18,62 @@ class DestaquesState extends State {
       
       children: [
         Container(
-          
-          child: 
-          const Text(
+          width: 380,
+          height: 30,
+         child: const Align(
+          alignment: Alignment.centerLeft,
+           child: 
+           Text(
             'Destaques para você:',
+            textAlign: TextAlign.left,
             style: TextStyle(
-              fontSize: 20,
+              fontSize: 22,
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
           ),
+         ),
 
         ),
         const SizedBox(height: 10),
        
         Container( 
           
+          
           width: 380,
-          height: 160,
+          height: 180,
           decoration: BoxDecoration(
             color: const Color.fromARGB(255, 205, 0, 106),
             borderRadius: BorderRadius.circular(20),
             border: Border.all(style: BorderStyle.none),
           ),
-          child: const Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Stack(
+
             children: [
-            
-            Text('#VemPraSTAR', style: TextStyle(color: Colors.white, 
-            fontFamily: 'Arial', fontSize: 20)),
+            const Align(
+             alignment:Alignment.centerLeft,
+             child: Column(
+              children: [
+                Text('#VemPraSTAR', style: TextStyle(color: Colors.white, 
+                fontFamily: 'Arial', fontSize: 20)),
           
+                SizedBox(height: 5,),
+           
+                Text("Eletrônicos\n" "com até 70%\n" "OFF", style: TextStyle(color: Colors.white,
+                fontFamily: 'Roboto', fontSize: 30, fontWeight: FontWeight.bold, )),
+              ],
+             ) 
+              
+            ),
             
-            Text("Eletrônicos\n" "com até 70%\n" "OFF", style: TextStyle(color: Colors.white,
-            fontFamily: 'Roboto', fontSize: 30, fontWeight: FontWeight.bold, )),
+            Align(
+              alignment: Alignment.centerRight,
+              child: Transform.scale(
+                scale: 1.4,
+                child: Image.asset('assets/images/fones-de-ouvido-preto.png', ),
+              ),
+            ),
+            
             
           ]),
         ),
