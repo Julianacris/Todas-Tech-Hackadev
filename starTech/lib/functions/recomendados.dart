@@ -25,9 +25,9 @@ class RecomendadosState extends State {
             nome: "Alexa Echo Dot",
             pathImagem: 'assets/images/alexa-echo.png'),
         Produto(
-            preco: ' R\$ 3.499,00',
-            nome: "IPhone 13 128gb",
-            pathImagem: 'assets/images/imagem1.png'),
+            preco: ' R\$ 4.249,00',
+            nome: "Iphone 13 128gb Azul",
+            pathImagem: 'assets/images/iphone-azul.png'),
       ],
     );
   }
