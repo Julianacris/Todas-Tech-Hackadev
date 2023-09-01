@@ -12,14 +12,13 @@ class Header extends StatefulWidget {
 class HeaderState extends State {
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-
     return Container(
-      height: size.height * .25,
+      height: 80,
       decoration: const BoxDecoration(
+        color: Colors.white,
         image: DecorationImage(
           alignment: Alignment.topCenter,
-          image: AssetImage("assets/images/logo.png"),
+          image: AssetImage("assets/images/logoStar.png"),
         ),
       ),
     );

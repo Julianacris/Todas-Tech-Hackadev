@@ -4,6 +4,7 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:hackadev/widgets/header.dart';
 import 'package:hackadev/widgets/search_bar.dart';
 import 'package:hackadev/functions/Celulares.dart';
 import 'package:hackadev/widgets/categorias.dart';
@@ -24,6 +25,7 @@ class CelularesPgState extends State {
    return const Column(
         crossAxisAlignment: CrossAxisAlignment.stretch, // Estende as seções horizontalmente
         children: [
+          Header(),
           AppSearchBar(),
           Categorias(),
           SizedBox(height: 30),

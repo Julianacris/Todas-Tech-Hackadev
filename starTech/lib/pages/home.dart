@@ -2,6 +2,7 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:hackadev/widgets/header.dart';
 import 'package:hackadev/widgets/search_bar.dart';
 import 'package:hackadev/functions/recomendados.dart';
 import 'package:hackadev/widgets/categorias.dart';
@@ -22,6 +23,7 @@ class HomeState extends State {
    return const Column(
         crossAxisAlignment: CrossAxisAlignment.stretch, // Estende as seções horizontalmente
         children: [
+          Header(),
           AppSearchBar(),
           Categorias(),
           SizedBox(height: 20), // Espaçamento entre as seções
