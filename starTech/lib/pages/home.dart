@@ -1,9 +1,9 @@
+// ignore: avoid_web_libraries_in_flutter, unused_import
 import 'dart:html';
 
 import 'package:flutter/material.dart';
-//import 'package:hackadev/widgets/produto.dart';
 import 'package:hackadev/widgets/search_bar.dart';
-import 'package:hackadev/widgets/recomendados.dart';
+import 'package:hackadev/functions/recomendados.dart';
 import 'package:hackadev/widgets/categorias.dart';
 import 'package:hackadev/widgets/destaques.dart';
 
@@ -30,36 +30,5 @@ class HomeState extends State {
           Flexible(child: Recomendados()),
         ],
       );
-   
-   
-   /* return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
-        const AppSearchBar(),
-        Flexible(
-            child: GridView.count(
-          primary: false,
-          padding: const EdgeInsets.all(20),
-          crossAxisSpacing: 3,
-          mainAxisSpacing: 3,
-          crossAxisCount: 2,
-          
-          
-          children: const <Widget>[
-            Categorias(),
-            Produto(),
-            Destaques(),
-           // Produto(),
-           // Produto(),
-            //Produto()
-          ],
-        ), 
-      ),
-        
-    ],
-          
-        
-    );*/
   }
 }

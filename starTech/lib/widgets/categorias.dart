@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hackadev/pages/produtos.dart';
-import 'package:hackadev/widgets/produto.dart';
+import 'package:hackadev/widgets/layoutCell.dart';
+import 'package:hackadev/widgets/layoutPort.dart';
+import 'package:hackadev/widgets/layoutTodos.dart';
+import 'package:hackadev/widgets/layoutTvs.dart';
+
+
 
 class Categorias extends StatefulWidget {
   const Categorias({super.key});
@@ -31,7 +35,7 @@ class ConteudoCategorias extends State {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const Produtos()));
+                            builder: (context) => const LayoutTodos()));
                   },
                   child: const Text("Todos"),
                 ),
@@ -43,7 +47,7 @@ class ConteudoCategorias extends State {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const Produtos()));
+                            builder: (context) => const LayoutCell()));
                   },
                   child: const Text("SmartPhones"),
                 ),
@@ -55,7 +59,7 @@ class ConteudoCategorias extends State {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const Produtos()));
+                            builder: (context) => const LayoutPort()));
                   },
                   child: const Text("Eletroportáteis"),
                 ),
@@ -67,7 +71,7 @@ class ConteudoCategorias extends State {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const Produtos()));
+                            builder: (context) => const LayoutTvs()));
                   },
                   child: const Text("SmartTvs"),
                 ),

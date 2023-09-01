@@ -1,4 +1,4 @@
-//Página de todos os produtos / A home de todos os produtos
+//Página das Tvs / A home das Tvs
 
 // ignore: avoid_web_libraries_in_flutter, unused_import
 import 'dart:html';
@@ -6,18 +6,18 @@ import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:hackadev/widgets/search_bar.dart';
 import 'package:hackadev/widgets/categorias.dart';
-import 'package:hackadev/functions/Todos.dart';
+import 'package:hackadev/functions/Tvs.dart';
 
-class Produtos extends StatefulWidget {
-  const Produtos({super.key});
+class TvsPg extends StatefulWidget {
+  const TvsPg({super.key});
 
   @override
   State<StatefulWidget> createState() {
-    return ProdutosState();
+    return TvsPgState();
   }
 }
 
-class ProdutosState extends State {
+class TvsPgState extends State {
   @override
   Widget build(BuildContext context) {
    return const Column(
@@ -26,7 +26,7 @@ class ProdutosState extends State {
           AppSearchBar(),
           Categorias(),
           SizedBox(height: 30),
-          Flexible(child: TodosProd()),
+          Flexible(child: Tvs()),
         ],
       );
   }

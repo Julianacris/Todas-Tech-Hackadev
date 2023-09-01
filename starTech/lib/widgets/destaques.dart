@@ -1,7 +1,6 @@
 // ignore_for_file: avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Destaques extends StatefulWidget {
   const Destaques({super.key});
@@ -31,14 +30,14 @@ class DestaquesState extends State {
           ),
 
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
        
         Container( 
           
           width: 380,
           height: 160,
           decoration: BoxDecoration(
-            color: Color.fromARGB(255, 205, 0, 106),
+            color: const Color.fromARGB(255, 205, 0, 106),
             borderRadius: BorderRadius.circular(20),
             border: Border.all(style: BorderStyle.none),
           ),
@@ -54,56 +53,9 @@ class DestaquesState extends State {
             Text("Eletrônicos\n" "com até 70%\n" "OFF", style: TextStyle(color: Colors.white,
             fontFamily: 'Roboto', fontSize: 30, fontWeight: FontWeight.bold, )),
             
-
-           
           ]),
-          
-          
-          
-          
-          
         ),
-         
-          
-
         ],
-      
-     /* width: 200,
-      height: 200,
-      decoration: BoxDecoration(
-        
-        color: Colors.pink,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Destaques para você:',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
-          SizedBox(height: 10),
-          Text(
-            'Produtos com até 70% OFF',
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.white,
-            ),
-          ),
-          SizedBox(height: 5),
-          Text(
-            '#VemPraStar',
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.white,
-            ),
-          ),
-        ],
-      ),*/
     );
   }
 }
