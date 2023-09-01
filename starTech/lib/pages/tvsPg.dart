@@ -27,7 +27,7 @@ class TvsPgState extends State {
           Header(),
           AppSearchBar(),
           Categorias(),
-          SizedBox(height: 30),
+          SizedBox(height: 20),
           Flexible(child: Tvs()),
         ],
       );
