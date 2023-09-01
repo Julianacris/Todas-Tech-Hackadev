@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
 
 class AppSearchBar extends StatefulWidget {
   const AppSearchBar({super.key});
@@ -35,16 +35,16 @@ class AppSearchBarState extends State {
                             width: 3),
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: const TextField(
+                      child: TextField(
                         decoration: InputDecoration(
                           hintText: "O que você procura hoje?",
-                          enabledBorder:  UnderlineInputBorder(
+                          enabledBorder: const UnderlineInputBorder(
                             borderSide: BorderSide(
                                 color: Colors.transparent), // Remove a linha abaixo do hintText
                           ),
                           
                           icon: Padding(
-                            padding: EdgeInsets.only(
+                            padding: const EdgeInsets.only(
                                 right: 20,
                                 left: 20), // Espaçamento à direita e a esquerda do ícone
                                 
@@ -64,7 +64,7 @@ class AppSearchBarState extends State {
                     child: Icon(Icons.menu, color: Colors.white),
                     
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 205, 0, 106),
+                      color: Color.fromARGB(255, 205, 0, 106),
                       //shape: BoxShape.circle,
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(style: BorderStyle.none),

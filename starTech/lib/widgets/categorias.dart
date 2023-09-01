@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackadev/pages/produtos.dart';
-//import 'package:hackadev/widgets/produto.dart';
+import 'package:hackadev/widgets/produto.dart';
 
 class Categorias extends StatefulWidget {
   const Categorias({super.key});
