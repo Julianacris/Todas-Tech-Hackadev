@@ -49,7 +49,7 @@ class AppSearchBarState extends State {
                                 left: 20), // Espaçamento à direita e a esquerda do ícone
                                 
                                 child: Icon(Icons.search,
-                                color: const Color.fromARGB(255, 205, 0, 106)), // Ícone de pesquisa rosa
+                                color: Color.fromARGB(255, 205, 0, 106)), // Ícone de pesquisa rosa
                           ),
                         ),
                       ),
@@ -61,7 +61,6 @@ class AppSearchBarState extends State {
                     alignment: Alignment.center, // Alinhar à direita
                     height: 50,
                     width: 50,
-                    child: const Icon(Icons.menu, color: Colors.white),
                     
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 205, 0, 106),
@@ -70,6 +69,7 @@ class AppSearchBarState extends State {
                       border: Border.all(style: BorderStyle.none),
                       
                     ),
+                    child: const Icon(Icons.menu, color: Colors.white),
                     
                     //child: SvgPicture.asset("assets/icons/menu.svg"),
                   ),

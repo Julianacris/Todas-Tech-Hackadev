@@ -4,6 +4,7 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:hackadev/widgets/header.dart';
 import 'package:hackadev/widgets/search_bar.dart';
 import 'package:hackadev/widgets/categorias.dart';
 import 'package:hackadev/functions/Todos.dart';
@@ -23,6 +24,7 @@ class ProdutosState extends State {
    return const Column(
         crossAxisAlignment: CrossAxisAlignment.stretch, // Estende as seções horizontalmente
         children: [
+          Header(),
           AppSearchBar(),
           Categorias(),
           SizedBox(height: 30),
