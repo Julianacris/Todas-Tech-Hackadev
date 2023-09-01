@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 
 class AppSearchBar extends StatefulWidget {
   const AppSearchBar({super.key});
@@ -35,20 +35,20 @@ class AppSearchBarState extends State {
                             width: 3),
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: TextField(
+                      child: const TextField(
                         decoration: InputDecoration(
                           hintText: "O que você procura hoje?",
-                          enabledBorder: const UnderlineInputBorder(
+                          enabledBorder:  UnderlineInputBorder(
                             borderSide: BorderSide(
                                 color: Colors.transparent), // Remove a linha abaixo do hintText
                           ),
+                          
                           icon: Padding(
-                            padding: const EdgeInsets.only(
+                            padding: EdgeInsets.only(
                                 right: 20,
-                                left: 20
-                              ), // Espaçamento à direita e a esquerda do ícone
-                            child: SvgPicture.asset(
-                                "assets/icons/search.svg",
+                                left: 20), // Espaçamento à direita e a esquerda do ícone
+                                
+                                child: Icon(Icons.search,
                                 color: const Color.fromARGB(255, 205, 0, 106)), // Ícone de pesquisa rosa
                           ),
                         ),
@@ -57,14 +57,21 @@ class AppSearchBarState extends State {
                   ),
                   const SizedBox( width: 20), // Espaçamento entre a barra de pesquisa e o ícone do menu
                   Container(
+                    padding: const EdgeInsets.all(8.0),
                     alignment: Alignment.center, // Alinhar à direita
-                    height: 32,
-                    width: 32,
-                    decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 205, 0, 106),
-                      shape: BoxShape.circle,
+                    height: 50,
+                    width: 50,
+                    child: const Icon(Icons.menu, color: Colors.white),
+                    
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 205, 0, 106),
+                      //shape: BoxShape.circle,
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(style: BorderStyle.none),
+                      
                     ),
-                    child: SvgPicture.asset("assets/icons/menu.svg"),
+                    
+                    //child: SvgPicture.asset("assets/icons/menu.svg"),
                   ),
                 ],
               ),

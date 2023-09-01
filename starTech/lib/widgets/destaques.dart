@@ -1,69 +1,62 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
 
-class MyApp extends StatelessWidget {
+class Destaques extends StatefulWidget {
+  const Destaques({super.key});
+
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HomePage(),
-    );
+  State<StatefulWidget> createState() {
+    return DestaquesState();
   }
 }
 
-class HomePage extends StatelessWidget {
+class DestaquesState extends State {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-
-      body: Center(
-        child: PinkBox(),
-      ),
-    );
-  }
-}
-
-class PinkBox extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 300,
-      height: 200,
-      decoration: BoxDecoration(
-        color: Colors.pink,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
+   Widget build(BuildContext context) {
+    return Column(
+      
+      children: [
+        Container(
+          
+          child: 
+          const Text(
             'Destaques para você:',
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
-          SizedBox(height: 10),
-          Text(
-            'Produtos com até 70% OFF',
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.white,
-            ),
+
+        ),
+        const SizedBox(height: 10),
+       
+        Container( 
+          
+          width: 380,
+          height: 160,
+          decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 205, 0, 106),
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(style: BorderStyle.none),
           ),
-          SizedBox(height: 5),
-          Text(
-            '#VemPraStar',
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.white,
-            ),
-          ),
+          child: const Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+            
+            Text('#VemPraSTAR', style: TextStyle(color: Colors.white, 
+            fontFamily: 'Arial', fontSize: 20)),
+          
+            
+            Text("Eletrônicos\n" "com até 70%\n" "OFF", style: TextStyle(color: Colors.white,
+            fontFamily: 'Roboto', fontSize: 30, fontWeight: FontWeight.bold, )),
+            
+          ]),
+        ),
         ],
-      ),
     );
   }
 }
