@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hackadev/widgets/search_bar.dart';
 import 'package:hackadev/widgets/recomendados.dart';
 import 'package:hackadev/widgets/categorias.dart';
-import 'package:hackadev/widgets/destaques.dart';
+//import 'package:hackadev/widgets/destaques.dart';
 
 class Produtos extends StatefulWidget {
   const Produtos({super.key});
