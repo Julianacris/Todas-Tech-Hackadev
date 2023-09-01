@@ -15,10 +15,12 @@ class BotTodos extends StatefulWidget {
 class BotTodosState extends State {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SizedBox(
+      height: 40,
+      width: 110,
+    child: Scaffold(
             body: SizedBox(
-              height: 35,
-              width: 40,
+              height: 40,
               child: Align(
                 alignment: Alignment.center,
                 child: Row(
@@ -33,11 +35,12 @@ class BotTodosState extends State {
                             MaterialPageRoute(
                                 builder: (context) => const LayoutTodos()));
                       },
-                      child: const Text("SmartPhones"),
+                      child: const Text("Todos"),
                     ),
                   ],
                 ),
               ),
-            ));
+            ))
+        );
   }
 }

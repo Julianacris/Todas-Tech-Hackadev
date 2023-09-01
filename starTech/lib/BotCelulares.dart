@@ -13,10 +13,12 @@ class BotCelulares extends StatefulWidget {
 class BotCelularesState extends State {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SizedBox(
+      height: 40,
+      width: 110,
+    child: Scaffold(
             body: SizedBox(
-              height: 35,
-              width: 40,
+              height: 40,
               child: Align(
                 alignment: Alignment.center,
                 child: Row(
@@ -36,6 +38,7 @@ class BotCelularesState extends State {
                   ],
                 ),
               ),
-            ));
+            ))
+        );
   }
 }

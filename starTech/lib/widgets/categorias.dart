@@ -18,13 +18,25 @@ class ConteudoCategorias extends State {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.pink[100],
+      decoration: BoxDecoration(
+        // color: Colors.pink[100],
+        border: Border(
+          top: BorderSide(
+            color: Colors.pink.shade300,
+            width: 5,
+          ),
+          bottom: BorderSide(
+            color:  Colors.pink.shade300,
+            width: 5,
+          )
+        )
+      ),
         height: 50,
         child: const Align(
           alignment: Alignment.center,
           child: SizedBox(
-            height: 40,
-            width: 400,
+            height: 45,
+            width: 550,
             child: Row(
               children: [
                 BotTodos(),

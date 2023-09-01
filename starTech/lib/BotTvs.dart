@@ -15,10 +15,12 @@ class BotTvs extends StatefulWidget {
 class BotTvsState extends State {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SizedBox(
+      height: 40,
+      width: 110,
+    child: Scaffold(
             body: SizedBox(
-              height: 35,
-              width: 40,
+              height: 40,
               child: Align(
                 alignment: Alignment.center,
                 child: Row(
@@ -33,11 +35,12 @@ class BotTvsState extends State {
                             MaterialPageRoute(
                                 builder: (context) => const LayoutTvs()));
                       },
-                      child: const Text("Tvs"),
+                      child: const Text("SmartTvs"),
                     ),
                   ],
                 ),
               ),
-            ));
+            ))
+        );
   }
 }
