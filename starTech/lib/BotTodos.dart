@@ -35,7 +35,7 @@ class BotTodosState extends State {
                             MaterialPageRoute(
                                 builder: (context) => const LayoutTodos()));
                       },
-                      child: const Text("Todos"),
+                      child: const Text("SmartPhones"),
                     ),
                   ],
                 ),
