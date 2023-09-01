@@ -19,7 +19,7 @@ class DestaquesState extends State {
       children: [
         Container(
           width: 380,
-          height: 30,
+          height: 25,
          child: const Align(
           alignment: Alignment.centerLeft,
            child: 
@@ -27,19 +27,16 @@ class DestaquesState extends State {
             'Destaques para você:',
             textAlign: TextAlign.left,
             style: TextStyle(
-              fontSize: 22,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
           ),
          ),
-
         ),
-        const SizedBox(height: 10),
-       
+        const SizedBox(height: 5),// Espaçamento entre as seções
+
         Container( 
-          
-          
           width: 380,
           height: 140,
           decoration: BoxDecoration(
@@ -55,7 +52,7 @@ class DestaquesState extends State {
              child: Column(
               children: [
                 Text('#VemPraSTAR', style: TextStyle(color: Colors.white, 
-                fontFamily: 'Arial', fontSize: 20)),
+                fontStyle: FontStyle.italic, fontSize: 20)),
           
                 SizedBox(height: 5,),
            

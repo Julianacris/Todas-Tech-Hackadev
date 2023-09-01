@@ -23,12 +23,12 @@ class HomeState extends State {
    return const Column(
         crossAxisAlignment: CrossAxisAlignment.stretch, // Estende as seções horizontalmente
         children: [
-          Header(),
-          AppSearchBar(),
-          Categorias(),
+          Header(), // Logo do projeto
+          AppSearchBar(), //Barra de pesquisa
+          Categorias(), // Barra de categorias
           SizedBox(height: 20), // Espaçamento entre as seções
-          Destaques(),
-          SizedBox(height: 5),
+          Destaques(), // Destaques da home
+          SizedBox(height: 5),// Espaçamento entre as seções
           SizedBox(
             height: 25,
             child: Text("Recomendados para você:", 
@@ -41,7 +41,7 @@ class HomeState extends State {
             ),
             )
           ),
-          Flexible(child: Recomendados()),
+          Flexible(child: Recomendados()), // Classe que chama os produtos/Recomendados
         ],
       );
   }
