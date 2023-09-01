@@ -17,7 +17,7 @@ class BotTodosState extends State {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 40,
-      width: 110,
+      width: 60,
     child: Scaffold(
             body: SizedBox(
               height: 40,
@@ -33,9 +33,9 @@ class BotTodosState extends State {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const LayoutTodos()));
+                              builder: (context) => const LayoutTodos()));
                       },
-                      child: const Text("SmartPhones"),
+                      child: const Text("Todos"),
                     ),
                   ],
                 ),
