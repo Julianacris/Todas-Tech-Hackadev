@@ -17,7 +17,69 @@ class Categorias extends StatefulWidget {
 class ConteudoCategorias extends State {
   @override
   Widget build(BuildContext context) {
-    return Container(
+
+        return Container(
+        color: Colors.pink[100],
+        height: 50,
+        child: Align(
+          alignment: Alignment.center,
+          child: SizedBox(
+            width: 400,
+            child: Row(
+              children: [
+                TextButton(
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.black, // Text Color
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const BotTodos()));
+                  },
+                  child: const Text("Todos"),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.black, // Text Color
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const BotCelulares()));
+                  },
+                  child: const Text("SmartPhones"),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.black, // Text Color
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const BotPortateis()));
+                  },
+                  child: const Text("Eletroportáteis"),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.black, // Text Color
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const BotTvs()));
+                  },
+                  child: const Text("SmartTvs"),
+                ),
+              ],
+            ),
+          ),
+        ));
+   /* return Container(
       decoration: BoxDecoration(
         // color: Colors.pink[100],
         border: Border(
@@ -96,7 +158,9 @@ class ConteudoCategorias extends State {
               ],
             ),
           ),
-        ));
+        )
+        
+    );*/
   }
 }
 
