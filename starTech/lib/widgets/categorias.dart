@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:hackadev/BotCelulares.dart';
-import 'package:hackadev/BotPortateis.dart';
-import 'package:hackadev/BotTodos.dart';
-import 'package:hackadev/BotTvs.dart';
-
+// import 'package:hackadev/BotCelulares.dart';
+// import 'package:hackadev/BotPortateis.dart';
+// import 'package:hackadev/BotTodos.dart';
+// import 'package:hackadev/BotTvs.dart';
+import 'package:hackadev/widgets/layoutCell.dart';
+import 'package:hackadev/widgets/layoutPort.dart';
+import 'package:hackadev/widgets/layoutTodos.dart';
+import 'package:hackadev/widgets/layoutTvs.dart';
 
 class Categorias extends StatefulWidget {
   const Categorias({super.key});
@@ -17,9 +20,18 @@ class Categorias extends StatefulWidget {
 class ConteudoCategorias extends State {
   @override
   Widget build(BuildContext context) {
-
-        return Container(
-        color: Colors.pink[100],
+    return Container(
+        decoration: BoxDecoration(
+            // color: Colors.pink[100],
+            border: Border(
+                top: BorderSide(
+                  color: Colors.pink.shade300,
+                  width: 5,
+                ),
+                bottom: BorderSide(
+                  color: Colors.pink.shade300,
+                  width: 5,
+                ))),
         height: 50,
         child: Align(
           alignment: Alignment.center,
@@ -35,7 +47,7 @@ class ConteudoCategorias extends State {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const BotTodos()));
+                            builder: (context) => const LayoutTodos()));
                   },
                   child: const Text("Todos"),
                 ),
@@ -47,7 +59,7 @@ class ConteudoCategorias extends State {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const BotCelulares()));
+                            builder: (context) => const LayoutCell()));
                   },
                   child: const Text("SmartPhones"),
                 ),
@@ -59,7 +71,7 @@ class ConteudoCategorias extends State {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const BotPortateis()));
+                            builder: (context) => const LayoutPort()));
                   },
                   child: const Text("Eletroportáteis"),
                 ),
@@ -71,7 +83,7 @@ class ConteudoCategorias extends State {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const BotTvs()));
+                            builder: (context) => const LayoutTvs()));
                   },
                   child: const Text("SmartTvs"),
                 ),
@@ -79,7 +91,7 @@ class ConteudoCategorias extends State {
             ),
           ),
         ));
-   /* return Container(
+    /* return Container(
       decoration: BoxDecoration(
         // color: Colors.pink[100],
         border: Border(
@@ -163,4 +175,3 @@ class ConteudoCategorias extends State {
     );*/
   }
 }
-
