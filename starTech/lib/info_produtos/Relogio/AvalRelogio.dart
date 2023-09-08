@@ -15,6 +15,7 @@ class AvalRelogio extends StatefulWidget {
 
 class _CustomerSatisfactionScreenState extends State {
   int _selectedRating = 0;
+  
   String opinion = '';
 
   void _handleRatingChange(int newRating) {
