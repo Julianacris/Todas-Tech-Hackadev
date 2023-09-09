@@ -1,7 +1,7 @@
 //Página de todos os produtos / A home de todos os produtos
 
 // ignore: avoid_web_libraries_in_flutter, unused_import
-import 'dart:html';
+
 
 import 'package:flutter/material.dart';
 import 'package:hackadev/widgets/header.dart';

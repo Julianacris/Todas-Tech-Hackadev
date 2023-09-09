@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 // import 'package:hackadev/BotPortateis.dart';
 // import 'package:hackadev/BotTodos.dart';
 // import 'package:hackadev/BotTvs.dart';
-import 'package:hackadev/widgets/layoutCell.dart';
 import 'package:hackadev/widgets/layoutPort.dart';
 import 'package:hackadev/widgets/layoutTodos.dart';
 import 'package:hackadev/widgets/layoutTvs.dart';
 
+import '../pages/celularesPg.dart';
+
 class Categorias extends StatefulWidget {
-  const Categorias({super.key});
+  final Function? opcaoSelecionadaFuncao;
+  const Categorias({super.key, this.opcaoSelecionadaFuncao});
 
   @override
   State<StatefulWidget> createState() {
@@ -17,7 +19,7 @@ class Categorias extends StatefulWidget {
   }
 }
 
-class ConteudoCategorias extends State {
+class ConteudoCategorias extends State<Categorias> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,10 +46,14 @@ class ConteudoCategorias extends State {
                     foregroundColor: Colors.black, // Text Color
                   ),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LayoutTodos()));
+                    if (widget.opcaoSelecionadaFuncao != null) {
+                      widget.opcaoSelecionadaFuncao!(
+                          4,
+                          LayoutTodos(
+                            opcaoSelecionadaFuncao:
+                                widget.opcaoSelecionadaFuncao!,
+                          ));
+                    }
                   },
                   child: const Text("Todos"),
                 ),
@@ -56,10 +62,15 @@ class ConteudoCategorias extends State {
                     foregroundColor: Colors.black, // Text Color
                   ),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LayoutCell()));
+                    if (widget.opcaoSelecionadaFuncao != null) {
+                      widget.opcaoSelecionadaFuncao!(
+                        4,
+                        CelularesPg(
+                          opcaoSelecionadaFuncao:
+                              widget.opcaoSelecionadaFuncao!,
+                        ),
+                      );
+                    }
                   },
                   child: const Text("SmartPhones"),
                 ),
@@ -68,10 +79,14 @@ class ConteudoCategorias extends State {
                     foregroundColor: Colors.black, // Text Color
                   ),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LayoutPort()));
+                    if (widget.opcaoSelecionadaFuncao != null) {
+                      widget.opcaoSelecionadaFuncao!(
+                          4,
+                          LayoutPort(
+                            opcaoSelecionadaFuncao:
+                                widget.opcaoSelecionadaFuncao!,
+                          ));
+                    }
                   },
                   child: const Text("Eletroportáteis"),
                 ),
@@ -80,10 +95,14 @@ class ConteudoCategorias extends State {
                     foregroundColor: Colors.black, // Text Color
                   ),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LayoutTvs()));
+                    if (widget.opcaoSelecionadaFuncao != null) {
+                      widget.opcaoSelecionadaFuncao!(
+                          4,
+                          LayoutTvs(
+                            opcaoSelecionadaFuncao:
+                                widget.opcaoSelecionadaFuncao!,
+                          ));
+                    }
                   },
                   child: const Text("SmartTvs"),
                 ),

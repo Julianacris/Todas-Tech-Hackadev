@@ -1,11 +1,11 @@
 //Layout da página de Eletroportáteis
 
 import 'package:flutter/material.dart';
-import 'package:hackadev/widgets/footer.dart';
 import 'package:hackadev/pages/portateisPg.dart';
 
 class LayoutPort extends StatefulWidget {
-  const LayoutPort({super.key});
+  final Function opcaoSelecionadaFuncao;
+  const LayoutPort({super.key, required this.opcaoSelecionadaFuncao});
 
   @override
   State<StatefulWidget> createState() {
@@ -26,7 +26,6 @@ class LayoutPortState extends State {
       ),
       backgroundColor: Colors.white,
       body: const PortateisPg(),
-      bottomNavigationBar: const Footer(),
     );
   }
 }
