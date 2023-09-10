@@ -1,5 +1,3 @@
-//produtos relacionados 
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,14 +18,14 @@ class RelatedProductsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Produtos Relacionados:'),
+        title: Text('Produtos Relacionados'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.asset(
-              'lib/blackwhitesimplestarlogo.png', //  caminho da  logo
+              'starTech/assets/images/black white simple star logo (2).png', // Substitua pelo caminho da sua logo
               width: 150.0,
               height: 150.0,
             ),
@@ -35,9 +33,9 @@ class RelatedProductsScreen extends StatelessWidget {
             Text(
               'Produtos Relacionados:',
               style: TextStyle(
-                fontSize: 30.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 71, 0, 59), // Cor vinho
+                color: Color.fromARGB(255, 43, 0, 23), // Cor vinho
               ),
             ),
             SizedBox(height: 20.0),
@@ -48,9 +46,34 @@ class RelatedProductsScreen extends StatelessWidget {
               children: List.generate(6, (index) {
                 // quadradinhos com as fotos, nome do produto e preço
                 return ProductCard(
-                  imagePath: 'assets/produto_$index.png', //  caminho da imagem do produto
-                  productName: 'Iphone 13 128gb $index',
-                  productPrice: '\$${(index + 1) * 1899}', // Preço fictício
+                  imagePath: 'starTech/assets/images/iphone-azul.png', 
+                  productName: 'Iphone 13 128gb',
+                  productPrice: '\$3499,00', // Preço fictício
+                );
+                return ProductCard(
+                  imagePath: 'starTech/assets/images/drone-dji.png', 
+                  productName: 'Drone DJI Mini 2',
+                  productPrice: '\$1899,00', // Preço fictício
+                );
+                return ProductCard(
+                  imagePath: 'starTech/assets/images/celular-motorola.png', 
+                  productName: 'Motorola Edge',
+                  productPrice: '\$2099,00', // Preço fictício
+                );
+                return ProductCard(
+                  imagePath: 'starTech/assets/images/tvSmart-philco.png', 
+                  productName: 'TV Smart Philco 32',
+                  productPrice: '\$1999,00', // Preço fictício
+                );
+                return ProductCard(
+                  imagePath: 'starTech/assets/images/alexa-echo.png', 
+                  productName: 'Echo Dot Alexa',
+                  productPrice: '\$629,00', // Preço fictício
+                );
+               return ProductCard(
+                  imagePath: 'starTech/assets/images/purificador-agua.png', 
+                  productName: 'Purificador de Água Electrolux',
+                  productPrice: '\$1139,00', // Preço fictício
                 );
               }),
             ),
@@ -95,6 +118,7 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Color.fromARGB(255, 255, 214, 228), // Cor rosa para o quadradinho
       child: Column(
         children: <Widget>[
           Image.asset(
@@ -102,8 +126,18 @@ class ProductCard extends StatelessWidget {
             width: 80.0,
             height: 80.0,
           ),
-          Text(productName),
-          Text(productPrice),
+          Text(
+            productName,
+            style: TextStyle(
+              color: Color.fromARGB(255, 44, 0, 26), // Cor vinho para o nome do produto
+            ),
+          ),
+          Text(
+            productPrice,
+            style: TextStyle(
+              color: Color.fromARGB(255, 26, 0, 14), // Cor vinho para o preço
+            ),
+          ),
         ],
       ),
     );
