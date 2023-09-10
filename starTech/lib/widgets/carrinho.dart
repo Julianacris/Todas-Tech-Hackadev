@@ -7,19 +7,14 @@ class Carrinho extends StatefulWidget {
   State<StatefulWidget> createState() {
     return ConteudoCarrinho();
   }
-
 }
 
 class ConteudoCarrinho extends State {
   @override
-  Widget build(BuildContext context){
-      return Scaffold(
-      appBar: AppBar(
-        title:  const Text('Carrinho'),
-
-      ),
+  Widget build(BuildContext context) {
+    return Scaffold(
       body: const Center(
-        child:  Text('Esta é a nova página!'),
+        child: Text('Esta é a nova página!'),
       ),
     );
   }

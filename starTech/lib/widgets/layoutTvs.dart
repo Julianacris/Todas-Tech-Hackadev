@@ -1,10 +1,10 @@
 //Layout da página de Tvs
 import 'package:flutter/material.dart';
-import 'package:hackadev/widgets/footer.dart';
 import 'package:hackadev/pages/tvsPg.dart';
 
 class LayoutTvs extends StatefulWidget {
-  const LayoutTvs({super.key});
+  final Function opcaoSelecionadaFuncao;
+  const LayoutTvs({super.key, required this.opcaoSelecionadaFuncao});
 
   @override
   State<StatefulWidget> createState() {
@@ -24,8 +24,13 @@ class LayoutTvsState extends State {
         shadowColor: const Color.fromARGB(0, 0, 0, 0),
       ),
       backgroundColor: Colors.white,
-      body: const TvsPg(),
-      bottomNavigationBar: const Footer(),
     );
+    /* Scaffold(
+     
+     
+      body: const TvsPg(),
+    
+    );
+    */
   }
 }

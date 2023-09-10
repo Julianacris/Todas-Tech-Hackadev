@@ -1,7 +1,6 @@
 //Página das Tvs / A home das Tvs
 
 // ignore: avoid_web_libraries_in_flutter, unused_import
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:hackadev/widgets/header.dart';
@@ -21,15 +20,16 @@ class TvsPg extends StatefulWidget {
 class TvsPgState extends State {
   @override
   Widget build(BuildContext context) {
-   return const Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch, // Estende as seções horizontalmente
-        children: [
-          Header(),
-          AppSearchBar(),
-          Categorias(),
-          SizedBox(height: 20),
-          Flexible(child: Tvs()),
-        ],
-      );
+    return const Column(
+      crossAxisAlignment:
+          CrossAxisAlignment.stretch, // Estende as seções horizontalmente
+      children: [
+        Header(),
+        AppSearchBar(),
+        Categorias(),
+        SizedBox(height: 20),
+        Flexible(child: Tvs()),
+      ],
+    );
   }
 }

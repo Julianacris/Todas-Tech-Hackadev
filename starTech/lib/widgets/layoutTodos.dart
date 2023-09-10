@@ -1,11 +1,11 @@
 //Layout da página de Todos os produtos
 
 import 'package:flutter/material.dart';
-import 'package:hackadev/widgets/footer.dart';
 import 'package:hackadev/pages/produtos.dart';
 
 class LayoutTodos extends StatefulWidget {
-  const LayoutTodos({super.key});
+  final Function opcaoSelecionadaFuncao;
+  const LayoutTodos({super.key, required this.opcaoSelecionadaFuncao});
 
   @override
   State<StatefulWidget> createState() {
@@ -26,7 +26,6 @@ class LayoutTodosState extends State {
       ),
       backgroundColor: Colors.white,
       body: const Produtos(),
-      bottomNavigationBar: const Footer(),
     );
   }
 }

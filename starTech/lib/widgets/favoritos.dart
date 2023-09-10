@@ -7,18 +7,14 @@ class Favoritos extends StatefulWidget {
   State<StatefulWidget> createState() {
     return ConteudoFavoritos();
   }
-
 }
 
 class ConteudoFavoritos extends State {
   @override
-  Widget build(BuildContext context){
-      return Scaffold(
-      appBar: AppBar(
-        title:  const Text('Favoritos'),
-      ),
-      body: const Center(
-        child:  Text('Esta é a página Favoritos!'),
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(
+        child: Text('Esta é a página Favoritos!'),
       ),
     );
   }
