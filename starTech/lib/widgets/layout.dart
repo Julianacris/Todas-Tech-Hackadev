@@ -26,14 +26,10 @@ class LayoutState extends State {
   int opcaoSelecionada = 0;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    print('aaa');
   }
 
-  Widget customWidget = Container(
-    color: Colors.amber,
-  );
+  Widget customWidget = Container();
 
   @override
   Widget build(BuildContext context) {
@@ -52,11 +48,8 @@ class LayoutState extends State {
           Home(
             opcaoSelecionadaFuncao: (int novoValor, Widget custom) {
               setState(() {
-                print('este valor foi recebido na funcao do layout.dart');
-                print(novoValor);
                 opcaoSelecionada = novoValor;
                 customWidget = custom;
-                print(opcaoSelecionada);
               });
             },
           ),

@@ -3,13 +3,13 @@
 // ignore: avoid_web_libraries_in_flutter, unused_import
 
 import 'package:flutter/material.dart';
-import 'package:hackadev/widgets/header.dart';
 import 'package:hackadev/widgets/search_bar.dart';
 import 'package:hackadev/widgets/categorias.dart';
 import 'package:hackadev/functions/Tvs.dart';
 
 class TvsPg extends StatefulWidget {
-  const TvsPg({super.key});
+  final Function opcaoSelecionadaFuncao;
+  const TvsPg({super.key, required this.opcaoSelecionadaFuncao});
 
   @override
   State<StatefulWidget> createState() {
@@ -17,18 +17,17 @@ class TvsPg extends StatefulWidget {
   }
 }
 
-class TvsPgState extends State {
+class TvsPgState extends State<TvsPg> {
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment:
           CrossAxisAlignment.stretch, // Estende as seções horizontalmente
       children: [
-        Header(),
-        AppSearchBar(),
-        Categorias(),
-        SizedBox(height: 20),
-        Flexible(child: Tvs()),
+        const AppSearchBar(),
+        Categorias(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao),
+        const SizedBox(height: 20),
+        const Flexible(child: Tvs()),
       ],
     );
   }

@@ -13,68 +13,70 @@ class Destaques extends StatefulWidget {
 
 class DestaquesState extends State {
   @override
-   Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Column(
-      
       children: [
         Container(
           width: 380,
           height: 25,
-         child: const Align(
-          alignment: Alignment.centerLeft,
-           child: 
-           Text(
-            'Destaques para você:',
-            textAlign: TextAlign.left,
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
+          child: const Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'Destaques para você:',
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
           ),
-         ),
         ),
-        const SizedBox(height: 5),// Espaçamento entre as seções
+        const SizedBox(height: 5), // Espaçamento entre as seções
 
-        Container( 
+        Container(
           width: 380,
           height: 140,
+          padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
             color: const Color.fromARGB(255, 205, 0, 106),
             borderRadius: BorderRadius.circular(20),
             border: Border.all(style: BorderStyle.none),
           ),
-          child: Stack(
-
-            children: [
+          child: Stack(children: [
             const Align(
-             alignment:Alignment.centerLeft,
-             child: Column(
-              children: [
-                Text('#VemPraSTAR', style: TextStyle(color: Colors.white, 
-                fontStyle: FontStyle.italic, fontSize: 20)),
-          
-                SizedBox(height: 5,),
-           
-                Text("Eletrônicos\n" "com até 70%\n" "OFF", style: TextStyle(color: Colors.white,
-                fontFamily: 'Roboto', fontSize: 30, fontWeight: FontWeight.bold, )),
-              ],
-             ) 
-              
-            ),
-            
+                alignment: Alignment.centerLeft,
+                child: Column(
+                  children: [
+                    Text('#VemPraSTAR',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontStyle: FontStyle.italic,
+                            fontSize: 16)),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text("Eletrônicos\n" "com até 70%\n" "OFF",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Roboto',
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        )),
+                  ],
+                )),
             Align(
               alignment: Alignment.centerRight,
               child: Transform.scale(
                 scale: 1.4,
-                child: Image.asset('assets/images/fones-de-ouvido-preto.png', ),
+                child: Image.asset(
+                  'assets/images/fones-de-ouvido-preto.png',
+                ),
               ),
             ),
-            
-            
           ]),
         ),
-        ],
+      ],
     );
   }
 }

@@ -29,21 +29,25 @@ class HomeState extends State<Home> {
         ), // Barra de categorias
         const SizedBox(height: 20), // Espaçamento entre as seções
         const Destaques(), // Destaques da home
-        const SizedBox(height: 5), // Espaçamento entre as seções
+        const SizedBox(height: 10), // Espaçamento entre as seções
         const SizedBox(
             height: 25,
-            child: Text(
-              "Recomendados para você:",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                decoration: TextDecoration.underline,
-                decorationColor: Colors.pink,
-                decorationThickness: 3,
+            child: Padding(
+              padding: EdgeInsets.only(left: 20.0),
+              child: Text(
+                "Recomendados para você:",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  decoration: TextDecoration.underline,
+                  decorationColor: Colors.pink,
+                  decorationThickness: 3,
+                ),
               ),
             )),
         const Flexible(
-            child: Recomendados()), // Classe que chama os produtos/Recomendados
+          child: Recomendados(),
+        ), // Classe que chama os produtos/Recomendados
       ],
     );
   }
