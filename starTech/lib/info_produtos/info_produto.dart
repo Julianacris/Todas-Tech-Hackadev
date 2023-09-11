@@ -47,53 +47,52 @@ class InfoProduto extends StatelessWidget {
                 preco: preco,
                 quantidadeEstrelas: quantidadeEstrelas,
               ),
-              const BotaoComprar(),
-              const SizedBox(
+              BotaoComprar(),
+              SizedBox(
                 height: 15,
               ),
               Container(
-                padding: const EdgeInsets.all(20),
+                padding: EdgeInsets.all(20),
                 width: MediaQuery.of(context).size.width,
-                margin: const EdgeInsets.all(30),
+                margin: EdgeInsets.all(30),
                 color: const Color.fromRGBO(245, 149, 183, 0.25),
-                height: 400,
                 child: Column(children: [
                   Text(
                     preco,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 48,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 30,
                   ),
                   Text(
                     'Em até ${quantidadeMaxParcelas}x de R\$  ${valorDaParcela.toStringAsFixed(2).replaceFirst(".", ",")}',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 30,
                   ),
                   Text(
                     descricaoLonga,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 13,
                       height: 1.4,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 30,
                   ),
                   Text(
                     detalhesTecnicos,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 14,
                       height: 1.4,
                       fontWeight: FontWeight.w600,
@@ -104,17 +103,11 @@ class InfoProduto extends StatelessWidget {
               Container(
                 height: 800,
                 child: const SizedBox(
-<<<<<<< HEAD
                   child: AvalRelogio(),
                  )
                 ),
               
               //AvalRelogio(),
-=======
-                    child: AvalRelogio()
-                ),
-              )
->>>>>>> 838396e99d183021bbc103fb6352d5545efe1b5e
             ],
           ),
         ),
