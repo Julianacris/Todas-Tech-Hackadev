@@ -106,7 +106,7 @@ class InfoProduto extends StatelessWidget {
                 child: const SizedBox(
                     child: AvalRelogio()
                 ),
-              )
+              ),
             ],
           ),
         ),
