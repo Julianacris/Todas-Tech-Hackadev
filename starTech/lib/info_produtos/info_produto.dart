@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackadev/info_produtos/produto/AvalRelogio.dart';
 import 'package:hackadev/info_produtos/produto/Info.dart';
 import 'package:hackadev/widgets/botaoComprar.dart';
 
@@ -98,7 +99,15 @@ class InfoProduto extends StatelessWidget {
                     ),
                   ),
                 ]),
-              )
+              ),
+              Container(
+                height: 800,
+                child: const SizedBox(
+                  child: AvalRelogio(),
+                 )
+                ),
+              
+              //AvalRelogio(),
             ],
           ),
         ),
