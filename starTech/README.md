@@ -12,7 +12,7 @@ Aqui, vamos compartilhar ideias, códigos, documentos e acompanhar o progresso d
 - [ ]  Home
 - [ ] Listar 3 categorias principais
 - [ ] Listagem de produtos
-- [ ] Menu de navegação
+- [x] Menu de navegação
 
 ### 🛠 Tecnologias
 
@@ -28,6 +28,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - Vitória Alves Araujo - Time de desenvolvimento 
 - Beatriz Santos - Time de desenvolvimento
 - Talitha Mendes - Time de desenvolvimento
-- Tâmara Ribeiro - Time de desenvolvimento
 - Gabriela Dourado França - Time de desenvolvimento
  
+
