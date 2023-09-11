@@ -1,1 +1,1 @@
-// Aqui vai ficar a parte dos produtos relacionados
+// Aqui vai ficar a parte dos produtos relacionados - Relacionados

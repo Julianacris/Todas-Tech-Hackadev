@@ -1,16 +1,20 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 //Página dos eletroportáteis / A home dos eletroportáteis
 
 // ignore: avoid_web_libraries_in_flutter, unused_import
-import 'dart:html';
 
 import 'package:flutter/material.dart';
+
 import 'package:hackadev/functions/Portateis.dart';
-import 'package:hackadev/widgets/header.dart';
-import 'package:hackadev/widgets/search_bar.dart';
 import 'package:hackadev/widgets/categorias.dart';
+import 'package:hackadev/widgets/search_bar.dart';
 
 class PortateisPg extends StatefulWidget {
-  const PortateisPg({super.key});
+  final Function opcaoSelecionadaFuncao;
+  const PortateisPg({
+    Key? key,
+    required this.opcaoSelecionadaFuncao,
+  }) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -18,18 +22,18 @@ class PortateisPg extends StatefulWidget {
   }
 }
 
-class PortateisPgState extends State {
+class PortateisPgState extends State<PortateisPg> {
   @override
   Widget build(BuildContext context) {
-   return const Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch, // Estende as seções horizontalmente
-        children: [
-          Header(),
-          AppSearchBar(),
-          Categorias(),
-          SizedBox(height: 20),
-          Flexible(child: Portateis()),
-        ],
-      );
+    return Column(
+      crossAxisAlignment:
+          CrossAxisAlignment.stretch, // Estende as seções horizontalmente
+      children: [
+        const AppSearchBar(),
+        Categorias(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao),
+        const SizedBox(height: 20),
+        const Flexible(child: Portateis()),
+      ],
+    );
   }
 }

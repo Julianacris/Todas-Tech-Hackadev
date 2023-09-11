@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-// import 'package:hackadev/BotCelulares.dart';
-// import 'package:hackadev/BotPortateis.dart';
-// import 'package:hackadev/BotTodos.dart';
-// import 'package:hackadev/BotTvs.dart';
-import 'package:hackadev/widgets/layoutCell.dart';
-import 'package:hackadev/widgets/layoutPort.dart';
-import 'package:hackadev/widgets/layoutTodos.dart';
-import 'package:hackadev/widgets/layoutTvs.dart';
+import 'package:hackadev/pages/portateisPg.dart';
+import 'package:hackadev/pages/produtos.dart';
+import 'package:hackadev/pages/tvsPg.dart';
+
+import '../pages/celularesPg.dart';
 
 class Categorias extends StatefulWidget {
-  const Categorias({super.key});
+  final Function? opcaoSelecionadaFuncao;
+  const Categorias({super.key, this.opcaoSelecionadaFuncao});
 
   @override
   State<StatefulWidget> createState() {
@@ -17,7 +15,7 @@ class Categorias extends StatefulWidget {
   }
 }
 
-class ConteudoCategorias extends State {
+class ConteudoCategorias extends State<Categorias> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,10 +42,14 @@ class ConteudoCategorias extends State {
                     foregroundColor: Colors.black, // Text Color
                   ),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LayoutTodos()));
+                    if (widget.opcaoSelecionadaFuncao != null) {
+                      widget.opcaoSelecionadaFuncao!(
+                          4,
+                          Produtos(
+                            opcaoSelecionadaFuncao:
+                                widget.opcaoSelecionadaFuncao!,
+                          ));
+                    }
                   },
                   child: const Text("Todos"),
                 ),
@@ -56,10 +58,15 @@ class ConteudoCategorias extends State {
                     foregroundColor: Colors.black, // Text Color
                   ),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LayoutCell()));
+                    if (widget.opcaoSelecionadaFuncao != null) {
+                      widget.opcaoSelecionadaFuncao!(
+                        4,
+                        CelularesPg(
+                          opcaoSelecionadaFuncao:
+                              widget.opcaoSelecionadaFuncao!,
+                        ),
+                      );
+                    }
                   },
                   child: const Text("SmartPhones"),
                 ),
@@ -68,10 +75,14 @@ class ConteudoCategorias extends State {
                     foregroundColor: Colors.black, // Text Color
                   ),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LayoutPort()));
+                    if (widget.opcaoSelecionadaFuncao != null) {
+                      widget.opcaoSelecionadaFuncao!(
+                          4,
+                          PortateisPg(
+                            opcaoSelecionadaFuncao:
+                                widget.opcaoSelecionadaFuncao!,
+                          ));
+                    }
                   },
                   child: const Text("Eletroportáteis"),
                 ),
@@ -80,10 +91,14 @@ class ConteudoCategorias extends State {
                     foregroundColor: Colors.black, // Text Color
                   ),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LayoutTvs()));
+                    if (widget.opcaoSelecionadaFuncao != null) {
+                      widget.opcaoSelecionadaFuncao!(
+                          4,
+                          TvsPg(
+                            opcaoSelecionadaFuncao:
+                                widget.opcaoSelecionadaFuncao!,
+                          ));
+                    }
                   },
                   child: const Text("SmartTvs"),
                 ),
@@ -91,87 +106,5 @@ class ConteudoCategorias extends State {
             ),
           ),
         ));
-    /* return Container(
-      decoration: BoxDecoration(
-        // color: Colors.pink[100],
-        border: Border(
-          top: BorderSide(
-            color: Colors.pink.shade300,
-            width: 5,
-          ),
-          bottom: BorderSide(
-            color:  Colors.pink.shade300,
-            width: 5,
-          )
-        )
-      ),
-        height: 50,
-        child: const Align(
-          alignment: Alignment.center,
-          child: SizedBox(
-            height: 45,
-            width: 550,
-            child: Row(
-              children: [
-                BotTodos(),
-                BotCelulares(),
-                BotPortateis(),
-                BotTvs(),
-
-                // TextButton(
-                //   style: TextButton.styleFrom(
-                //     foregroundColor: Colors.black, // Text Color
-                //   ),
-                //   onPressed: () {
-                //     Navigator.push(
-                //         context,
-                //         MaterialPageRoute(
-                //             builder: (context) => const LayoutTodos()));
-                //   },
-                //   child: const Text("Todos"),
-                // ),
-                // TextButton(
-                //   style: TextButton.styleFrom(
-                //     foregroundColor: Colors.black, // Text Color
-                //   ),
-                //   onPressed: () {
-                //     Navigator.push(
-                //         context,
-                //         MaterialPageRoute(
-                //             builder: (context) => const LayoutCell()));
-                //   },
-                //   child: const Text("SmartPhones"),
-                // ),
-                // TextButton(
-                //   style: TextButton.styleFrom(
-                //     foregroundColor: Colors.black, // Text Color
-                //   ),
-                //   onPressed: () {
-                //     Navigator.push(
-                //         context,
-                //         MaterialPageRoute(
-                //             builder: (context) => const LayoutPort()));
-                //   },
-                //   child: const Text("Eletroportáteis"),
-                // ),
-                // TextButton(
-                //   style: TextButton.styleFrom(
-                //     foregroundColor: Colors.black, // Text Color
-                //   ),
-                //   onPressed: () {
-                //     Navigator.push(
-                //         context,
-                //         MaterialPageRoute(
-                //             builder: (context) => const LayoutTvs()));
-                //   },
-                //   child: const Text("SmartTvs"),
-                // ),
-
-              ],
-            ),
-          ),
-        )
-        
-    );*/
   }
 }
