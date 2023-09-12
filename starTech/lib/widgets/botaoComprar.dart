@@ -29,7 +29,7 @@ class BotaoComprarWidget extends State {
           ),
         ),
         style: ElevatedButton.styleFrom(
-          backgroundColor: Color.fromARGB(255, 99, 21, 46),
+          backgroundColor: const Color.fromARGB(255, 147, 0, 75),
         ), // Espaçamento interno
       ),
     );

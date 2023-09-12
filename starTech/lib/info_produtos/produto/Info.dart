@@ -29,7 +29,7 @@ class InfoState extends State<Info> {
         width: 350,
         height: 450,
         decoration: BoxDecoration(
-          color: Colors.pink[100],
+          color: const Color.fromRGBO(245, 149, 183, 0.25),
           borderRadius: BorderRadius.circular(20),
           border: Border.all(style: BorderStyle.none),
         ),
@@ -64,7 +64,7 @@ class InfoState extends State<Info> {
               height: 35,
               width: 180,
               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 99, 21, 46),
+                  color: const Color.fromARGB(255, 147, 0, 75),
                   borderRadius: BorderRadius.circular(30)),
               child: Align(
                 alignment: Alignment.center,
@@ -89,31 +89,31 @@ class InfoState extends State<Info> {
                   widget.quantidadeEstrelas >= 1
                       ? Icons.star
                       : Icons.star_border,
-                  color: Color.fromARGB(255, 99, 21, 46),
+                  color: const Color.fromARGB(255, 147, 0, 75),
                 ),
                 Icon(
                   widget.quantidadeEstrelas >= 2
                       ? Icons.star
                       : Icons.star_border,
-                  color: Color.fromARGB(255, 99, 21, 46),
+                  color: const Color.fromARGB(255, 147, 0, 75),
                 ),
                 Icon(
                   widget.quantidadeEstrelas >= 3
                       ? Icons.star
                       : Icons.star_border,
-                  color: Color.fromARGB(255, 99, 21, 46),
+                  color: const Color.fromARGB(255, 147, 0, 75),
                 ),
                 Icon(
                   widget.quantidadeEstrelas >= 4
                       ? Icons.star
                       : Icons.star_border,
-                  color: Color.fromARGB(255, 99, 21, 46),
+                  color: const Color.fromARGB(255, 147, 0, 75),
                 ),
                 Icon(
                   widget.quantidadeEstrelas >= 5
                       ? Icons.star
                       : Icons.star_border,
-                  color: Color.fromARGB(255, 99, 21, 46),
+                  color: const Color.fromARGB(255, 147, 0, 75),
                 ),
               ],
             ),
