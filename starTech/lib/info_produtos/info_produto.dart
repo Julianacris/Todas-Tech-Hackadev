@@ -106,8 +106,6 @@ class InfoProduto extends StatelessWidget {
                   child: AvalRelogio(),
                  )
                 ),
-              
-              //AvalRelogio(),
             ],
           ),
         ),
