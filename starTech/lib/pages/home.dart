@@ -23,13 +23,14 @@ class HomeState extends State<Home> {
       crossAxisAlignment:
           CrossAxisAlignment.stretch, // Estende as seções horizontalmente
       children: [
-        const AppSearchBar(), //Barra de pesquisa
+        const AppSearchBar(),//Barra de pesquisa
+        const SizedBox(height: 25,),
         Categorias(
           opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
         ), // Barra de categorias
         const SizedBox(height: 20), // Espaçamento entre as seções
         const Destaques(), // Destaques da home
-        const SizedBox(height: 10), // Espaçamento entre as seções
+        const SizedBox(height: 40), // Espaçamento entre as seções
         const SizedBox(
             height: 25,
             child: Padding(
@@ -38,10 +39,8 @@ class HomeState extends State<Home> {
                 "Recomendados para você:",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  decoration: TextDecoration.underline,
-                  decorationColor: Colors.pink,
-                  decorationThickness: 3,
+                  fontSize: 22,
+                  color: Colors.black,
                 ),
               ),
             )),

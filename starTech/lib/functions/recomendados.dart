@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hackadev/widgets/produto.dart';
+import 'package:hackadev/widgets/produtosRecomendados.dart';
 
 class Recomendados extends StatefulWidget {
   const Recomendados({super.key});
@@ -48,7 +48,7 @@ class RecomendadosState extends State {
             maxCrossAxisExtent: 250, crossAxisSpacing: 20, mainAxisSpacing: 20),
         itemCount: list.length,
         itemBuilder: (BuildContext ctx, index) {
-          return Produto(
+          return produtosRecomendados(
             preco: list[index]["preco"],
             nome: list[index]["nome"],
             pathImagem: list[index]["pathImagem"],

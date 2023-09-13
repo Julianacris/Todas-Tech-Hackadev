@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackadev/info_produtos/Relacionados.dart';
 import 'package:hackadev/info_produtos/produto/AvalRelogio.dart';
 import 'package:hackadev/info_produtos/produto/Info.dart';
 import 'package:hackadev/widgets/botaoComprar.dart';
@@ -113,10 +114,18 @@ class InfoProduto extends StatelessWidget {
                 )
               ),
               const SizedBox( height: 15,),
+              const Text('Produtos Relacionados:', style: TextStyle(
+                color: Color.fromARGB(255, 84, 12, 48),
+                fontFamily: 'Arial',
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),),
               Container(
-                height: 200,
-                width: 200,
-                color: Colors.blue,
+                height: 700,
+                child: const SizedBox(
+                  child: Relacionados(),
+                ),
+                
               ),
             ],
           ),
