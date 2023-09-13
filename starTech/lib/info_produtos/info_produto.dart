@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackadev/info_produtos/Relacionados.dart';
 import 'package:hackadev/info_produtos/produto/AvalRelogio.dart';
 import 'package:hackadev/info_produtos/produto/Info.dart';
 import 'package:hackadev/widgets/botaoComprar.dart';
@@ -47,52 +48,58 @@ class InfoProduto extends StatelessWidget {
                 preco: preco,
                 quantidadeEstrelas: quantidadeEstrelas,
               ),
-              BotaoComprar(),
-              SizedBox(
-                height: 15,
-              ),
+
+              const SizedBox(height: 15,),
+
+              const BotaoComprar(),
+              
+              const SizedBox(height: 15,),
+              
               Container(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 width: MediaQuery.of(context).size.width,
-                margin: EdgeInsets.all(30),
-                color: const Color.fromRGBO(245, 149, 183, 0.25),
+                margin: const EdgeInsets.all(30),
+                decoration: BoxDecoration(
+                  color: const Color.fromRGBO(245, 149, 183, 0.25),
+                  borderRadius: BorderRadius.circular(20),
+                ),
                 child: Column(children: [
                   Text(
                     preco,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 48,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Text(
                     'Em até ${quantidadeMaxParcelas}x de R\$  ${valorDaParcela.toStringAsFixed(2).replaceFirst(".", ",")}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Text(
                     descricaoLonga,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 13,
                       height: 1.4,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Text(
                     detalhesTecnicos,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 14,
                       height: 1.4,
                       fontWeight: FontWeight.w600,
@@ -104,8 +111,22 @@ class InfoProduto extends StatelessWidget {
                 height: 800,
                 child: const SizedBox(
                   child: AvalRelogio(),
-                 )
+                )
+              ),
+              const SizedBox( height: 15,),
+              const Text('Produtos Relacionados:', style: TextStyle(
+                color: Color.fromARGB(255, 84, 12, 48),
+                fontFamily: 'Arial',
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),),
+              Container(
+                height: 700,
+                child: const SizedBox(
+                  child: Relacionados(),
                 ),
+                
+              ),
             ],
           ),
         ),

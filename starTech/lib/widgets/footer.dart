@@ -42,7 +42,7 @@ Widget decorateIcon(Icon icon) {
     width: 50,
     height: 50,
     decoration: BoxDecoration(
-      color: Colors.pink[100],
+      color: const Color.fromRGBO(245, 149, 183, 0.25),
       borderRadius: BorderRadius.circular(20),
       border: Border.all(style: BorderStyle.none),
     ),

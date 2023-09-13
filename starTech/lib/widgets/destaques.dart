@@ -18,14 +18,14 @@ class DestaquesState extends State {
       children: [
         Container(
           width: 380,
-          height: 25,
+          height: 50,
           child: const Align(
             alignment: Alignment.centerLeft,
             child: Text(
               'Destaques para você:',
               textAlign: TextAlign.left,
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 22,
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
               ),
@@ -36,7 +36,7 @@ class DestaquesState extends State {
 
         Container(
           width: 380,
-          height: 140,
+          height: 200,
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
             color: const Color.fromARGB(255, 205, 0, 106),
@@ -52,7 +52,8 @@ class DestaquesState extends State {
                         style: TextStyle(
                             color: Colors.white,
                             fontStyle: FontStyle.italic,
-                            fontSize: 16)),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 22)),
                     SizedBox(
                       height: 5,
                     ),
@@ -60,7 +61,7 @@ class DestaquesState extends State {
                         style: TextStyle(
                           color: Colors.white,
                           fontFamily: 'Roboto',
-                          fontSize: 18,
+                          fontSize: 30,
                           fontWeight: FontWeight.bold,
                         )),
                   ],
@@ -68,7 +69,7 @@ class DestaquesState extends State {
             Align(
               alignment: Alignment.centerRight,
               child: Transform.scale(
-                scale: 1.4,
+                scale: 1.5,
                 child: Image.asset(
                   'assets/images/fones-de-ouvido-preto.png',
                 ),

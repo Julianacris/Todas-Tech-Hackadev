@@ -60,7 +60,7 @@ class _CustomerSatisfactionScreenState extends State {
               style: TextStyle(
                 fontSize: 25.0,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 166, 3, 87),
+                color:  Color.fromARGB(255, 147, 0, 75),
               ),
             ),
             Text(
@@ -68,7 +68,7 @@ class _CustomerSatisfactionScreenState extends State {
               style: const TextStyle(
                 fontSize: 100.0,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 166, 3, 87),
+                color:  Color.fromARGB(255, 147, 0, 75),
               ),
             ),
             Row(
@@ -83,7 +83,7 @@ class _CustomerSatisfactionScreenState extends State {
                       Icons.star,
                       size: 25.0,
                       color: _selectedRating >= i
-                          ? const Color.fromARGB(255, 166, 3, 87)
+                          ? const Color.fromARGB(255, 147, 0, 75)
                           : const Color.fromARGB(255, 189, 162, 162),
                     ),
                   ),
@@ -96,7 +96,7 @@ class _CustomerSatisfactionScreenState extends State {
               height: 120,
               width: 350,
               decoration: BoxDecoration(
-              border: Border.all(color: const Color.fromARGB(255, 166, 3, 87), width: 3),
+              border: Border.all(color: const Color.fromARGB(255, 147, 0, 75), width: 3),
               borderRadius: const BorderRadius.all(Radius.circular(8.0)),
             ),
             child: TextField(
@@ -139,7 +139,7 @@ class _CustomerSatisfactionScreenState extends State {
               onPressed: _saveChanges,
               style: ElevatedButton.styleFrom(
                 foregroundColor: const Color.fromARGB(255, 252, 252, 252),
-                backgroundColor: const Color.fromARGB(255, 166, 3, 87),
+                backgroundColor: const Color.fromARGB(255, 147, 0, 75),
                 minimumSize: const Size(300.0, 50.0),
                 textStyle: const TextStyle(
                   fontWeight: FontWeight.bold,
@@ -170,7 +170,7 @@ class _CustomerSatisfactionScreenState extends State {
             return Column(
               children: [
               const Divider(
-                 color: Color.fromARGB(255, 255, 0, 127), 
+                 color:  Color.fromARGB(255, 147, 0, 75),
                  thickness: 3.0, // Espessura da linha abaixo de cada conjunto
               ),
             ListTile(
@@ -180,7 +180,7 @@ class _CustomerSatisfactionScreenState extends State {
               style: const TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 166, 3, 87),
+                color:  Color.fromARGB(255, 147, 0, 75),
               ),
             ),
           ),
@@ -197,7 +197,7 @@ class _CustomerSatisfactionScreenState extends State {
                         Icons.star,
                         size: 20.0,
                         color: i <= rating.rating
-                            ? const Color.fromARGB(255, 166, 3, 87)
+                            ? const Color.fromARGB(255, 147, 0, 75)
                             : const Color.fromARGB(255, 189, 162, 162),
                       ),
                   ],
@@ -207,7 +207,7 @@ class _CustomerSatisfactionScreenState extends State {
           ),
         ),
         const Divider(
-          color: Color.fromARGB(255, 255, 0, 127), 
+          color:  Color.fromARGB(255, 147, 0, 75), 
           thickness: 3.0, // Espessura da linha abaixo de cada conjunto
         ),
 
