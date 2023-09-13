@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         primaryColor: const Color(0xffCD0069),
         textTheme: Theme.of(context).textTheme.apply(displayColor: kTextColor),
         colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 228, 52, 184)),
+            ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 228, 52, 184)),
       ),
       home: const Layout(),
     );

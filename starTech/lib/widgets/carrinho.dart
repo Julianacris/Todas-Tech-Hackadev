@@ -12,8 +12,8 @@ class Carrinho extends StatefulWidget {
 class ConteudoCarrinho extends State {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const Center(
+    return const Scaffold(
+      body: Center(
         child: Text('Esta é a nova página!'),
       ),
     );

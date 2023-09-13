@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:hackadev/info_produtos/info_produto.dart';
 
+// ignore: camel_case_types
 class produtosRecomendados extends StatefulWidget {
   final String preco;
   final String nome;
@@ -61,8 +62,8 @@ class ProdutosRecomendadosState extends State<produtosRecomendados> {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(12),
-               border: Border.all(
-                   color: const Color.fromARGB(255, 205, 0, 106), width: 2),
+              border: Border.all(
+                  color: const Color.fromARGB(255, 205, 0, 106), width: 2),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
