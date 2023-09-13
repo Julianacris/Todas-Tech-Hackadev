@@ -30,13 +30,15 @@ class InfoProduto extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          nome,
-          style: const TextStyle(
-            fontSize: 24,
-            color: Colors.white,
-          ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => Navigator.of(context).pop(),
         ),
+        toolbarHeight: 80,
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Image.asset("assets/images/logoStar.png", fit: BoxFit.cover),
+        shadowColor: const Color.fromARGB(0, 0, 0, 0),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -48,13 +50,13 @@ class InfoProduto extends StatelessWidget {
                 preco: preco,
                 quantidadeEstrelas: quantidadeEstrelas,
               ),
-
-              const SizedBox(height: 15,),
-
+              const SizedBox(
+                height: 15,
+              ),
               const BotaoComprar(),
-              
-              const SizedBox(height: 15,),
-              
+              const SizedBox(
+                height: 15,
+              ),
               Container(
                 padding: const EdgeInsets.all(20),
                 width: MediaQuery.of(context).size.width,
@@ -108,29 +110,33 @@ class InfoProduto extends StatelessWidget {
                 ]),
               ),
               Container(
-                height: 800,
-                child: const SizedBox(
-                  child: AvalRelogio(),
-                )
+                  height: 800,
+                  child: const SizedBox(
+                    child: AvalRelogio(),
+                  )),
+              const SizedBox(
+                height: 15,
               ),
-              const SizedBox( height: 15,),
-              const Text('Produtos Relacionados:', style: TextStyle(
-                color: Color.fromARGB(255, 84, 12, 48),
-                fontFamily: 'Arial',
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),),
+              const Text(
+                'Produtos Relacionados:',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 84, 12, 48),
+                  fontFamily: 'Arial',
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               Container(
                 height: 700,
                 child: const SizedBox(
                   child: Relacionados(),
                 ),
-                
               ),
             ],
           ),
         ),
       ),
+      
     );
   }
 }
