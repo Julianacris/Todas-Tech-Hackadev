@@ -23,8 +23,10 @@ class HomeState extends State<Home> {
       crossAxisAlignment:
           CrossAxisAlignment.stretch, // Estende as seções horizontalmente
       children: [
-        const AppSearchBar(),//Barra de pesquisa
-        const SizedBox(height: 25,),
+        const AppSearchBar(), //Barra de pesquisa
+        const SizedBox(
+          height: 25,
+        ),
         Categorias(
           opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
         ), // Barra de categorias

@@ -12,8 +12,8 @@ class Perfil extends StatefulWidget {
 class ConteudoPerfil extends State {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const Center(
+    return const Scaffold(
+      body: Center(
         child: Text('Esta é a página Perfil!'),
       ),
     );

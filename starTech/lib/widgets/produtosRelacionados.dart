@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:hackadev/info_produtos/info_produto.dart';
 
+// ignore: camel_case_types
 class produtosRelacionados extends StatefulWidget {
   final String preco;
   final String nome;

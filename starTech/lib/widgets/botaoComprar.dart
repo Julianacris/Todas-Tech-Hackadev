@@ -19,6 +19,9 @@ class BotaoComprarWidget extends State {
         onPressed: () {
           // Adicione ação aqui
         },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: const Color.fromARGB(255, 147, 0, 75),
+        ),
 
         child: const Text(
           'COMPRAR',
@@ -27,9 +30,6 @@ class BotaoComprarWidget extends State {
             color: Colors.white,
             fontWeight: FontWeight.bold, // Cor do texto
           ),
-        ),
-        style: ElevatedButton.styleFrom(
-          backgroundColor: const Color.fromARGB(255, 147, 0, 75),
         ), // Espaçamento interno
       ),
     );
