@@ -3,6 +3,7 @@ import 'package:hackadev/info_produtos/Relacionados.dart';
 import 'package:hackadev/info_produtos/produto/Avaliacao.dart';
 import 'package:hackadev/info_produtos/produto/Info.dart';
 import 'package:hackadev/widgets/botaoComprar.dart';
+import 'package:hackadev/widgets/search_bar.dart';
 
 class InfoProduto extends StatelessWidget {
   final String preco;
@@ -44,6 +45,7 @@ class InfoProduto extends StatelessWidget {
         child: Container(
           child: Column(
             children: [
+              const AppSearchBar(),
               Info(
                 imagem: pathImagem,
                 nome: nome,
