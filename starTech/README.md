@@ -1,4 +1,3 @@
-<img src="starTech/assets/images/black white simple star logo (2).png">
 <h1 align="center">Star Tech</h1>
 
 <p align="center">Bem-vindo ao repositório do projeto Star Tech! Este é um espaço dedicado à colaboração entre membros do nosso grupo para desenvolver e aprimorar nosso E-commerce. 
