@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:hackadev/widgets/produto.dart';
 
 class Portateis extends StatefulWidget {
-  const Portateis({super.key});
+  final Function opcaoSelecionadaFuncao;
+  const Portateis({super.key, required this.opcaoSelecionadaFuncao});
 
   @override
   State<StatefulWidget> createState() {
@@ -118,6 +119,7 @@ class PortateisState extends State<Portateis> {
         itemCount: list.length,
         itemBuilder: (BuildContext ctx, index) {
           return Produto(
+            opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
             preco: list[index]["preco"],
             nome: list[index]["nome"],
             pathImagem: list[index]["pathImagem"],
