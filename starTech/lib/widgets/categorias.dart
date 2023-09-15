@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hackadev/pages/portateisPg.dart';
 import 'package:hackadev/pages/produtos.dart';
-//import 'package:hackadev/widgets/produto.dart';
+import 'package:hackadev/pages/tvsPg.dart';
+
+import '../pages/celularesPg.dart';
 
 class Categorias extends StatefulWidget {
-  const Categorias({super.key});
+  final Function? opcaoSelecionadaFuncao;
+  const Categorias({super.key, this.opcaoSelecionadaFuncao});
 
   @override
   State<StatefulWidget> createState() {
@@ -11,11 +15,21 @@ class Categorias extends StatefulWidget {
   }
 }
 
-class ConteudoCategorias extends State {
+class ConteudoCategorias extends State<Categorias> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.pink[100],
+        decoration: BoxDecoration(
+            // color: Colors.pink[100],
+            border: Border(
+                top: BorderSide(
+                  color: Colors.pink.shade300,
+                  width: 5,
+                ),
+                bottom: BorderSide(
+                  color: Colors.pink.shade300,
+                  width: 5,
+                ))),
         height: 50,
         child: Align(
           alignment: Alignment.center,
@@ -28,10 +42,14 @@ class ConteudoCategorias extends State {
                     foregroundColor: Colors.black, // Text Color
                   ),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Produtos()));
+                    if (widget.opcaoSelecionadaFuncao != null) {
+                      widget.opcaoSelecionadaFuncao!(
+                          4,
+                          Produtos(
+                            opcaoSelecionadaFuncao:
+                                widget.opcaoSelecionadaFuncao!,
+                          ));
+                    }
                   },
                   child: const Text("Todos"),
                 ),
@@ -40,10 +58,15 @@ class ConteudoCategorias extends State {
                     foregroundColor: Colors.black, // Text Color
                   ),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Produtos()));
+                    if (widget.opcaoSelecionadaFuncao != null) {
+                      widget.opcaoSelecionadaFuncao!(
+                        4,
+                        CelularesPg(
+                          opcaoSelecionadaFuncao:
+                              widget.opcaoSelecionadaFuncao!,
+                        ),
+                      );
+                    }
                   },
                   child: const Text("SmartPhones"),
                 ),
@@ -52,10 +75,14 @@ class ConteudoCategorias extends State {
                     foregroundColor: Colors.black, // Text Color
                   ),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Produtos()));
+                    if (widget.opcaoSelecionadaFuncao != null) {
+                      widget.opcaoSelecionadaFuncao!(
+                          4,
+                          PortateisPg(
+                            opcaoSelecionadaFuncao:
+                                widget.opcaoSelecionadaFuncao!,
+                          ));
+                    }
                   },
                   child: const Text("Eletroportáteis"),
                 ),
@@ -64,10 +91,14 @@ class ConteudoCategorias extends State {
                     foregroundColor: Colors.black, // Text Color
                   ),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Produtos()));
+                    if (widget.opcaoSelecionadaFuncao != null) {
+                      widget.opcaoSelecionadaFuncao!(
+                          4,
+                          TvsPg(
+                            opcaoSelecionadaFuncao:
+                                widget.opcaoSelecionadaFuncao!,
+                          ));
+                    }
                   },
                   child: const Text("SmartTvs"),
                 ),

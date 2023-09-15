@@ -1,29 +1,28 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-//Página de todos os produtos / A home de todos os produtos
+//Página dos eletroportáteis / A home dos eletroportáteis
 
 // ignore: avoid_web_libraries_in_flutter, unused_import
 
 import 'package:flutter/material.dart';
 
-import 'package:hackadev/functions/Todos.dart';
+import 'package:hackadev/functions/Portateis.dart';
 import 'package:hackadev/widgets/categorias.dart';
 import 'package:hackadev/widgets/search_bar.dart';
 
-class Produtos extends StatefulWidget {
+class PortateisPg extends StatefulWidget {
   final Function opcaoSelecionadaFuncao;
-
-  const Produtos({
+  const PortateisPg({
     Key? key,
     required this.opcaoSelecionadaFuncao,
   }) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return ProdutosState();
+    return PortateisPgState();
   }
 }
 
-class ProdutosState extends State<Produtos> {
+class PortateisPgState extends State<PortateisPg> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -33,7 +32,7 @@ class ProdutosState extends State<Produtos> {
         const AppSearchBar(),
         Categorias(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao),
         const SizedBox(height: 20),
-        Flexible(child: TodosProd(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao)),
+        Flexible(child: Portateis(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao)),
       ],
     );
   }

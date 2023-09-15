@@ -1,29 +1,23 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-//Página de todos os produtos / A home de todos os produtos
+//Página dos celulares / A home dos celulares
 
 // ignore: avoid_web_libraries_in_flutter, unused_import
 
 import 'package:flutter/material.dart';
-
-import 'package:hackadev/functions/Todos.dart';
-import 'package:hackadev/widgets/categorias.dart';
 import 'package:hackadev/widgets/search_bar.dart';
+import 'package:hackadev/functions/Celulares.dart';
+import 'package:hackadev/widgets/categorias.dart';
 
-class Produtos extends StatefulWidget {
+class CelularesPg extends StatefulWidget {
   final Function opcaoSelecionadaFuncao;
-
-  const Produtos({
-    Key? key,
-    required this.opcaoSelecionadaFuncao,
-  }) : super(key: key);
+  const CelularesPg({super.key, required this.opcaoSelecionadaFuncao});
 
   @override
   State<StatefulWidget> createState() {
-    return ProdutosState();
+    return CelularesPgState();
   }
 }
 
-class ProdutosState extends State<Produtos> {
+class CelularesPgState extends State<CelularesPg> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -33,7 +27,7 @@ class ProdutosState extends State<Produtos> {
         const AppSearchBar(),
         Categorias(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao),
         const SizedBox(height: 20),
-        Flexible(child: TodosProd(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao)),
+        Flexible(child: Celulares(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao)),
       ],
     );
   }

@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:hackadev/info_produtos/info_produto.dart';
 
-class Produto extends StatefulWidget {
+// ignore: camel_case_types
+class produtosRecomendados extends StatefulWidget {
   final Function opcaoSelecionadaFuncao;
   final String preco;
   final String nome;
@@ -14,7 +15,7 @@ class Produto extends StatefulWidget {
   final String descricaoLonga;
   final String detalhesTecnicos;
 
-  const Produto({
+  const produtosRecomendados({
     super.key,
     required this.preco,
     required this.nome,
@@ -29,41 +30,43 @@ class Produto extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return ProdutoState();
+    return ProdutosRecomendadosState();
   }
 }
 
-class ProdutoState extends State<Produto> {
+class ProdutosRecomendadosState extends State<produtosRecomendados> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        widget.opcaoSelecionadaFuncao(
-          4,
-          InfoProduto(
-            opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
-            nome: widget.nome,
-            pathImagem: widget.pathImagem,
-            preco: widget.preco,
-            quantidadeEstrelas: widget.quantidadeEstrelas,
-            quantidadeMaxParcelas: widget.quantidadeMaxParcelas,
-            valorDaParcela: widget.valorDaParcela,
-            descricaoLonga: widget.descricaoLonga,
-            detalhesTecnicos: widget.detalhesTecnicos,
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => InfoProduto(
+              opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
+              nome: widget.nome,
+              pathImagem: widget.pathImagem,
+              preco: widget.preco,
+              quantidadeEstrelas: widget.quantidadeEstrelas,
+              quantidadeMaxParcelas: widget.quantidadeMaxParcelas,
+              valorDaParcela: widget.valorDaParcela,
+              descricaoLonga: widget.descricaoLonga,
+              detalhesTecnicos: widget.detalhesTecnicos,
+            ),
           ),
         );
       },
       child: Stack(
         children: <Widget>[
           Container(
-            width: 220,
-            height: 220,
+            width: 200,
+            height: 200,
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: const Color.fromRGBO(245, 149, 183, 0.25),
+              color: Colors.white,
               borderRadius: BorderRadius.circular(12),
-              // border: Border.all(
-              //     color: const Color.fromARGB(255, 205, 0, 106), width: 2),
+              border: Border.all(
+                  color: const Color.fromARGB(255, 205, 0, 106), width: 2),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

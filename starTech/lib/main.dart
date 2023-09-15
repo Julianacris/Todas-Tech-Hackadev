@@ -18,8 +18,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: "Cairo",
         scaffoldBackgroundColor: kBackgroundColor,
+        primaryColor: const Color(0xffCD0069),
         textTheme: Theme.of(context).textTheme.apply(displayColor: kTextColor),
-        //colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 228, 52, 184)),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 228, 52, 184)),
       ),
       home: const Layout(),
     );

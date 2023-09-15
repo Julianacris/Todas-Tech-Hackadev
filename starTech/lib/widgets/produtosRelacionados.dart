@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:hackadev/info_produtos/info_produto.dart';
 
-class Produto extends StatefulWidget {
+// ignore: camel_case_types
+class produtosRelacionados extends StatefulWidget {
   final Function opcaoSelecionadaFuncao;
   final String preco;
   final String nome;
@@ -14,7 +15,7 @@ class Produto extends StatefulWidget {
   final String descricaoLonga;
   final String detalhesTecnicos;
 
-  const Produto({
+  const produtosRelacionados({
     super.key,
     required this.preco,
     required this.nome,
@@ -29,27 +30,29 @@ class Produto extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return ProdutoState();
+    return ProdutosRelacionadosState();
   }
 }
 
-class ProdutoState extends State<Produto> {
+class ProdutosRelacionadosState extends State<produtosRelacionados> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        widget.opcaoSelecionadaFuncao(
-          4,
-          InfoProduto(
-            opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
-            nome: widget.nome,
-            pathImagem: widget.pathImagem,
-            preco: widget.preco,
-            quantidadeEstrelas: widget.quantidadeEstrelas,
-            quantidadeMaxParcelas: widget.quantidadeMaxParcelas,
-            valorDaParcela: widget.valorDaParcela,
-            descricaoLonga: widget.descricaoLonga,
-            detalhesTecnicos: widget.detalhesTecnicos,
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => InfoProduto(
+              opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
+              nome: widget.nome,
+              pathImagem: widget.pathImagem,
+              preco: widget.preco,
+              quantidadeEstrelas: widget.quantidadeEstrelas,
+              quantidadeMaxParcelas: widget.quantidadeMaxParcelas,
+              valorDaParcela: widget.valorDaParcela,
+              descricaoLonga: widget.descricaoLonga,
+              detalhesTecnicos: widget.detalhesTecnicos,
+            ),
           ),
         );
       },
@@ -60,7 +63,7 @@ class ProdutoState extends State<Produto> {
             height: 220,
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: const Color.fromRGBO(245, 149, 183, 0.25),
+              color: Color.fromRGBO(245, 149, 183, 0.25),
               borderRadius: BorderRadius.circular(12),
               // border: Border.all(
               //     color: const Color.fromARGB(255, 205, 0, 106), width: 2),
@@ -68,16 +71,6 @@ class ProdutoState extends State<Produto> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  child: Text(
-                    widget.nome,
-                    style: const TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
                 Container(
                   height: 90.0,
                   width: 90.0,
@@ -89,10 +82,20 @@ class ProdutoState extends State<Produto> {
                   ),
                 ),
                 Container(
+                  child: Text(
+                    widget.nome,
+                    style: const TextStyle(
+                      fontFamily: 'Montserrat',
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Container(
                   padding: const EdgeInsets.all(5),
                   width: 100.0,
                   decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 205, 0, 106),
+                      color: const Color.fromARGB(255, 147, 0, 75),
                       borderRadius: BorderRadius.circular(15)),
                   child: Align(
                     alignment: Alignment.center,
