@@ -9,7 +9,7 @@ class AppSearchBar extends StatefulWidget {
   }
 }
 
-class AppSearchBarState extends State {
+class AppSearchBarState extends State<AppSearchBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(

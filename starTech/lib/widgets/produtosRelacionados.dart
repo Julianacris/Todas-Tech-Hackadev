@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackadev/info_produtos/info_produto.dart';
 
-// ignore: camel_case_types
 class produtosRelacionados extends StatefulWidget {
   final Function opcaoSelecionadaFuncao;
   final String preco;
@@ -39,20 +38,18 @@ class ProdutosRelacionadosState extends State<produtosRelacionados> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => InfoProduto(
-              opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
-              nome: widget.nome,
-              pathImagem: widget.pathImagem,
-              preco: widget.preco,
-              quantidadeEstrelas: widget.quantidadeEstrelas,
-              quantidadeMaxParcelas: widget.quantidadeMaxParcelas,
-              valorDaParcela: widget.valorDaParcela,
-              descricaoLonga: widget.descricaoLonga,
-              detalhesTecnicos: widget.detalhesTecnicos,
-            ),
+        widget.opcaoSelecionadaFuncao(
+          4,
+          InfoProduto(
+            opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
+            nome: widget.nome,
+            pathImagem: widget.pathImagem,
+            preco: widget.preco,
+            quantidadeEstrelas: widget.quantidadeEstrelas,
+            quantidadeMaxParcelas: widget.quantidadeMaxParcelas,
+            valorDaParcela: widget.valorDaParcela,
+            descricaoLonga: widget.descricaoLonga,
+            detalhesTecnicos: widget.detalhesTecnicos,
           ),
         );
       },
@@ -63,7 +60,7 @@ class ProdutosRelacionadosState extends State<produtosRelacionados> {
             height: 220,
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: Color.fromRGBO(245, 149, 183, 0.25),
+              color: const Color.fromRGBO(245, 149, 183, 0.25),
               borderRadius: BorderRadius.circular(12),
               // border: Border.all(
               //     color: const Color.fromARGB(255, 205, 0, 106), width: 2),
