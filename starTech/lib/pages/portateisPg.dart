@@ -32,7 +32,7 @@ class PortateisPgState extends State<PortateisPg> {
         const AppSearchBar(),
         Categorias(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao),
         const SizedBox(height: 20),
-        const Flexible(child: Portateis()),
+        Flexible(child: Portateis(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao)),
       ],
     );
   }

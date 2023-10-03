@@ -6,6 +6,7 @@ import 'package:hackadev/widgets/botaoComprar.dart';
 import 'package:hackadev/widgets/search_bar.dart';
 
 class InfoProduto extends StatelessWidget {
+  final Function opcaoSelecionadaFuncao;
   final String preco;
   final String nome;
   final String pathImagem;
@@ -25,26 +26,26 @@ class InfoProduto extends StatelessWidget {
     required this.valorDaParcela,
     required this.descricaoLonga,
     required this.detalhesTecnicos,
+    required this.opcaoSelecionadaFuncao,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        toolbarHeight: 80,
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        title: Image.asset("assets/images/logoStar.png", fit: BoxFit.cover),
-        shadowColor: const Color.fromARGB(0, 0, 0, 0),
-      ),
       body: SingleChildScrollView(
         child: Container(
           child: Column(
             children: [
+              Row(
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.arrow_back, color: Colors.black),
+                    onPressed: () {
+                      opcaoSelecionadaFuncao(0, SizedBox());
+                    },
+                  ),
+                ],
+              ),
               const AppSearchBar(),
               Info(
                 imagem: pathImagem,
@@ -130,8 +131,10 @@ class InfoProduto extends StatelessWidget {
               ),
               Container(
                 height: 700,
-                child: const SizedBox(
-                  child: Relacionados(),
+                child: SizedBox(
+                  child: Relacionados(
+                    opcaoSelecionadaFuncao: opcaoSelecionadaFuncao,
+                  ),
                 ),
               ),
             ],
