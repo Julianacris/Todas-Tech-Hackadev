@@ -1,4 +1,3 @@
-![Texto alternativo](starTech/assets/images/black white simple star logo (2).png)
 <h1 align="center">Star Tech</h1>
 
 <p align="center">Bem-vindo ao repositório do projeto Star Tech! Este é um espaço dedicado à colaboração entre membros do nosso grupo para desenvolver e aprimorar nosso E-commerce. 
@@ -10,14 +9,10 @@ Aqui, vamos compartilhar ideias, códigos, documentos e acompanhar o progresso d
 
 ### Features
 
-- [x]  Home
-- [x] Listar 3 categorias principais
-- [x] Listagem de produtos
+- [ ]  Home
+- [ ] Listar 3 categorias principais
+- [ ] Listagem de produtos
 - [x] Menu de navegação
-- [x] Descrição do Produto
-- [x] Valor (pagamento, parcelamento etc)
-- [x] Avaliação de Clientes
-- [x] Produtos Relacionados
 
 ### 🛠 Tecnologias
 
@@ -32,6 +27,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - Sofia Mansur - Vice-Monitora
 - Vitória Alves Araujo - Time de desenvolvimento 
 - Beatriz Santos - Time de desenvolvimento
+- Talitha Mendes - Time de desenvolvimento
 - Gabriela Dourado França - Time de desenvolvimento
  
 

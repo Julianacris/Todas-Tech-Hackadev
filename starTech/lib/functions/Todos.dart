@@ -6,8 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:hackadev/widgets/produto.dart';
 
 class TodosProd extends StatefulWidget {
-  final Function opcaoSelecionadaFuncao;
-  const TodosProd({super.key, required this.opcaoSelecionadaFuncao});
+  const TodosProd({super.key});
 
   @override
   State<StatefulWidget> createState() {
@@ -15,7 +14,7 @@ class TodosProd extends StatefulWidget {
   }
 }
 
-class TodosProdState extends State<TodosProd> {
+class TodosProdState extends State {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
@@ -24,9 +23,8 @@ class TodosProdState extends State<TodosProd> {
       crossAxisSpacing: 10,
       mainAxisSpacing: 10,
       crossAxisCount: 2,
-      children: <Widget>[
+      children: const <Widget>[
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 1.399,00',
           nome: "Smart Tv 40pol Philco Led",
           pathImagem: 'assets/images/tvSmart-philco.png',
@@ -39,7 +37,6 @@ class TodosProdState extends State<TodosProd> {
               " Marca | 	PHILCO \n Polegadas | 40   \n Modelo | PTV40G7ER2CPBLF \n  Resolução | Full HD (1920x1080)  \n   Características | Smart   \n   Voltagem | Bivolt",
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 2.849,00',
           nome: "Smart Tv LG 55pol Led 4K UHD",
           pathImagem: 'assets/images/tv-Lg.png',
@@ -52,7 +49,6 @@ class TodosProdState extends State<TodosProd> {
               'Marca | LG \n Tamanho | 55 Polegadas   \n Modelo | 55UQ801CB. BWZ \n  Resolução | 4K Ultra HD   \n   Tecnologia | LED',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 2.089,00',
           nome: "Tv Philips 50pol Smart 4K",
           pathImagem: 'assets/images/tvSmar-philips.png',
@@ -65,7 +61,6 @@ class TodosProdState extends State<TodosProd> {
               'Marca | Philips \n Cor | Preta   \n  Tipo de Tela | LED Ultra HD 4K \n  Tamanho | 50 Polegadas   \n   Garantia | 12 meses   \n   Voltagem |  Bivolt',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 1.089,00',
           nome: "Smart Tv Monitor 24pol Led",
           pathImagem: 'assets/images/tvSmart-Lg.png',
@@ -78,7 +73,6 @@ class TodosProdState extends State<TodosProd> {
               'Marca | LG \n Cor | Preta   \n Tamanho da Tela | 23.6 \n  Tecnologia do Visor | LED   \n   Resolução | HD',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 4.986,00',
           nome: "Smart Tv Samsung 55pol Neo Qled",
           pathImagem: 'assets/images/tv-samsung-neo.png',
@@ -91,7 +85,6 @@ class TodosProdState extends State<TodosProd> {
               'Marca | Sansung \n Tamanho da Tela | 55   \n Modelo | QN55QN85BAGXZD \n  Tecnologia do visor | Neo QLED   \n   Caractríesticas Especiais | Plana   \n   Resolução |  4K',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 5.823,90',
           nome: "Smart Tv 65pol Tcl Qled",
           pathImagem: 'assets/images/tv-tcl.png',
@@ -104,7 +97,6 @@ class TodosProdState extends State<TodosProd> {
               'Marca | TCL \n Tamanho da Tela | 65   \n  Tecnologia do visor | QLED, 4K, UHD \n  Resolução | 4K  \n   Modelo | 75C835   \n   Ano |  2022',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 3.858,57',
           nome: "Smartphone Motorola Edge 30 Ultra",
           pathImagem: 'assets/images/celular-motorola.png',
@@ -117,7 +109,6 @@ class TodosProdState extends State<TodosProd> {
               'Marca | Motorola \n Tipo de Aparelho | Smartphone   \n Série | Edge 30 Ultra 5G \n  Quantidade de Chip | 2 Chips   \n   RAM |  12.0GB',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 3.698,99',
           nome: "Iphone 12 64gb",
           pathImagem: 'assets/images/iphone-branco.png',
@@ -130,7 +121,6 @@ class TodosProdState extends State<TodosProd> {
               'Marca | Apple \n Referência | MGJ53BR/A   \n Modelo | iPhone 12 64GB \n  Linha | iPhone 12 \n   Armazenamento Interno | 64GB   \n   Tecnologia |  4G/5G',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 4.249,00',
           nome: "Iphone 13 128gb Amarelo",
           pathImagem: 'assets/images/iphone-amarelo.png',
@@ -143,7 +133,6 @@ class TodosProdState extends State<TodosProd> {
               'Marca | Apple \n  Modelo | IPhone 13 \n  Sistema Operacional | IOS 14   \n   Tecnologia Celular | 5G',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 2.499,00',
           nome: "Samsung Galaxy S22",
           pathImagem: 'assets/images/celular-samsung.png',
@@ -156,7 +145,6 @@ class TodosProdState extends State<TodosProd> {
               'Marca | SANSUNG \n  Modelo | Galaxy S22 5G \n   Sistema Operacional | Android 12.0   \n   Tecnologia Celular |  5G',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 3.779,10',
           nome: "Samsung Galaxy S22 Ultra",
           pathImagem: 'assets/images/celular-samsung-s22.png',
@@ -169,7 +157,6 @@ class TodosProdState extends State<TodosProd> {
               'Marca | SANSUNG \n  Modelo | Galaxy S22 Ultra 5G \n   Sistema Operacional | Android 12.0   \n   Tecnologia Celular |  5G',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 4.249,00',
           nome: "Iphone 13 128gb Azul",
           pathImagem: 'assets/images/iphone-azul.png',
@@ -182,7 +169,6 @@ class TodosProdState extends State<TodosProd> {
               'Marca | Apple \n  Modelo | IPhone 13 \n   Sistema Operacional | IOS 14   \n   Tecnologia Celular |  5G',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 869,90',
           nome: "Filtro de água Consul",
           pathImagem: 'assets/images/filtro_agua.png',
@@ -195,7 +181,6 @@ class TodosProdState extends State<TodosProd> {
               'Marca | Consul \n  Dimensões | 28L x 25W x 33H centímetros \n  Material | Plástico   \n   Capacidade | 1,5 lts',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 429,00',
           nome: "Alexa Echo Dot",
           pathImagem: 'assets/images/alexa-echo.png',
@@ -208,7 +193,6 @@ class TodosProdState extends State<TodosProd> {
               'Tamanho | 100 mm x 100 mm x 89 mm \n Peso | 304 gramas \n Geração | Novo Echo Dot 5ª geração (2022)  \n   Compatibilidade | Wifi, Bluetooth Low Energy e Matter.',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 7.220,66',
           nome: "Drone Dji Mini 3 Pro",
           pathImagem: 'assets/images/drone-dji.png',
@@ -221,7 +205,6 @@ class TodosProdState extends State<TodosProd> {
               'Marca | DJI \n  Modelo | DJI MINI3PSC \n  Faixa Etária | Adulto',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 1.069,00',
           nome: "Purificador De Água Electrolux",
           pathImagem: 'assets/images/purificador-agua.png',
@@ -234,7 +217,6 @@ class TodosProdState extends State<TodosProd> {
               'Marca | Electrolux \n  Dimensões | 31,4L x 25W x 35,8H centímetros \n  Material | Plástico  \n   Capacidade | 800 Milliliters',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 399,00',
           nome: "Fone De Ouvido Jbl Tune",
           pathImagem: 'assets/images/Headphone-Tune-JBL.png',
@@ -247,7 +229,6 @@ class TodosProdState extends State<TodosProd> {
               'Marca | JBL \n  Modelo | JBLT710BTWHT \n  Cor | Branco   \n   Tecnologia de Conectividade | Sem fio',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 552,92',
           nome: "Smartwatch Amazfit Gts 4 Mini",
           pathImagem: 'assets/images/relogio-amazfit.png',
@@ -260,7 +241,6 @@ class TodosProdState extends State<TodosProd> {
               'Marca | Amazfit \n Fabricante | Amazfit   \n Modelo | 23840 \n  Número da peça | 9-GTS 2 Mini Black   \n   Tipo Do Produto | Esporte   \n   RAM |  1gb',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 538,90',
           nome: "Robô Aspirador Mars",
           pathImagem: 'assets/images/robo-aspirador.png',

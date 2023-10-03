@@ -33,7 +33,7 @@ class ProdutosState extends State<Produtos> {
         const AppSearchBar(),
         Categorias(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao),
         const SizedBox(height: 20),
-        Flexible(child: TodosProd(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao)),
+        const Flexible(child: TodosProd()),
       ],
     );
   }

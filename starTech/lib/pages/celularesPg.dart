@@ -27,7 +27,7 @@ class CelularesPgState extends State<CelularesPg> {
         const AppSearchBar(),
         Categorias(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao),
         const SizedBox(height: 20),
-        Flexible(child: Celulares(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao)),
+        const Flexible(child: Celulares()),
       ],
     );
   }
