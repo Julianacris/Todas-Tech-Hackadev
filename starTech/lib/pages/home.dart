@@ -46,8 +46,9 @@ class HomeState extends State<Home> {
                 ),
               ),
             )),
-        const Flexible(
-          child: Recomendados(),
+        Flexible(
+          child: Recomendados(
+              opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao),
         ), // Classe que chama os produtos/Recomendados
       ],
     );

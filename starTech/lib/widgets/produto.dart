@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hackadev/info_produtos/info_produto.dart';
 
 class Produto extends StatefulWidget {
+  final Function opcaoSelecionadaFuncao;
   final String preco;
   final String nome;
   final String pathImagem;
@@ -23,6 +24,7 @@ class Produto extends StatefulWidget {
     required this.valorDaParcela,
     required this.descricaoLonga,
     required this.detalhesTecnicos,
+    required this.opcaoSelecionadaFuncao,
   });
 
   @override
@@ -36,19 +38,18 @@ class ProdutoState extends State<Produto> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => InfoProduto(
-              nome: widget.nome,
-              pathImagem: widget.pathImagem,
-              preco: widget.preco,
-              quantidadeEstrelas: widget.quantidadeEstrelas,
-              quantidadeMaxParcelas: widget.quantidadeMaxParcelas,
-              valorDaParcela: widget.valorDaParcela,
-              descricaoLonga: widget.descricaoLonga,
-              detalhesTecnicos: widget.detalhesTecnicos,
-            ),
+        widget.opcaoSelecionadaFuncao(
+          4,
+          InfoProduto(
+            opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
+            nome: widget.nome,
+            pathImagem: widget.pathImagem,
+            preco: widget.preco,
+            quantidadeEstrelas: widget.quantidadeEstrelas,
+            quantidadeMaxParcelas: widget.quantidadeMaxParcelas,
+            valorDaParcela: widget.valorDaParcela,
+            descricaoLonga: widget.descricaoLonga,
+            detalhesTecnicos: widget.detalhesTecnicos,
           ),
         );
       },
@@ -59,7 +60,7 @@ class ProdutoState extends State<Produto> {
             height: 220,
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: Color.fromRGBO(245, 149, 183, 0.25),
+              color: const Color.fromRGBO(245, 149, 183, 0.25),
               borderRadius: BorderRadius.circular(12),
               // border: Border.all(
               //     color: const Color.fromARGB(255, 205, 0, 106), width: 2),
