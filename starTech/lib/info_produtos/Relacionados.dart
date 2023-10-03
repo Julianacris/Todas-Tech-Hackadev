@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:hackadev/widgets/produtosRelacionados.dart';
 
 class Relacionados extends StatefulWidget {
-  const Relacionados({super.key});
+  final Function opcaoSelecionadaFuncao;
+  const Relacionados({super.key, required this.opcaoSelecionadaFuncao});
 
   @override
   State<StatefulWidget> createState() {
@@ -11,7 +12,7 @@ class Relacionados extends StatefulWidget {
   }
 }
 
-class RelacionadosState extends State {
+class RelacionadosState extends State<Relacionados> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,8 +22,9 @@ class RelacionadosState extends State {
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
         crossAxisCount: 2,
-        children: const <Widget>[
+        children: <Widget>[
           produtosRelacionados(
+            opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
             preco: ' R\$ 4.249,00',
             nome: "Iphone 13 128gb Azul",
             pathImagem: 'assets/images/iphone-azul.png',
@@ -35,6 +37,7 @@ class RelacionadosState extends State {
                 'Marca | Apple \n  Modelo | IPhone 13 \n   Sistema Operacional | IOS 14   \n   Tecnologia Celular |  5G',
           ),
           produtosRelacionados(
+            opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
             preco: ' R\$ 7.220,66',
             nome: "Drone Dji Mini 3 Pro",
             pathImagem: 'assets/images/drone-dji.png',
@@ -47,6 +50,7 @@ class RelacionadosState extends State {
                 'Marca | DJI \n  Modelo | DJI MINI3PSC \n  Faixa Etária | Adulto',
           ),
           produtosRelacionados(
+            opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
             preco: ' R\$ 3.858,57',
             nome: "Smartphone Motorola Edge 30 Ultra",
             pathImagem: 'assets/images/celular-motorola.png',
@@ -59,6 +63,7 @@ class RelacionadosState extends State {
                 'Marca | Motorola \n Tipo de Aparelho | Smartphone   \n Série | Edge 30 Ultra 5G \n  Quantidade de Chip | 2 Chips   \n   RAM |  12.0GB',
           ),
           produtosRelacionados(
+            opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
             preco: ' R\$ 1.399,00',
             nome: "Smart Tv 40pol Philco Led",
             pathImagem: 'assets/images/tvSmart-philco.png',
@@ -71,6 +76,7 @@ class RelacionadosState extends State {
                 " Marca | 	PHILCO \n Polegadas | 40   \n Modelo | PTV40G7ER2CPBLF \n  Resolução | Full HD (1920x1080)  \n   Características | Smart   \n   Voltagem | Bivolt",
           ),
           produtosRelacionados(
+            opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
             preco: ' R\$ 429,00',
             nome: "Alexa Echo Dot",
             pathImagem: 'assets/images/alexa-echo.png',
@@ -83,6 +89,7 @@ class RelacionadosState extends State {
                 'Tamanho | 100 mm x 100 mm x 89 mm \n Peso | 304 gramas \n Geração | Novo Echo Dot 5ª geração (2022)  \n   Compatibilidade | Wifi, Bluetooth Low Energy e Matter',
           ),
           produtosRelacionados(
+            opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
             preco: ' R\$ 1.069,00',
             nome: "Purificador De Água Electrolux",
             pathImagem: 'assets/images/purificador-agua.png',

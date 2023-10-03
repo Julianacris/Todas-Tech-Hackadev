@@ -27,7 +27,7 @@ class TvsPgState extends State<TvsPg> {
         const AppSearchBar(),
         Categorias(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao),
         const SizedBox(height: 20),
-        const Flexible(child: Tvs()),
+        Flexible(child: Tvs(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao)),
       ],
     );
   }
