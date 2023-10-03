@@ -6,8 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:hackadev/widgets/produto.dart';
 
 class Tvs extends StatefulWidget {
-  final Function opcaoSelecionadaFuncao;
-  const Tvs({super.key, required this.opcaoSelecionadaFuncao});
+  const Tvs({super.key});
 
   @override
   State<StatefulWidget> createState() {
@@ -15,7 +14,7 @@ class Tvs extends StatefulWidget {
   }
 }
 
-class TvsState extends State<Tvs> {
+class TvsState extends State {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
@@ -24,9 +23,8 @@ class TvsState extends State<Tvs> {
       crossAxisSpacing: 10,
       mainAxisSpacing: 10,
       crossAxisCount: 2,
-      children: <Widget>[
+      children: const <Widget>[
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 1.399,00',
           nome: "Smart Tv 40pol Philco Led",
           pathImagem: 'assets/images/tvSmart-philco.png',
@@ -39,7 +37,6 @@ class TvsState extends State<Tvs> {
               " Marca | 	PHILCO \n Polegadas | 40   \n Modelo | PTV40G7ER2CPBLF \n  Resolução | Full HD (1920x1080)  \n   Características | Smart   \n   Voltagem | Bivolt",
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 2.849,00',
           nome: "Smart Tv LG 55pol Led 4K UHD",
           pathImagem: 'assets/images/tv-Lg.png',
@@ -52,7 +49,6 @@ class TvsState extends State<Tvs> {
               'Marca | LG \n Tamanho | 55 Polegadas   \n Modelo | 55UQ801CB. BWZ \n  Resolução | 4K Ultra HD   \n   Tecnologia | LED',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 2.089,00',
           nome: "Tv Philips 50pol Smart 4K",
           pathImagem: 'assets/images/tvSmar-philips.png',
@@ -65,7 +61,6 @@ class TvsState extends State<Tvs> {
               'Marca | Philips \n Cor | Preta   \n  Tipo de Tela | LED Ultra HD 4K \n  Tamanho | 50 Polegadas   \n   Garantia | 12 meses   \n   Voltagem |  Bivolt',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 1.089,00',
           nome: "Smart Tv Monitor 24pol Led",
           pathImagem: 'assets/images/tvSmart-Lg.png',
@@ -78,7 +73,6 @@ class TvsState extends State<Tvs> {
               'Marca | LG \n Cor | Preta   \n Tamanho da Tela | 23.6 \n  Tecnologia do Visor | LED   \n   Resolução | HD',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 4.986,00',
           nome: "Smart Tv Samsung 55pol Neo Qled",
           pathImagem: 'assets/images/tv-samsung-neo.png',
@@ -91,7 +85,6 @@ class TvsState extends State<Tvs> {
               'Marca | Sansung \n Tamanho da Tela | 55   \n Modelo | QN55QN85BAGXZD \n  Tecnologia do visor | Neo QLED   \n   Caractríesticas Especiais | Plana   \n   Resolução |  4K',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 5.823,90',
           nome: "Smart Tv 65pol Tcl Qled",
           pathImagem: 'assets/images/tv-tcl.png',

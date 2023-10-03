@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hackadev/widgets/produto.dart';
 
 class Celulares extends StatefulWidget {
-  final Function opcaoSelecionadaFuncao;
-  const Celulares({super.key, required this.opcaoSelecionadaFuncao});
+  const Celulares({super.key});
 
   @override
   State<StatefulWidget> createState() {
@@ -14,7 +13,7 @@ class Celulares extends StatefulWidget {
   }
 }
 
-class CelularesState extends State<Celulares> {
+class CelularesState extends State {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
@@ -23,9 +22,8 @@ class CelularesState extends State<Celulares> {
       crossAxisSpacing: 10,
       mainAxisSpacing: 10,
       crossAxisCount: 2,
-      children: <Widget>[
+      children: const <Widget>[
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 3.858,57',
           nome: "Smartphone Motorola Edge 30 Ultra",
           pathImagem: 'assets/images/celular-motorola.png',
@@ -38,7 +36,6 @@ class CelularesState extends State<Celulares> {
               'Marca | Motorola \n Tipo de Aparelho | Smartphone   \n Série | Edge 30 Ultra 5G \n  Quantidade de Chip | 2 Chips   \n   RAM |  12.0GB',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 3.698,99',
           nome: "Iphone 12 64gb",
           pathImagem: 'assets/images/iphone-branco.png',
@@ -51,7 +48,6 @@ class CelularesState extends State<Celulares> {
               'Marca | Apple \n Referência | MGJ53BR/A   \n Modelo | iPhone 12 64GB \n  Linha | iPhone 12 \n   Armazenamento Interno | 64GB   \n   Tecnologia |  4G/5G',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 4.249,00',
           nome: "Iphone 13 128gb Amarelo",
           pathImagem: 'assets/images/iphone-amarelo.png',
@@ -64,7 +60,6 @@ class CelularesState extends State<Celulares> {
               'Marca | Apple \n  Modelo | IPhone 13 \n  Sistema Operacional | IOS 14   \n   Tecnologia Celular | 5G',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 2.499,00',
           nome: "Samsung Galaxy S22",
           pathImagem: 'assets/images/celular-samsung.png',
@@ -77,7 +72,6 @@ class CelularesState extends State<Celulares> {
               'Marca | SANSUNG \n  Modelo | Galaxy S22 5G \n   Sistema Operacional | Android 12.0   \n   Tecnologia Celular |  5G',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 3.779,10',
           nome: "Samsung Galaxy S22 Ultra",
           pathImagem: 'assets/images/celular-samsung-s22.png',
@@ -90,7 +84,6 @@ class CelularesState extends State<Celulares> {
               'Marca | SANSUNG \n  Modelo | Galaxy S22 Ultra 5G \n   Sistema Operacional | Android 12.0   \n   Tecnologia Celular |  5G',
         ),
         Produto(
-          opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
           preco: ' R\$ 4.249,00',
           nome: "Iphone 13 128gb Azul",
           pathImagem: 'assets/images/iphone-azul.png',

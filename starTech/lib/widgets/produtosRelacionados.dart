@@ -5,7 +5,6 @@ import 'package:hackadev/info_produtos/info_produto.dart';
 
 // ignore: camel_case_types
 class produtosRelacionados extends StatefulWidget {
-  final Function opcaoSelecionadaFuncao;
   final String preco;
   final String nome;
   final String pathImagem;
@@ -25,7 +24,6 @@ class produtosRelacionados extends StatefulWidget {
     required this.valorDaParcela,
     required this.descricaoLonga,
     required this.detalhesTecnicos,
-    required this.opcaoSelecionadaFuncao,
   });
 
   @override
@@ -43,7 +41,6 @@ class ProdutosRelacionadosState extends State<produtosRelacionados> {
           context,
           MaterialPageRoute(
             builder: (context) => InfoProduto(
-              opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
               nome: widget.nome,
               pathImagem: widget.pathImagem,
               preco: widget.preco,
@@ -91,6 +88,7 @@ class ProdutosRelacionadosState extends State<produtosRelacionados> {
                     ),
                   ),
                 ),
+                
                 Container(
                   padding: const EdgeInsets.all(5),
                   width: 100.0,

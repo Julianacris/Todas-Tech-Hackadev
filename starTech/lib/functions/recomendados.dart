@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hackadev/widgets/produtosRecomendados.dart';
 
 class Recomendados extends StatefulWidget {
-  final Function opcaoSelecionadaFuncao;
-  const Recomendados({super.key, required this.opcaoSelecionadaFuncao});
+  const Recomendados({super.key});
 
   @override
   State<StatefulWidget> createState() {
@@ -11,7 +10,7 @@ class Recomendados extends StatefulWidget {
   }
 }
 
-class RecomendadosState extends State<Recomendados> {
+class RecomendadosState extends State {
   List<dynamic> list = [
     {
       "preco": ' R\$ 429,00',
@@ -50,7 +49,6 @@ class RecomendadosState extends State<Recomendados> {
         itemCount: list.length,
         itemBuilder: (BuildContext ctx, index) {
           return produtosRecomendados(
-            opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
             preco: list[index]["preco"],
             nome: list[index]["nome"],
             pathImagem: list[index]["pathImagem"],
