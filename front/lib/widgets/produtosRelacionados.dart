@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hackadev/info_produtos/info_produto.dart';
 
 class produtosRelacionados extends StatefulWidget {
+  final Function opcaoSelecionadaFuncao;
   final String preco;
   final String nome;
   final String pathImagem;
@@ -23,6 +24,7 @@ class produtosRelacionados extends StatefulWidget {
     required this.valorDaParcela,
     required this.descricaoLonga,
     required this.detalhesTecnicos,
+    required this.opcaoSelecionadaFuncao,
   });
 
   @override
@@ -36,21 +38,6 @@ class ProdutosRelacionadosState extends State<produtosRelacionados> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-<<<<<<< HEAD:starTech/lib/widgets/produtosRelacionados.dart
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => InfoProduto(
-              nome: widget.nome,
-              pathImagem: widget.pathImagem,
-              preco: widget.preco,
-              quantidadeEstrelas: widget.quantidadeEstrelas,
-              quantidadeMaxParcelas: widget.quantidadeMaxParcelas,
-              valorDaParcela: widget.valorDaParcela,
-              descricaoLonga: widget.descricaoLonga,
-              detalhesTecnicos: widget.detalhesTecnicos,
-            ),
-=======
         widget.opcaoSelecionadaFuncao(
           4,
           InfoProduto(
@@ -63,7 +50,6 @@ class ProdutosRelacionadosState extends State<produtosRelacionados> {
             valorDaParcela: widget.valorDaParcela,
             descricaoLonga: widget.descricaoLonga,
             detalhesTecnicos: widget.detalhesTecnicos,
->>>>>>> origin/dev:front/lib/widgets/produtosRelacionados.dart
           ),
         );
       },
@@ -102,7 +88,6 @@ class ProdutosRelacionadosState extends State<produtosRelacionados> {
                     ),
                   ),
                 ),
-                
                 Container(
                   padding: const EdgeInsets.all(5),
                   width: 100.0,

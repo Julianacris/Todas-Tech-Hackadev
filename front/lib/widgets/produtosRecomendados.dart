@@ -3,7 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:hackadev/info_produtos/info_produto.dart';
 
+// ignore: camel_case_types
 class produtosRecomendados extends StatefulWidget {
+  final Function opcaoSelecionadaFuncao;
   final String preco;
   final String nome;
   final String pathImagem;
@@ -23,24 +25,25 @@ class produtosRecomendados extends StatefulWidget {
     required this.valorDaParcela,
     required this.descricaoLonga,
     required this.detalhesTecnicos,
+    required this.opcaoSelecionadaFuncao,
   });
 
   @override
   State<StatefulWidget> createState() {
-    return produtosRecomendadosState();
+    return ProdutosRecomendadosState();
   }
 }
 
-class produtosRecomendadosState extends State<produtosRecomendados> {
+class ProdutosRecomendadosState extends State<produtosRecomendados> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-<<<<<<< HEAD:starTech/lib/widgets/produtosRecomendados.dart
         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => InfoProduto(
+              opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
               nome: widget.nome,
               pathImagem: widget.pathImagem,
               preco: widget.preco,
@@ -50,31 +53,17 @@ class produtosRecomendadosState extends State<produtosRecomendados> {
               descricaoLonga: widget.descricaoLonga,
               detalhesTecnicos: widget.detalhesTecnicos,
             ),
-=======
-        widget.opcaoSelecionadaFuncao(
-          4,
-          InfoProduto(
-            opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
-            nome: widget.nome,
-            pathImagem: widget.pathImagem,
-            preco: widget.preco,
-            quantidadeEstrelas: widget.quantidadeEstrelas,
-            quantidadeMaxParcelas: widget.quantidadeMaxParcelas,
-            valorDaParcela: widget.valorDaParcela,
-            descricaoLonga: widget.descricaoLonga,
-            detalhesTecnicos: widget.detalhesTecnicos,
->>>>>>> origin/dev:front/lib/widgets/produtosRecomendados.dart
           ),
         );
       },
       child: Stack(
         children: <Widget>[
           Container(
-            width: 220,
-            height: 220,
+            width: 200,
+            height: 200,
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              //color: const Color.fromRGBO(245, 149, 183, 0.25),
+              color: Colors.white,
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
                   color: const Color.fromARGB(255, 205, 0, 106), width: 2),
