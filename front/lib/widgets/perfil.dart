@@ -15,7 +15,7 @@ class ConteudoPerfil extends State {
   void _navigateToSecondPage() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => CadastroProdutos(),
+        builder: (context) => const MyApp(),
       ),
     );
   }
@@ -24,7 +24,7 @@ class ConteudoPerfil extends State {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Perfil'),
+        title: const Text('Perfil'),
       ),
       body: Center(
         child: Container(
