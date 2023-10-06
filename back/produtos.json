@@ -1,7 +1,6 @@
 {
   "produtos": [
     {
-      "id": 1,
       "nome": "Iphone 12 64gb",
       "preco": 3.698,
       "categoria": "SmartPhones",
@@ -9,7 +8,8 @@
       "quantidadeMaxParcelas": 8,
       "valorDaParcela": 462.25,
       "descricaoLonga": "\"IPhone 12. Tela Super Retina XDR brilhante de 6,1 polegadas*. Ceramic Shield, que é quatro vezes mais resistente a quedas**. Fotos surpreendentes em pouca luz com o modo Noite em todas as câmeras. Reprodução, edição e gravação de vídeos em Dolby Vision com qualidade de cinema.\",",
-      "detalhesTecnicos": "\"Marca | Apple \\n Referência | MGJ53BR/A   \\n Modelo | iPhone 12 64GB \\n  Linha | iPhone 12 \\n   Armazenamento Interno | 64GB   \\n   Tecnologia |  4G/5G\","
+      "detalhesTecnicos": "\"Marca | Apple \\n Referência | MGJ53BR/A   \\n Modelo | iPhone 12 64GB \\n  Linha | iPhone 12 \\n   Armazenamento Interno | 64GB   \\n   Tecnologia |  4G/5G",
+      "id": 1
     },
     {
       "nome": "Smart Tv 40pol Philco Led",
@@ -197,6 +197,39 @@
       "descricaoLonga": "Algoritmo de status de treino PeakBeats; Mais de 120 modos esportivos e reconhecimento inteligente; Sistema de Avaliação de Saúde PAI; Posicionamento Global Forte e Preciso",
       "detalhesTecnicos": "Marca | Amazfit \\n Fabricante | Amazfit   \\n Modelo | 23840 \\n  Número da peça | 9-GTS 2 Mini Black   \\n   Tipo Do Produto | Esporte   \\n   RAM |  1gb",
       "id": 18
+    },
+    {
+      "nome": "teste1",
+      "preco": 123,
+      "categoria": "teste",
+      "quantidadeEstrelas": 4,
+      "quantidadeMsxParcelas": 10,
+      "valorDaParcela": 12,
+      "descricaoLonga": "looongaaaa",
+      "detalhesTecnicos": "seila",
+      "id": 19
+    },
+    {
+      "nome": "teste2",
+      "preco": 123,
+      "categoria": "teste",
+      "quantidadeEstrelas": 4,
+      "quantidadeMsxParcelas": 12,
+      "valorDaParcela": 12,
+      "descricaoLonga": "longaaaaa",
+      "detalhesTecnicos": "seila",
+      "id": 20
+    },
+    {
+      "nome": "teste 3",
+      "preco": 1234,
+      "categoria": "teste",
+      "quantidadeEstrelas": 5,
+      "quantidadeMaxParcelas": 10,
+      "valorDaParcela": 123,
+      "descricaoLonga": "longaaaaaaaa",
+      "detalhesTecnicos": "seila",
+      "id": 21
     }
   ]
 }
