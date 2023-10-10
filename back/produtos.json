@@ -197,39 +197,6 @@
       "descricaoLonga": "Algoritmo de status de treino PeakBeats; Mais de 120 modos esportivos e reconhecimento inteligente; Sistema de Avaliação de Saúde PAI; Posicionamento Global Forte e Preciso",
       "detalhesTecnicos": "Marca | Amazfit \\n Fabricante | Amazfit   \\n Modelo | 23840 \\n  Número da peça | 9-GTS 2 Mini Black   \\n   Tipo Do Produto | Esporte   \\n   RAM |  1gb",
       "id": 18
-    },
-    {
-      "nome": "teste1",
-      "preco": 123,
-      "categoria": "teste",
-      "quantidadeEstrelas": 4,
-      "quantidadeMsxParcelas": 10,
-      "valorDaParcela": 12,
-      "descricaoLonga": "looongaaaa",
-      "detalhesTecnicos": "seila",
-      "id": 19
-    },
-    {
-      "nome": "teste2",
-      "preco": 123,
-      "categoria": "teste",
-      "quantidadeEstrelas": 4,
-      "quantidadeMsxParcelas": 12,
-      "valorDaParcela": 12,
-      "descricaoLonga": "longaaaaa",
-      "detalhesTecnicos": "seila",
-      "id": 20
-    },
-    {
-      "nome": "teste 3",
-      "preco": 1234,
-      "categoria": "teste",
-      "quantidadeEstrelas": 5,
-      "quantidadeMaxParcelas": 10,
-      "valorDaParcela": 123,
-      "descricaoLonga": "longaaaaaaaa",
-      "detalhesTecnicos": "seila",
-      "id": 21
     }
   ]
 }

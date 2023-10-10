@@ -166,39 +166,42 @@ class CadastroProdutosWidget extends State<CadastroProdutos> {
                     height: 10,
                   ),
 
-                  // DropdownButton<String>(
-                  //   value: categoriaValue,
-                  //   items: <String>['Todos', 'Tvs', 'Smartphones', 'Eletroportáteis']
-                  //     .map<DropdownMenuItem<String>>((String value) {
-                  //   return DropdownMenuItem<String>(
-                  //     value: value,
-                  //     child: Text(
-                  //       value,
-                  //       style: const TextStyle(fontSize: 20),
-                  //     ),
-                  //   );
-                  // }).toList(),
-                  //   onChanged: (String? valor) {
-                  //     setState(() {
-                  //       categoriaValue = valor!;
-                  //     });
-                  //   },
-                  // ),
-
-                  TextField(
-                    decoration: const InputDecoration(
-                      labelText: 'Categoria',
-                      border: OutlineInputBorder(),
-                    ),
+                  DropdownButton<String>(
+                    hint: const Text('Selecione uma categoria'),
+                    value: categoria,
+                    items: <String>['Todos', 'Tvs', 'Smartphones', 'Eletroportáteis', 'Testes']
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(
+                        value,
+                        style: const TextStyle(fontSize: 20),
+                      ),
+                    );
+                  }).toList(),
                     onChanged: (valor) {
                       setState(() {
                         categoria = valor;
                       });
                     },
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+
+                  // TextField(
+                  //   decoration: const InputDecoration(
+                  //     labelText: 'Categoria',
+                  //     border: OutlineInputBorder(),
+                  //   ),
+                  //   onChanged: (valor) {
+                  //     setState(() {
+                  //       categoria = valor;
+                  //     });
+                  //   },
+                  // ),
+                  // const SizedBox(
+                  //   height: 10,
+                  // ),
+
+
                   TextField(
                     decoration: const InputDecoration(
                       labelText: 'Quantidade de estrelas',
