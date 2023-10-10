@@ -165,43 +165,30 @@ class CadastroProdutosWidget extends State<CadastroProdutos> {
                   const SizedBox(
                     height: 10,
                   ),
-
                   DropdownButton<String>(
                     hint: const Text('Selecione uma categoria'),
                     value: categoria,
-                    items: <String>['Todos', 'Tvs', 'Smartphones', 'Eletroportáteis', 'Testes']
-                      .map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(
-                        value,
-                        style: const TextStyle(fontSize: 20),
-                      ),
-                    );
-                  }).toList(),
+                    items: <String>[
+                      'Todos',
+                      'Tvs',
+                      'Smartphones',
+                      'Eletroportáteis',
+                      'Testes'
+                    ].map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(
+                          value,
+                          style: const TextStyle(fontSize: 20),
+                        ),
+                      );
+                    }).toList(),
                     onChanged: (valor) {
                       setState(() {
                         categoria = valor;
                       });
                     },
                   ),
-
-                  // TextField(
-                  //   decoration: const InputDecoration(
-                  //     labelText: 'Categoria',
-                  //     border: OutlineInputBorder(),
-                  //   ),
-                  //   onChanged: (valor) {
-                  //     setState(() {
-                  //       categoria = valor;
-                  //     });
-                  //   },
-                  // ),
-                  // const SizedBox(
-                  //   height: 10,
-                  // ),
-
-
                   TextField(
                     decoration: const InputDecoration(
                       labelText: 'Quantidade de estrelas',
@@ -314,14 +301,14 @@ class CadastroProdutosWidget extends State<CadastroProdutos> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => DetalhesProduto(productData: product),
+                                  builder: (context) =>
+                                      DetalhesProduto(productData: product),
                                 ),
                               );
                             },
                           );
                         },
                       );
-                      
                     }
                   }
                 },
@@ -334,14 +321,12 @@ class CadastroProdutosWidget extends State<CadastroProdutos> {
   }
 }
 
-
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       title: 'Cadastro de Produtos',
       theme: ThemeData(
         primarySwatch: Colors.pink,
