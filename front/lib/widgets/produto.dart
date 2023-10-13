@@ -34,6 +34,14 @@ class Produto extends StatefulWidget {
 }
 
 class ProdutoState extends State<Produto> {
+  bool isFavorite = false;
+
+  void toggleFavorite() {
+    setState(() {
+      isFavorite = !isFavorite;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -60,10 +68,10 @@ class ProdutoState extends State<Produto> {
             height: 220,
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: const Color.fromRGBO(245, 149, 183, 0.25),
+              //color: const Color.fromRGBO(245, 149, 183, 0.25),
               borderRadius: BorderRadius.circular(12),
-              // border: Border.all(
-              //     color: const Color.fromARGB(255, 205, 0, 106), width: 2),
+              border: Border.all(
+                  color: const Color.fromARGB(255, 205, 0, 106), width: 2),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -88,23 +96,38 @@ class ProdutoState extends State<Produto> {
                     ),
                   ),
                 ),
-                Container(
-                  padding: const EdgeInsets.all(5),
-                  width: 100.0,
-                  decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 205, 0, 106),
-                      borderRadius: BorderRadius.circular(15)),
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      widget.preco,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(5),
+                      width: 100.0,
+                      decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 205, 0, 106),
+                          borderRadius: BorderRadius.circular(15)),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          widget.preco,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                )
+                    const SizedBox(width: 10),
+                    //icone favorito
+                    IconButton(
+                      icon: isFavorite
+                          ? const Icon(Icons.favorite,
+                              color: Color.fromARGB(255, 205, 0, 106))
+                          : const Icon(Icons.favorite_border,
+                              color: Color.fromARGB(255, 205, 0, 106)),
+                      onPressed: toggleFavorite,
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
