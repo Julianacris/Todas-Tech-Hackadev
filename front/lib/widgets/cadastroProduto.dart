@@ -7,43 +7,6 @@ void main() {
   runApp(const MyApp());
 }
 
-// class Produto {
-//   int? id;
-//   String? nome;
-//   double? preco;
-//   String? categoria;
-//   int? quantidadeEstrelas;
-//   int? quantidadeMaxParcelas;
-//   double? valorDaParcela;
-//   String? descricaoLonga;
-//   String? detalhesTecnicos;
-
-//   Produto({
-//     this.id,
-//     this.nome,
-//     this.preco,
-//     this.categoria,
-//     this.quantidadeEstrelas,
-//     this.quantidadeMaxParcelas,
-//     this.valorDaParcela,
-//     this.descricaoLonga,
-//     this.detalhesTecnicos,
-//   });
-
-//   factory Produto.fromJson(Map<String, dynamic> json) {
-//     return Produto(
-//       id: json['id'],
-//       nome: json['nome'],
-//       preco: json['preco'].toDouble(),
-//       categoria: json['categoria'],
-//       quantidadeEstrelas: json['quantidadeEstrelas'],
-//       quantidadeMaxParcelas: json['quantidadeMaxParcelas'],
-//       valorDaParcela: json['valorDaParcela'].toDouble(),
-//       descricaoLonga: json['descricaoLonga'],
-//       detalhesTecnicos: json['detalhesTecnicos'],
-//     );
-//   }
-// }
 
 Future<List<Produto>> listarProdutos() async {
   final response = await http.get(Uri.parse('http://localhost:3000/produtos'));
@@ -127,6 +90,15 @@ class CadastroProdutosWidget extends State<CadastroProdutos> {
             Navigator.of(context).popUntil((route) => route.isFirst);
           },
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () {
+              // Chama a função para buscar os produtos novamente
+              setState(() {});
+            },
+          ),
+        ],
       ),
       body: Center(
         child: Column(
@@ -328,6 +300,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Cadastro de Produtos',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.pink,
       ),
