@@ -3,11 +3,6 @@ import 'package:hackadev/pages/DetalhesProduto.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-void main() {
-  runApp(const MyApp());
-}
-
-
 Future<List<Produto>> listarProdutos() async {
   final response = await http.get(Uri.parse('http://localhost:3000/produtos'));
   if (response.statusCode == 200) {
@@ -74,16 +69,6 @@ class CadastroProdutosWidget extends State<CadastroProdutos> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cadastro de Produtos'),
-        // leading: IconButton(
-        //   icon: const Icon(Icons.arrow_back),
-        //   onPressed: () {
-        //     Navigator.of(context).push(
-        //       MaterialPageRoute(
-        //         builder: (context) => const Perfil(),
-        //       ),
-        //     );
-        //   },
-        // ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -289,22 +274,6 @@ class CadastroProdutosWidget extends State<CadastroProdutos> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Cadastro de Produtos',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.pink,
-      ),
-      home: CadastroProdutos(),
     );
   }
 }
