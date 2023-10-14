@@ -3,48 +3,6 @@ import 'package:hackadev/pages/DetalhesProduto.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-void main() {
-  runApp(const MyApp());
-}
-
-// class Produto {
-//   int? id;
-//   String? nome;
-//   double? preco;
-//   String? categoria;
-//   int? quantidadeEstrelas;
-//   int? quantidadeMaxParcelas;
-//   double? valorDaParcela;
-//   String? descricaoLonga;
-//   String? detalhesTecnicos;
-
-//   Produto({
-//     this.id,
-//     this.nome,
-//     this.preco,
-//     this.categoria,
-//     this.quantidadeEstrelas,
-//     this.quantidadeMaxParcelas,
-//     this.valorDaParcela,
-//     this.descricaoLonga,
-//     this.detalhesTecnicos,
-//   });
-
-//   factory Produto.fromJson(Map<String, dynamic> json) {
-//     return Produto(
-//       id: json['id'],
-//       nome: json['nome'],
-//       preco: json['preco'].toDouble(),
-//       categoria: json['categoria'],
-//       quantidadeEstrelas: json['quantidadeEstrelas'],
-//       quantidadeMaxParcelas: json['quantidadeMaxParcelas'],
-//       valorDaParcela: json['valorDaParcela'].toDouble(),
-//       descricaoLonga: json['descricaoLonga'],
-//       detalhesTecnicos: json['detalhesTecnicos'],
-//     );
-//   }
-// }
-
 Future<List<Produto>> listarProdutos() async {
   final response = await http.get(Uri.parse('http://localhost:3000/produtos'));
   if (response.statusCode == 200) {
@@ -111,22 +69,21 @@ class CadastroProdutosWidget extends State<CadastroProdutos> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cadastro de Produtos'),
-        // leading: IconButton(
-        //   icon: const Icon(Icons.arrow_back),
-        //   onPressed: () {
-        //     Navigator.of(context).push(
-        //       MaterialPageRoute(
-        //         builder: (context) => const Perfil(),
-        //       ),
-        //     );
-        //   },
-        // ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.of(context).popUntil((route) => route.isFirst);
           },
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () {
+              // Chama a função para buscar os produtos novamente
+              setState(() {});
+            },
+          ),
+        ],
       ),
       body: Center(
         child: Column(
@@ -165,43 +122,30 @@ class CadastroProdutosWidget extends State<CadastroProdutos> {
                   const SizedBox(
                     height: 10,
                   ),
-
                   DropdownButton<String>(
                     hint: const Text('Selecione uma categoria'),
                     value: categoria,
-                    items: <String>['Todos', 'Tvs', 'Smartphones', 'Eletroportáteis', 'Testes']
-                      .map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(
-                        value,
-                        style: const TextStyle(fontSize: 20),
-                      ),
-                    );
-                  }).toList(),
+                    items: <String>[
+                      'Todos',
+                      'Tvs',
+                      'Smartphones',
+                      'Eletroportáteis',
+                      'Testes'
+                    ].map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(
+                          value,
+                          style: const TextStyle(fontSize: 20),
+                        ),
+                      );
+                    }).toList(),
                     onChanged: (valor) {
                       setState(() {
                         categoria = valor;
                       });
                     },
                   ),
-
-                  // TextField(
-                  //   decoration: const InputDecoration(
-                  //     labelText: 'Categoria',
-                  //     border: OutlineInputBorder(),
-                  //   ),
-                  //   onChanged: (valor) {
-                  //     setState(() {
-                  //       categoria = valor;
-                  //     });
-                  //   },
-                  // ),
-                  // const SizedBox(
-                  //   height: 10,
-                  // ),
-
-
                   TextField(
                     decoration: const InputDecoration(
                       labelText: 'Quantidade de estrelas',
@@ -314,14 +258,14 @@ class CadastroProdutosWidget extends State<CadastroProdutos> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => DetalhesProduto(productData: product),
+                                  builder: (context) =>
+                                      DetalhesProduto(productData: product),
                                 ),
                               );
                             },
                           );
                         },
                       );
-                      
                     }
                   }
                 },
@@ -330,23 +274,6 @@ class CadastroProdutosWidget extends State<CadastroProdutos> {
           ],
         ),
       ),
-    );
-  }
-}
-
-
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return  MaterialApp(
-      title: 'Cadastro de Produtos',
-      theme: ThemeData(
-        primarySwatch: Colors.pink,
-      ),
-      home: CadastroProdutos(),
     );
   }
 }

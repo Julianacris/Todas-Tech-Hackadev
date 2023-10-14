@@ -15,7 +15,7 @@ class ConteudoPerfil extends State {
   void _navigateToSecondPage() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const MyApp(),
+        builder: (context) => const CadastroProdutos(),
       ),
     );
   }
