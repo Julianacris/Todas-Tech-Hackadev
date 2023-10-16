@@ -3,6 +3,9 @@ import 'package:hackadev/pages/DetalhesProduto.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+import 'package:hackadev/carrinho/produto.dart';
+
+
 Future<List<Produto>> listarProdutos() async {
   final response = await http.get(Uri.parse('http://localhost:3000/produtos'));
   if (response.statusCode == 200) {
