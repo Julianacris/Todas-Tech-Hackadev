@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_unnecessary_containers
-
 import 'package:flutter/material.dart';
 import 'package:hackadev/info_produtos/info_produto.dart';
 
@@ -60,10 +58,10 @@ class ProdutosRelacionadosState extends State<produtosRelacionados> {
             height: 220,
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: const Color.fromRGBO(245, 149, 183, 0.25),
+              //color: const Color.fromRGBO(245, 149, 183, 0.25),
               borderRadius: BorderRadius.circular(12),
-              // border: Border.all(
-              //     color: const Color.fromARGB(255, 205, 0, 106), width: 2),
+              border: Border.all(
+                  color: const Color.fromARGB(255, 205, 0, 106), width: 2),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
