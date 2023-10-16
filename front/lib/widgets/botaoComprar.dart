@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:hackadev/carrinho/carrinho_de_compras.dart';
+import 'package:hackadev/carrinho/produto.dart';
 
 class BotaoComprar extends StatefulWidget {
-  const BotaoComprar({super.key});
+  final String imagem;
+  final String nome;
+  final double preco;
+  final Function callback;
+  const BotaoComprar({
+    super.key,
+    required this.imagem,
+    required this.nome,
+    required this.preco,
+    required this.callback,
+  });
 
   @override
   State<StatefulWidget> createState() {
@@ -9,7 +21,7 @@ class BotaoComprar extends StatefulWidget {
   }
 }
 
-class BotaoComprarWidget extends State {
+class BotaoComprarWidget extends State<BotaoComprar> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,7 +29,16 @@ class BotaoComprarWidget extends State {
       height: 38,
       child: ElevatedButton(
         onPressed: () {
-          // Adicione ação aqui
+          setState(() {
+            CarrinhoDeCompras.adicionarProduto(
+              Produto(
+                nome: widget.nome,
+                preco: widget.preco,
+                imagem: widget.imagem,
+              ),
+            );
+          });
+          widget.callback();
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color.fromARGB(255, 147, 0, 75),
