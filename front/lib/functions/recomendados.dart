@@ -14,7 +14,7 @@ class Recomendados extends StatefulWidget {
 class RecomendadosState extends State<Recomendados> {
   List<dynamic> list = [
     {
-      "preco": ' R\$ 429,00',
+      "preco": 'R\$ 429,52',
       "nome": "Alexa Echo Dot",
       "pathImagem": 'assets/images/alexa-echo.png',
       "quantidadeEstrelas": 4,
