@@ -5,7 +5,7 @@ import 'package:hackadev/info_produtos/produto/Info.dart';
 import 'package:hackadev/widgets/botaoComprar.dart';
 import 'package:hackadev/widgets/search_bar.dart';
 
-class InfoProduto extends StatefulWidget {
+class InfoProduto extends StatelessWidget {
   final Function opcaoSelecionadaFuncao;
   final String preco;
   final String nome;
@@ -30,11 +30,6 @@ class InfoProduto extends StatefulWidget {
   });
 
   @override
-  State<InfoProduto> createState() => _InfoProdutoState();
-}
-
-class _InfoProdutoState extends State<InfoProduto> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
@@ -46,34 +41,22 @@ class _InfoProdutoState extends State<InfoProduto> {
                   IconButton(
                     icon: const Icon(Icons.arrow_back, color: Colors.black),
                     onPressed: () {
-                      setState(() {
-                        widget.opcaoSelecionadaFuncao(0, SizedBox());
-                      });
+                      opcaoSelecionadaFuncao(0, SizedBox());
                     },
                   ),
                 ],
               ),
               const AppSearchBar(),
               Info(
-                imagem: widget.pathImagem,
-                nome: widget.nome,
-                preco: widget.preco,
-                quantidadeEstrelas: widget.quantidadeEstrelas,
+                imagem: pathImagem,
+                nome: nome,
+                preco: preco,
+                quantidadeEstrelas: quantidadeEstrelas,
               ),
               const SizedBox(
                 height: 15,
               ),
-              BotaoComprar(
-                imagem: widget.pathImagem,
-                preco: double.parse(widget.preco
-                    .replaceAll('R\$', "")
-                    .replaceAll(".", "")
-                    .replaceAll(",", ".")),
-                nome: widget.nome,
-                callback: () {
-                  widget.opcaoSelecionadaFuncao(1, SizedBox());
-                },
-              ),
+              const BotaoComprar(),
               const SizedBox(
                 height: 15,
               ),
@@ -87,7 +70,7 @@ class _InfoProdutoState extends State<InfoProduto> {
                 ),
                 child: Column(children: [
                   Text(
-                    widget.preco,
+                    preco,
                     style: const TextStyle(
                       fontSize: 48,
                       fontWeight: FontWeight.w700,
@@ -97,7 +80,7 @@ class _InfoProdutoState extends State<InfoProduto> {
                     height: 30,
                   ),
                   Text(
-                    'Em até ${widget.quantidadeMaxParcelas}x de R\$  ${widget.valorDaParcela.toStringAsFixed(2).replaceFirst(".", ",")}',
+                    'Em até ${quantidadeMaxParcelas}x de R\$  ${valorDaParcela.toStringAsFixed(2).replaceFirst(".", ",")}',
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
@@ -107,7 +90,7 @@ class _InfoProdutoState extends State<InfoProduto> {
                     height: 30,
                   ),
                   Text(
-                    widget.descricaoLonga,
+                    descricaoLonga,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 13,
@@ -119,7 +102,7 @@ class _InfoProdutoState extends State<InfoProduto> {
                     height: 30,
                   ),
                   Text(
-                    widget.detalhesTecnicos,
+                    detalhesTecnicos,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 14,
@@ -150,7 +133,7 @@ class _InfoProdutoState extends State<InfoProduto> {
                 height: 700,
                 child: SizedBox(
                   child: Relacionados(
-                    opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
+                    opcaoSelecionadaFuncao: opcaoSelecionadaFuncao,
                   ),
                 ),
               ),

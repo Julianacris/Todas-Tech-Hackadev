@@ -35,7 +35,7 @@ class PortateisState extends State<Portateis> {
           "Marca | Consul \n  Dimensões | 28L x 25W x 33H centímetros \n  Material | Plástico   \n   Capacidade | 1,5 lts",
     },
     {
-      "preco": 'R\$ 429,52',
+      "preco": ' R\$ 429,00',
       "nome": "Alexa Echo Dot",
       "pathImagem": 'assets/images/alexa-echo.png',
       "quantidadeEstrelas": 4,

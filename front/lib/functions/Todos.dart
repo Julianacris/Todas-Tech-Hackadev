@@ -196,7 +196,7 @@ class TodosProdState extends State<TodosProd> {
         ),
         Produto(
           opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
-          preco: ' R\$ 429,52',
+          preco: ' R\$ 429,00',
           nome: "Alexa Echo Dot",
           pathImagem: 'assets/images/alexa-echo.png',
           quantidadeEstrelas: 4,
