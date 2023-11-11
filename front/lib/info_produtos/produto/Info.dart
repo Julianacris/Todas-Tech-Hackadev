@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class Info extends StatefulWidget {
   final String imagem;
   final String nome;
-  final String preco;
+  final String valor;
   final int quantidadeEstrelas;
 
   const Info({
     super.key,
     required this.imagem,
     required this.nome,
-    required this.preco,
+    required this.valor,
     required this.quantidadeEstrelas,
   });
 
@@ -69,7 +69,7 @@ class InfoState extends State<Info> {
               child: Align(
                 alignment: Alignment.center,
                 child: Text(
-                  widget.preco,
+                  widget.valor,
                   style: const TextStyle(
                       fontFamily: 'Arial',
                       fontSize: 20,

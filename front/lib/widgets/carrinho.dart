@@ -1,4 +1,4 @@
-import 'dart:async';
+// import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:hackadev/carrinho/carrinho_de_compras.dart';
@@ -24,7 +24,7 @@ class ConteudoCarrinho extends State<Carrinho> {
       produtos = value;
       totalCarrinho = 0;
       for (var element in produtos) {
-        totalCarrinho = totalCarrinho + element.preco!;
+        totalCarrinho = totalCarrinho + element.valor!;
       }
       //produtos.map((item) => {totalCarrinho = totalCarrinho + item.preco!});
       setState(() {});
@@ -120,7 +120,7 @@ class ConteudoCarrinho extends State<Carrinho> {
                                               height: 10,
                                             ),
                                             Text(
-                                              "R\$ ${p.preco!.toStringAsFixed(2).replaceAll(".", ",")}",
+                                              "R\$ ${p.valor!.toStringAsFixed(2).replaceAll(".", ",")}",
                                               style: const TextStyle(
                                                 fontSize: 18,
                                               ),
