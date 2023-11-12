@@ -59,11 +59,6 @@ class Produto {
     );
   }
 
-  // @override
-  // String toString() {
-  //   // TODO: implement toString
-  //   return "Produto("+nome+")";
-  // }
 }
 
 class CadastroProdutos extends StatefulWidget {
@@ -226,9 +221,6 @@ class _CadastroProdutosState extends State<CadastroProdutos> {
                   const SizedBox(
                     height: 10,
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
                   TextField(
                     controller: descricaoController,
                     decoration: const InputDecoration(
@@ -259,15 +251,15 @@ class _CadastroProdutosState extends State<CadastroProdutos> {
                   const SizedBox(
                     height: 10,
                   ),
-                  // ElevatedButton(
-                  //   onPressed: () async {
-                  //     final XFile? imagemSelecionada = await ImagePicker().pickImage(source: ImageSource.gallery);
-                  //     setState(() {
-                  //       this.imagemSelecionada = imagemSelecionada;
-                  //     });
-                  //   },
-                  //   child: const Text("Selecionar Imagem"),
-                  // ),
+                  ElevatedButton(
+                    onPressed: () async {
+                      final XFile? imagemSelecionada = await ImagePicker().pickImage(source: ImageSource.gallery);
+                      setState(() {
+                        this.imagemSelecionada = imagemSelecionada;
+                      });
+                    },
+                    child: const Text("Selecionar Imagem"),
+                  ),
                   const SizedBox(
                     height: 20,
                   ),
