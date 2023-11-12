@@ -259,15 +259,15 @@ class _CadastroProdutosState extends State<CadastroProdutos> {
                   const SizedBox(
                     height: 10,
                   ),
-                  ElevatedButton(
-                    onPressed: () async {
-                      final XFile? imagemSelecionada = await ImagePicker().pickImage(source: ImageSource.gallery);
-                      setState(() {
-                        this.imagemSelecionada = imagemSelecionada;
-                      });
-                    },
-                    child: const Text("Selecionar Imagem"),
-                  ),
+                  // ElevatedButton(
+                  //   onPressed: () async {
+                  //     final XFile? imagemSelecionada = await ImagePicker().pickImage(source: ImageSource.gallery);
+                  //     setState(() {
+                  //       this.imagemSelecionada = imagemSelecionada;
+                  //     });
+                  //   },
+                  //   child: const Text("Selecionar Imagem"),
+                  // ),
                   const SizedBox(
                     height: 20,
                   ),
