@@ -7,25 +7,25 @@ import 'package:hackadev/widgets/search_bar.dart';
 
 class InfoProduto extends StatefulWidget {
   final Function opcaoSelecionadaFuncao;
-  final String preco;
+  final String valor;
   final String nome;
-  final String pathImagem;
+  final String imagem;
   final int quantidadeEstrelas;
-  final int quantidadeMaxParcelas;
+  final int parcelas;
   final double valorDaParcela;
-  final String descricaoLonga;
-  final String detalhesTecnicos;
+  final String descricao;
+  final String detalhes;
 
   const InfoProduto({
     super.key,
-    required this.preco,
+    required this.valor,
     required this.nome,
-    required this.pathImagem,
+    required this.imagem,
     required this.quantidadeEstrelas,
-    required this.quantidadeMaxParcelas,
+    required this.parcelas,
     required this.valorDaParcela,
-    required this.descricaoLonga,
-    required this.detalhesTecnicos,
+    required this.descricao,
+    required this.detalhes,
     required this.opcaoSelecionadaFuncao,
   });
 
@@ -55,17 +55,17 @@ class _InfoProdutoState extends State<InfoProduto> {
               ),
               const AppSearchBar(),
               Info(
-                imagem: widget.pathImagem,
+                imagem: widget.imagem,
                 nome: widget.nome,
-                preco: widget.preco,
+                valor: widget.valor,
                 quantidadeEstrelas: widget.quantidadeEstrelas,
               ),
               const SizedBox(
                 height: 15,
               ),
               BotaoComprar(
-                imagem: widget.pathImagem,
-                preco: double.parse(widget.preco
+                imagem: widget.imagem,
+                valor: double.parse(widget.valor
                     .replaceAll('R\$', "")
                     .replaceAll(".", "")
                     .replaceAll(",", ".")),
@@ -87,7 +87,7 @@ class _InfoProdutoState extends State<InfoProduto> {
                 ),
                 child: Column(children: [
                   Text(
-                    widget.preco,
+                    widget.valor,
                     style: const TextStyle(
                       fontSize: 48,
                       fontWeight: FontWeight.w700,
@@ -97,7 +97,7 @@ class _InfoProdutoState extends State<InfoProduto> {
                     height: 30,
                   ),
                   Text(
-                    'Em até ${widget.quantidadeMaxParcelas}x de R\$  ${widget.valorDaParcela.toStringAsFixed(2).replaceFirst(".", ",")}',
+                    'Em até ${widget.parcelas}x de R\$  ${widget.valorDaParcela.toStringAsFixed(2).replaceFirst(".", ",")}',
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
@@ -107,7 +107,7 @@ class _InfoProdutoState extends State<InfoProduto> {
                     height: 30,
                   ),
                   Text(
-                    widget.descricaoLonga,
+                    widget.descricao,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 13,
@@ -119,7 +119,7 @@ class _InfoProdutoState extends State<InfoProduto> {
                     height: 30,
                   ),
                   Text(
-                    widget.detalhesTecnicos,
+                    widget.detalhes,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 14,

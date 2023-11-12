@@ -1,25 +1,26 @@
+
 class Produto {
   int? id;
   String? nome;
-  double? preco;
+  double? valor;
   String? categoria;
   int? quantidadeEstrelas;
-  int? quantidadeMaxParcelas;
+  int? parcelas;
   double? valorDaParcela;
-  String? descricaoLonga;
-  String? detalhesTecnicos;
+  String? descricao;
+  String? detalhes;
   String? imagem;
 
   Produto({
     this.id,
     this.nome,
-    this.preco,
+    this.valor,
     this.categoria,
     this.quantidadeEstrelas,
-    this.quantidadeMaxParcelas,
+    this.parcelas,
     this.valorDaParcela,
-    this.descricaoLonga,
-    this.detalhesTecnicos,
+    this.descricao,
+    this.detalhes,
     this.imagem,
   });
 
@@ -27,13 +28,13 @@ class Produto {
     return Produto(
       id: json['id'],
       nome: json['nome'],
-      preco: json['preco'].toDouble(),
+      valor: json['valor'],
       categoria: json['categoria'],
       quantidadeEstrelas: json['quantidadeEstrelas'],
-      quantidadeMaxParcelas: json['quantidadeMaxParcelas'],
-      valorDaParcela: json['valorDaParcela'].toDouble(),
-      descricaoLonga: json['descricaoLonga'],
-      detalhesTecnicos: json['detalhesTecnicos'],
+      parcelas: json['parcelas'],
+      valorDaParcela: json['valorDaParcela'],
+      descricao: json['descricao'],
+      detalhes: json['detalhes'],
       imagem: json['imagem'],
     );
   }

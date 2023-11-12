@@ -27,4 +27,8 @@ class Produtos extends Model
         'imagem'
     ];
 
+    protected $casts = [
+        'valor' => 'double',
+        'parcelas' => 'int',
+    ];
 }
