@@ -5,13 +5,13 @@ import 'package:hackadev/carrinho/produto.dart';
 class BotaoComprar extends StatefulWidget {
   final String imagem;
   final String nome;
-  final double preco;
+  final double valor;
   final Function callback;
   const BotaoComprar({
     super.key,
     required this.imagem,
     required this.nome,
-    required this.preco,
+    required this.valor,
     required this.callback,
   });
 
@@ -33,7 +33,7 @@ class BotaoComprarWidget extends State<BotaoComprar> {
             CarrinhoDeCompras.adicionarProduto(
               Produto(
                 nome: widget.nome,
-                preco: widget.preco,
+                valor: widget.valor,
                 imagem: widget.imagem,
               ),
             );

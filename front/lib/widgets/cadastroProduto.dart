@@ -1,71 +1,220 @@
 import 'package:flutter/material.dart';
-import 'package:hackadev/pages/DetalhesProduto.dart';
+import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:image_picker/image_picker.dart';
+import 'package:hackadev/pages/DetalhesProduto.dart';
 
-import 'package:hackadev/carrinho/produto.dart';
+class Produto {
+  int? id;
+  String? nome;
+  double? valor;
+  String? categoria;
+  int? parcelas;
+  String? descricao;
+  String? detalhes;
+  String? imagem;
 
+  Produto({
+    this.id,
+    this.nome,
+    this.valor,
+    this.categoria,
+    this.parcelas,
+    this.descricao,
+    this.detalhes,
+    this.imagem,
+  });
 
-Future<List<Produto>> listarProdutos() async {
-  final response = await http.get(Uri.parse('http://localhost:3000/produtos'));
-  if (response.statusCode == 200) {
-    final List<dynamic> responseData = json.decode(response.body);
-    return responseData.map((json) => Produto.fromJson(json)).toList();
-  } else {
-    throw Exception('Falha ao carregar os produtos');
+  factory Produto.fromJson(Map<String, dynamic> json) {
+    return Produto(
+      id: json['id'],
+      nome: json['nome'],
+      valor: json['valor']?.toDouble(),
+      categoria: json['categoria'],
+      parcelas: json['parcelas'],
+      descricao: json['descricao'],
+      detalhes: json['detalhes'],
+      imagem: json['imagem'],
+    );
   }
-}
 
-Future<void> cadastrarProdutos(
-  String nome,
-  String categoria,
-  double preco,
-  int quantidadeEstrelas,
-  int quantidadeMaxParcelas,
-  double valorDaParcela,
-  String descricaoLonga,
-  String detalhesTecnicos,
-) async {
-  await http.post(
-    Uri.parse('http://localhost:3000/produtos'),
-    headers: <String, String>{'Content-type': 'application/json'},
-    body: jsonEncode(<String, dynamic>{
-      'nome': nome,
-      'preco': preco,
-      'categoria': categoria,
-      'quantidadeEstrelas': quantidadeEstrelas,
-      'quantidadeMaxParcelas': quantidadeMaxParcelas,
-      'valorDaParcela': valorDaParcela,
-      'descricaoLonga': descricaoLonga,
-      'detalhesTecnicos': detalhesTecnicos,
-    }),
-  );
+  Produto copyWith({
+    int? id,
+    String? nome,
+    double? valor,
+    String? categoria,
+    int? parcelas,
+    String? descricao,
+    String? detalhes,
+    String? imagem,
+  }) {
+    return Produto(
+      id: id ?? this.id,
+      nome: nome ?? this.nome,
+      valor: valor ?? this.valor,
+      categoria: categoria ?? this.categoria,
+      parcelas: parcelas ?? this.parcelas,
+      descricao: descricao ?? this.descricao,
+      detalhes: detalhes ?? this.detalhes,
+      imagem: imagem ?? this.imagem,
+    );
+  }
 }
 
 class CadastroProdutos extends StatefulWidget {
-  const CadastroProdutos({super.key});
+  const CadastroProdutos({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() {
-    return CadastroProdutosWidget();
-  }
+  _CadastroProdutosState createState() => _CadastroProdutosState();
 }
 
-class CadastroProdutosWidget extends State<CadastroProdutos> {
-  final TextEditingController controller = TextEditingController();
+class _CadastroProdutosState extends State<CadastroProdutos> {
+  final TextEditingController idController = TextEditingController();
+  final TextEditingController nomeController = TextEditingController();
+  final TextEditingController valorController = TextEditingController();
+  final TextEditingController categoriaController = TextEditingController();
+  final TextEditingController parcelasController = TextEditingController();
+  final TextEditingController descricaoController = TextEditingController();
+  final TextEditingController detalhesController = TextEditingController();
+  final TextEditingController imagemController = TextEditingController();
 
-  //Para o DropDownMenu
-  //String categoriaValue = 'Todos';
+  Produto produto = Produto();
+  XFile? imagemSelecionada;
 
-  // Variáveis
-  String? nome;
-  double? preco;
-  String? categoria;
-  int? quantidadeEstrelas;
-  int? quantidadeMaxParcelas;
-  double? valorDaParcela;
-  String? descricaoLonga;
-  String? detalhesTecnicos;
+  Future<List<Produto>> listarProdutos() async {
+    try {
+      final response = await http.get(Uri.parse('http://localhost:8000/api/produtos'));
+      if (response.statusCode == 200) {
+        final List<dynamic> responseData = json.decode(response.body);
+        return responseData.map((json) => Produto.fromJson(json)).toList();
+      } else {
+        throw Exception('Falha ao carregar os produtos');
+      }
+    } catch (e) {
+      print('Erro ao listar produtos: $e');
+      return [];
+    }
+  }
+
+  Future<void> cadastrarProduto(Produto produto) async {
+    try {
+      final bytes = imagemSelecionada != null ? await imagemSelecionada!.readAsBytes() : null;
+      final String imagemBase64 = bytes != null ? base64Encode(bytes) : '';
+
+      final response = await http.post(
+        Uri.parse('http://localhost:8000/api/produtos'),
+        headers: <String, String>{'Content-type': 'application/json'},
+        body: jsonEncode({
+          'nome': produto.nome,
+          'valor': produto.valor,
+          'categoria': produto.categoria,
+          'parcelas': produto.parcelas,
+          'descricao': produto.descricao,
+          'detalhes': produto.detalhes,
+          'imagem': imagemBase64,
+        }),
+      );
+
+      if (response.statusCode == 201) {
+        print('Produto cadastrado com sucesso!');
+        setState(() {
+          // Atualizar a lista de produtos após a remoção
+          produto = Produto(); // Limpar os campos após a remoção
+        });
+      } else {
+        print('Falha ao cadastrar o produto. Status code: ${response.statusCode}');
+        print('Response body: ${response.body}');
+      }
+    } catch (e) {
+      print('Erro ao tentar cadastrar o produto: $e');
+    }
+  }
+
+  Future<void> atualizarProduto(int? produtoId, Produto produto) async {
+    try {
+      final response = await http.put(
+        Uri.parse('http://localhost:8000/api/produtos/${produto.id}'),
+        headers: <String, String>{'Content-type': 'application/json'},
+        body: jsonEncode({
+          'nome': produto.nome,
+          'valor': produto.valor,
+          'categoria': produto.categoria,
+          'parcelas': produto.parcelas,
+          'descricao': produto.descricao,
+          'detalhes': produto.detalhes,
+          'imagem': produto.imagem,
+        }),
+      );
+
+      if (response.statusCode == 200) {
+        print('Produto atualizado com sucesso!');
+        setState(() {
+          // Atualizar a lista de produtos após a remoção
+          produto = Produto(); // Limpar os campos após a remoção
+        });
+      } else {
+        print('Falha ao atualizar o produto. Status code: ${response.statusCode}');
+        print('Response body: ${response.body}');
+      }
+    } catch (e) {
+      print('Erro ao tentar atualizar o produto: $e');
+    }
+  }
+
+
+    void confirmarRemocaoProduto() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Confirmar Remoção"),
+          content: const Text("Tem certeza de que deseja remover este produto?"),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text("Cancelar"),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                removerProduto();
+              },
+              child: const Text("Confirmar"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> removerProduto() async {
+  try {
+    final produtoId = int.tryParse(idController.text);
+    if (produtoId != null) {
+      final response = await http.delete(
+        Uri.parse('http://localhost:8000/api/produtos/$produtoId'),
+      );
+
+      if (response.statusCode == 200) {
+        print('Produto removido com sucesso!');
+        setState(() {
+          // Atualizar a lista de produtos após a remoção
+          produto = Produto(); // Limpar os campos após a remoção
+        });
+      } else {
+        print('Falha ao remover o produto. Status code: ${response.statusCode}');
+        //print('Response body: ${response.body}');
+      }
+    } else {
+      print('ID do produto inválido');
+    }
+  } catch (e) {
+    print('Erro ao tentar remover o produto: $e');
+  }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +231,6 @@ class CadastroProdutosWidget extends State<CadastroProdutos> {
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: () {
-              // Chama a função para buscar os produtos novamente
               setState(() {});
             },
           ),
@@ -98,13 +246,18 @@ class CadastroProdutosWidget extends State<CadastroProdutos> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextField(
+                    controller: idController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly,
+                    ],
                     decoration: const InputDecoration(
-                      labelText: 'Nome do Produto',
+                      labelText: 'ID do Produto a Atualizar',
                       border: OutlineInputBorder(),
                     ),
                     onChanged: (valor) {
                       setState(() {
-                        nome = valor;
+                        produto.id = int.tryParse(valor);
                       });
                     },
                   ),
@@ -112,13 +265,33 @@ class CadastroProdutosWidget extends State<CadastroProdutos> {
                     height: 10,
                   ),
                   TextField(
+                    controller: nomeController,
                     decoration: const InputDecoration(
-                      labelText: 'Preço',
+                      labelText: 'Nome do Produto',
                       border: OutlineInputBorder(),
                     ),
                     onChanged: (valor) {
                       setState(() {
-                        preco = double.tryParse(valor);
+                        produto.nome = valor;
+                      });
+                    },
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextField(
+                    controller: valorController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                    FilteringTextInputFormatter.digitsOnly
+                    ],
+                    decoration: const InputDecoration(
+                      labelText: 'Valor',
+                      border: OutlineInputBorder(),
+                    ),
+                    onChanged: (valor) {
+                      setState(() {
+                        produto.valor = double.tryParse(valor);
                       });
                     },
                   ),
@@ -127,7 +300,7 @@ class CadastroProdutosWidget extends State<CadastroProdutos> {
                   ),
                   DropdownButton<String>(
                     hint: const Text('Selecione uma categoria'),
-                    value: categoria,
+                    value: produto.categoria,
                     items: <String>[
                       'Todos',
                       'Tvs',
@@ -145,32 +318,23 @@ class CadastroProdutosWidget extends State<CadastroProdutos> {
                     }).toList(),
                     onChanged: (valor) {
                       setState(() {
-                        categoria = valor;
+                        produto.categoria = valor;
                       });
                     },
                   ),
                   TextField(
-                    decoration: const InputDecoration(
-                      labelText: 'Quantidade de estrelas',
-                      border: OutlineInputBorder(),
-                    ),
-                    onChanged: (valor) {
-                      setState(() {
-                        quantidadeEstrelas = int.tryParse(valor);
-                      });
-                    },
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  TextField(
+                    controller: parcelasController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                    FilteringTextInputFormatter.digitsOnly
+                    ],
                     decoration: const InputDecoration(
                       labelText: 'Quantidade máxima de parcelas',
                       border: OutlineInputBorder(),
                     ),
                     onChanged: (valor) {
                       setState(() {
-                        quantidadeMaxParcelas = int.tryParse(valor);
+                        produto.parcelas = int.tryParse(valor);
                       });
                     },
                   ),
@@ -178,27 +342,14 @@ class CadastroProdutosWidget extends State<CadastroProdutos> {
                     height: 10,
                   ),
                   TextField(
-                    decoration: const InputDecoration(
-                      labelText: 'Valor da parcela',
-                      border: OutlineInputBorder(),
-                    ),
-                    onChanged: (valor) {
-                      setState(() {
-                        valorDaParcela = double.tryParse(valor);
-                      });
-                    },
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  TextField(
+                    controller: descricaoController,
                     decoration: const InputDecoration(
                       labelText: 'Descrição longa',
                       border: OutlineInputBorder(),
                     ),
                     onChanged: (valor) {
                       setState(() {
-                        descricaoLonga = valor;
+                        produto.descricao = valor;
                       });
                     },
                   ),
@@ -206,33 +357,98 @@ class CadastroProdutosWidget extends State<CadastroProdutos> {
                     height: 10,
                   ),
                   TextField(
+                    controller: detalhesController,
                     decoration: const InputDecoration(
                       labelText: 'Detalhes técnicos',
                       border: OutlineInputBorder(),
                     ),
                     onChanged: (valor) {
                       setState(() {
-                        detalhesTecnicos = valor;
+                        produto.detalhes = valor;
                       });
                     },
                   ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextField(
+                    controller: imagemController,
+                    decoration: const InputDecoration(
+                      labelText: 'Caminho da imagem',
+                      border: OutlineInputBorder(),
+                    ),
+                    onChanged: (valor) {
+                      setState(() {
+                        produto.imagem = valor;
+                      });
+                    },
+                  ),
+
+
+                  // TextButton(
+                  //       onPressed: () async {
+                  //         // Lógica para selecionar a imagem
+                  //         final XFile? imagemSelecionada = await ImagePicker()
+                  //         .pickImage(source:ImageSource.gallery);
+                  //         if (imagemSelecionada != null) {
+                  //           setState(() {
+                  //             this.imagemSelecionada = imagemSelecionada;
+                  //           });
+                  //         }
+                  //       },
+                  //       style: TextButton.styleFrom(
+                  //         foregroundColor: Colors.pink, // Cor do texto
+                  //       ),
+                  //       child: Text('Selecionar Imagem'),
+                  //     ),
+                    // TextFormField(
+                    //     decoration: const InputDecoration(labelText: "Imagem"),
+                    //     readOnly: true,
+                    //     controller: TextEditingController(text: imagemSelecionada),
+                    // ),
+
                   const SizedBox(
                     height: 20,
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      cadastrarProdutos(
-                        nome!,
-                        categoria!,
-                        preco!,
-                        quantidadeEstrelas!,
-                        quantidadeMaxParcelas!,
-                        valorDaParcela!,
-                        descricaoLonga!,
-                        detalhesTecnicos!,
-                      );
+                      cadastrarProduto(produto);
                     },
                     child: const Text("Cadastrar"),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                 ElevatedButton(
+                  onPressed: () {
+                    if (produto.id != null) {
+                      atualizarProduto(produto.id, produto);
+                    } else {
+                      print('ID do produto inválido');
+                    }
+                  },
+                  child: const Text("Atualizar Produto"),
+                ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     final productId = int.tryParse(idController.text);
+                  //     if (productId != null) {
+                  //       removerProduto(productId);
+                  //     } else {
+                  //       print('ID do produto inválido');
+                  //     }
+                  //   },
+                  //   child: const Text("Remover Produto"),
+                  // ),
+
+                  ElevatedButton(
+                    onPressed: () {
+                      confirmarRemocaoProduto();
+                    },
+                    child: const Text("Remover Produto"),
                   ),
                 ],
               ),
@@ -244,16 +460,16 @@ class CadastroProdutosWidget extends State<CadastroProdutos> {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return const CircularProgressIndicator();
                   } else if (snapshot.hasError) {
-                    return const Text('Erro ao carregar os produtos');
+                    return Text('${snapshot.error?.toString()}');
                   } else {
-                    final List<Produto>? products = snapshot.data;
-                    if (products == null || products.isEmpty) {
+                    final List<Produto>? produtos = snapshot.data;
+                    if (produtos == null || produtos.isEmpty) {
                       return const Text('Nenhum produto cadastrado.');
                     } else {
                       return ListView.builder(
-                        itemCount: products.length,
+                        itemCount: produtos.length,
                         itemBuilder: (context, index) {
-                          final product = products[index];
+                          final product = produtos[index];
                           return ListTile(
                             title: Text(product.nome ?? ''),
                             subtitle: Text(product.categoria ?? ''),

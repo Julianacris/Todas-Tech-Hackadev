@@ -5,25 +5,25 @@ import 'package:hackadev/info_produtos/info_produto.dart';
 
 class Produto extends StatefulWidget {
   final Function opcaoSelecionadaFuncao;
-  final String preco;
+  final String valor;
   final String nome;
-  final String pathImagem;
+  final String imagem;
   final int quantidadeEstrelas;
-  final int quantidadeMaxParcelas;
+  final int parcelas;
   final double valorDaParcela;
-  final String descricaoLonga;
-  final String detalhesTecnicos;
+  final String descricao;
+  final String detalhes;
 
   const Produto({
     super.key,
-    required this.preco,
+    required this.valor,
     required this.nome,
-    required this.pathImagem,
+    required this.imagem,
     required this.quantidadeEstrelas,
-    required this.quantidadeMaxParcelas,
+    required this.parcelas,
     required this.valorDaParcela,
-    required this.descricaoLonga,
-    required this.detalhesTecnicos,
+    required this.descricao,
+    required this.detalhes,
     required this.opcaoSelecionadaFuncao,
   });
 
@@ -51,13 +51,13 @@ class ProdutoState extends State<Produto> {
           InfoProduto(
             opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao,
             nome: widget.nome,
-            pathImagem: widget.pathImagem,
-            preco: widget.preco,
+            imagem: widget.imagem,
+            valor: widget.valor,
             quantidadeEstrelas: widget.quantidadeEstrelas,
-            quantidadeMaxParcelas: widget.quantidadeMaxParcelas,
+            parcelas: widget.parcelas,
             valorDaParcela: widget.valorDaParcela,
-            descricaoLonga: widget.descricaoLonga,
-            detalhesTecnicos: widget.detalhesTecnicos,
+            descricao: widget.descricao,
+            detalhes: widget.detalhes,
           ),
         );
       },
@@ -91,7 +91,7 @@ class ProdutoState extends State<Produto> {
                   width: 90.0,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(widget.pathImagem),
+                      image: AssetImage(widget.imagem),
                       fit: BoxFit.scaleDown,
                     ),
                   ),
@@ -108,7 +108,7 @@ class ProdutoState extends State<Produto> {
                       child: Align(
                         alignment: Alignment.center,
                         child: Text(
-                          widget.preco,
+                          widget.valor,
                           style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
