@@ -252,7 +252,7 @@ class _CadastroProdutosState extends State<CadastroProdutos> {
                       FilteringTextInputFormatter.digitsOnly,
                     ],
                     decoration: const InputDecoration(
-                      labelText: 'ID do Produto a Atualizar',
+                      labelText: 'ID do Produto a Atualizar ou Remover',
                       border: OutlineInputBorder(),
                     ),
                     onChanged: (valor) {
