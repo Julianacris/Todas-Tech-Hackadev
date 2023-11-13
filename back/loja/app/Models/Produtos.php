@@ -45,4 +45,12 @@ class Produtos extends Model
             get: fn () => url('api/storage/'.$this->id),
         );
     }
+
+    public function update(array $attributes = [], array $options = [])
+    {
+        // Atualize o campo 'updated_at' manualmente
+        $attributes['updated_at'] = $this->freshTimestamp();
+        return parent::update($attributes, $options);
+    }
+
 }

@@ -127,7 +127,7 @@ class _CadastroProdutosState extends State<CadastroProdutos> {
     }
   }
 
-  Future<void> atualizarProduto(Produto produto) async {
+  Future<void> atualizarProduto(int? produtoId, Produto produto) async {
     try {
       final response = await http.put(
         Uri.parse('http://localhost:8000/api/produtos/${produto.id}'),
@@ -200,6 +200,25 @@ class _CadastroProdutosState extends State<CadastroProdutos> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  TextField(
+                    controller: idController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly,
+                    ],
+                    decoration: const InputDecoration(
+                      labelText: 'ID do Produto a Atualizar',
+                      border: OutlineInputBorder(),
+                    ),
+                    onChanged: (valor) {
+                      setState(() {
+                        produto.id = int.tryParse(valor);
+                      });
+                    },
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   TextField(
                     controller: nomeController,
                     decoration: const InputDecoration(
@@ -355,12 +374,16 @@ class _CadastroProdutosState extends State<CadastroProdutos> {
                   const SizedBox(
                     height: 10,
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      atualizarProduto(produto);
-                    },
-                    child: const Text("Atualizar Produto"),
-                  ),
+                 ElevatedButton(
+                  onPressed: () {
+                    if (produto.id != null) {
+                      atualizarProduto(produto.id, produto);
+                    } else {
+                      print('ID do produto inválido');
+                    }
+                  },
+                  child: const Text("Atualizar Produto"),
+                ),
                   const SizedBox(
                     height: 10,
                   ),

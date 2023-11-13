@@ -98,6 +98,20 @@ class ProdutoController extends Controller
         // Conceito do PUT em Rest, é subistituir
         $produtos = Produtos::findOrFail($id);
 
+        return DB::transaction(function () use ($produtos, $request) {
+            $produtos->update($request->all());
+
+            // Certifique-se de salvar as mudanças na imagem se houver uma nova
+            if ($request->hasFile('imagem')) {
+                $this->uploadImagem($request, $produtos->id);
+            }
+
+            if ($produtos->save()) {
+                return response()->json($produtos, 202);
+            }
+            return response('Erro ao atualizar', 400);
+        });
+
         // Estamos preenchendo o que veio da request
         // no Produtosos que selecionamos pelo id
         $produtos->fill($request->all());

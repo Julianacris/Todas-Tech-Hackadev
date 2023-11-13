@@ -26,11 +26,11 @@ Route::post('/login', [LoginController::class, 'login']);
 // localhost:8000/api/produtos
 Route::post('/produtos', [ProdutoController::class, 'create']);
 
-Route::get('/produtos/{codigo}', [ProdutoController::class, 'getProduct']);
+Route::get('/produtos/{id}', [ProdutoController::class, 'getProduct']);
 
 Route::get('/produtos', [ProdutoController::class, 'getAll']);
 
-Route::put('/produtos/{codigo}', [ProdutoController::class, 'update']);
+Route::put('/produtos/{id}', [ProdutoController::class, 'update']);
 
 Route::post('/produtos/imagem', [ProdutoController::class, 'uploadImagem']);
 
