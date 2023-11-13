@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,12 +13,15 @@ class Produtos extends Model
     // configuração de nome de tabela
     // protected $table = 'tbl_products';
 
+    public $timestamps = false;
+
     use HasFactory;
 
     // São os campos da tabela
     // que podem ser armazenados diretamente
     // no (construtor) model
     protected $fillable = [
+        'id',
         'nome', 
         'valor', 
         'categoria', 
@@ -30,5 +34,15 @@ class Produtos extends Model
     protected $casts = [
         'valor' => 'double',
         'parcelas' => 'int',
+        'id' => 'int',
     ];
+
+    protected $appends = ['link'];
+
+    protected function link(): Attribute
+    {
+        return new Attribute(
+            get: fn () => url('api/storage/'.$this->id),
+        );
+    }
 }

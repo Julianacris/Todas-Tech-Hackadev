@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/login', [LoginController::class, 'login']);
+
 // localhost:8000/api/produtos
 Route::post('/produtos', [ProdutoController::class, 'create']);
 
@@ -30,3 +33,14 @@ Route::get('/produtos', [ProdutoController::class, 'getAll']);
 Route::put('/produtos/{codigo}', [ProdutoController::class, 'update']);
 
 Route::post('/produtos/imagem', [ProdutoController::class, 'uploadImagem']);
+
+Route::delete('/products/{id}', [ProductController::class, 'delete']);
+
+Route::get('/storage/{path}', function (string $path) {
+    $storeUrl = 'public/products/';
+    $imagem = Storage::get($storeUrl . $path);
+    $mime = Storage::mimeType($storeUrl . $path);
+    
+    return response($imagem, 200)
+            ->header('Content-Type', $mime);
+});
