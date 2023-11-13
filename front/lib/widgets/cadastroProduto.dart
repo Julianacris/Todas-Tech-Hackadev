@@ -118,6 +118,10 @@ class _CadastroProdutosState extends State<CadastroProdutos> {
 
       if (response.statusCode == 201) {
         print('Produto cadastrado com sucesso!');
+        setState(() {
+          // Atualizar a lista de produtos após a remoção
+          produto = Produto(); // Limpar os campos após a remoção
+        });
       } else {
         print('Falha ao cadastrar o produto. Status code: ${response.statusCode}');
         print('Response body: ${response.body}');
@@ -145,6 +149,10 @@ class _CadastroProdutosState extends State<CadastroProdutos> {
 
       if (response.statusCode == 200) {
         print('Produto atualizado com sucesso!');
+        setState(() {
+          // Atualizar a lista de produtos após a remoção
+          produto = Produto(); // Limpar os campos após a remoção
+        });
       } else {
         print('Falha ao atualizar o produto. Status code: ${response.statusCode}');
         print('Response body: ${response.body}');
@@ -154,22 +162,59 @@ class _CadastroProdutosState extends State<CadastroProdutos> {
     }
   }
 
-  Future<void> removerProduto(int productId) async {
-    try {
+
+    void confirmarRemocaoProduto() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Confirmar Remoção"),
+          content: const Text("Tem certeza de que deseja remover este produto?"),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text("Cancelar"),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                removerProduto();
+              },
+              child: const Text("Confirmar"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> removerProduto() async {
+  try {
+    final produtoId = int.tryParse(idController.text);
+    if (produtoId != null) {
       final response = await http.delete(
-        Uri.parse('http://localhost:8000/api/produtos/$productId'),
+        Uri.parse('http://localhost:8000/api/produtos/$produtoId'),
       );
 
       if (response.statusCode == 200) {
         print('Produto removido com sucesso!');
+        setState(() {
+          // Atualizar a lista de produtos após a remoção
+          produto = Produto(); // Limpar os campos após a remoção
+        });
       } else {
         print('Falha ao remover o produto. Status code: ${response.statusCode}');
-        print('Response body: ${response.body}');
+        //print('Response body: ${response.body}');
       }
-    } catch (e) {
-      print('Erro ao tentar remover o produto: $e');
+    } else {
+      print('ID do produto inválido');
     }
+  } catch (e) {
+    print('Erro ao tentar remover o produto: $e');
   }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -387,14 +432,21 @@ class _CadastroProdutosState extends State<CadastroProdutos> {
                   const SizedBox(
                     height: 10,
                   ),
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     final productId = int.tryParse(idController.text);
+                  //     if (productId != null) {
+                  //       removerProduto(productId);
+                  //     } else {
+                  //       print('ID do produto inválido');
+                  //     }
+                  //   },
+                  //   child: const Text("Remover Produto"),
+                  // ),
+
                   ElevatedButton(
                     onPressed: () {
-                      final productId = int.tryParse(idController.text);
-                      if (productId != null) {
-                        removerProduto(productId);
-                      } else {
-                        print('ID do produto inválido');
-                      }
+                      confirmarRemocaoProduto();
                     },
                     child: const Text("Remover Produto"),
                   ),

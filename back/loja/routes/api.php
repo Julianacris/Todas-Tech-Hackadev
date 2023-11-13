@@ -34,10 +34,10 @@ Route::put('/produtos/{id}', [ProdutoController::class, 'update']);
 
 Route::post('/produtos/imagem', [ProdutoController::class, 'uploadImagem']);
 
-Route::delete('/products/{id}', [ProductController::class, 'delete']);
+Route::delete('/produtos/{id}', [ProdutoController::class, 'delete']);
 
 Route::get('/storage/{path}', function (string $path) {
-    $storeUrl = 'public/products/';
+    $storeUrl = 'public/produtos/';
     $imagem = Storage::get($storeUrl . $path);
     $mime = Storage::mimeType($storeUrl . $path);
     
