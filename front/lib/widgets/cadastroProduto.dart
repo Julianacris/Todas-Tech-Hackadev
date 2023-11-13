@@ -1,14 +1,12 @@
-import 'dart:developer';
-import 'dart:js_interop';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:hackadev/pages/DetalhesProduto.dart';
 
-
 class Produto {
+  int? id;
   String? nome;
   double? valor;
   String? categoria;
@@ -18,6 +16,7 @@ class Produto {
   String? imagem;
 
   Produto({
+    this.id,
     this.nome,
     this.valor,
     this.categoria,
@@ -29,8 +28,9 @@ class Produto {
 
   factory Produto.fromJson(Map<String, dynamic> json) {
     return Produto(
+      id: json['id'],
       nome: json['nome'],
-      valor: json['valor'],
+      valor: json['valor']?.toDouble(),
       categoria: json['categoria'],
       parcelas: json['parcelas'],
       descricao: json['descricao'],
@@ -40,6 +40,7 @@ class Produto {
   }
 
   Produto copyWith({
+    int? id,
     String? nome,
     double? valor,
     String? categoria,
@@ -49,6 +50,7 @@ class Produto {
     String? imagem,
   }) {
     return Produto(
+      id: id ?? this.id,
       nome: nome ?? this.nome,
       valor: valor ?? this.valor,
       categoria: categoria ?? this.categoria,
@@ -58,7 +60,6 @@ class Produto {
       imagem: imagem ?? this.imagem,
     );
   }
-
 }
 
 class CadastroProdutos extends StatefulWidget {
@@ -69,24 +70,30 @@ class CadastroProdutos extends StatefulWidget {
 }
 
 class _CadastroProdutosState extends State<CadastroProdutos> {
+  final TextEditingController idController = TextEditingController();
   final TextEditingController nomeController = TextEditingController();
   final TextEditingController valorController = TextEditingController();
   final TextEditingController categoriaController = TextEditingController();
   final TextEditingController parcelasController = TextEditingController();
   final TextEditingController descricaoController = TextEditingController();
   final TextEditingController detalhesController = TextEditingController();
-
-  XFile? imagemSelecionada;
+  final TextEditingController imagemController = TextEditingController();
 
   Produto produto = Produto();
+  XFile? imagemSelecionada;
 
   Future<List<Produto>> listarProdutos() async {
-    final response = await http.get(Uri.parse('http://localhost:8000/api/produtos'));
-    if (response.statusCode == 200) {
-      final List<dynamic> responseData = json.decode(response.body);
-      return responseData.map((json) => Produto.fromJson(json)).toList();
-    } else {
-      throw Exception('Falha ao carregar os produtos');
+    try {
+      final response = await http.get(Uri.parse('http://localhost:8000/api/produtos'));
+      if (response.statusCode == 200) {
+        final List<dynamic> responseData = json.decode(response.body);
+        return responseData.map((json) => Produto.fromJson(json)).toList();
+      } else {
+        throw Exception('Falha ao carregar os produtos');
+      }
+    } catch (e) {
+      print('Erro ao listar produtos: $e');
+      return [];
     }
   }
 
@@ -102,26 +109,112 @@ class _CadastroProdutosState extends State<CadastroProdutos> {
           'nome': produto.nome,
           'valor': produto.valor,
           'categoria': produto.categoria,
-          'quantidadeMaxParcelas': produto.parcelas,
+          'parcelas': produto.parcelas,
           'descricao': produto.descricao,
           'detalhes': produto.detalhes,
           'imagem': imagemBase64,
         }),
       );
 
-      if (response.statusCode == 200) {
-        final Map<String, dynamic> responseData = json.decode(response.body);
-        final String imagem = responseData['imagem'];
-
-        // Atualize o produto com o caminho da imagem
-        produto = produto.copyWith(imagem: imagem);
+      if (response.statusCode == 201) {
+        print('Produto cadastrado com sucesso!');
+        setState(() {
+          // Atualizar a lista de produtos após a remoção
+          produto = Produto(); // Limpar os campos após a remoção
+        });
       } else {
         print('Falha ao cadastrar o produto. Status code: ${response.statusCode}');
+        print('Response body: ${response.body}');
       }
     } catch (e) {
       print('Erro ao tentar cadastrar o produto: $e');
     }
   }
+
+  Future<void> atualizarProduto(int? produtoId, Produto produto) async {
+    try {
+      final response = await http.put(
+        Uri.parse('http://localhost:8000/api/produtos/${produto.id}'),
+        headers: <String, String>{'Content-type': 'application/json'},
+        body: jsonEncode({
+          'nome': produto.nome,
+          'valor': produto.valor,
+          'categoria': produto.categoria,
+          'parcelas': produto.parcelas,
+          'descricao': produto.descricao,
+          'detalhes': produto.detalhes,
+          'imagem': produto.imagem,
+        }),
+      );
+
+      if (response.statusCode == 200) {
+        print('Produto atualizado com sucesso!');
+        setState(() {
+          // Atualizar a lista de produtos após a remoção
+          produto = Produto(); // Limpar os campos após a remoção
+        });
+      } else {
+        print('Falha ao atualizar o produto. Status code: ${response.statusCode}');
+        print('Response body: ${response.body}');
+      }
+    } catch (e) {
+      print('Erro ao tentar atualizar o produto: $e');
+    }
+  }
+
+
+    void confirmarRemocaoProduto() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Confirmar Remoção"),
+          content: const Text("Tem certeza de que deseja remover este produto?"),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text("Cancelar"),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                removerProduto();
+              },
+              child: const Text("Confirmar"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> removerProduto() async {
+  try {
+    final produtoId = int.tryParse(idController.text);
+    if (produtoId != null) {
+      final response = await http.delete(
+        Uri.parse('http://localhost:8000/api/produtos/$produtoId'),
+      );
+
+      if (response.statusCode == 200) {
+        print('Produto removido com sucesso!');
+        setState(() {
+          // Atualizar a lista de produtos após a remoção
+          produto = Produto(); // Limpar os campos após a remoção
+        });
+      } else {
+        print('Falha ao remover o produto. Status code: ${response.statusCode}');
+        //print('Response body: ${response.body}');
+      }
+    } else {
+      print('ID do produto inválido');
+    }
+  } catch (e) {
+    print('Erro ao tentar remover o produto: $e');
+  }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -153,6 +246,25 @@ class _CadastroProdutosState extends State<CadastroProdutos> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextField(
+                    controller: idController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly,
+                    ],
+                    decoration: const InputDecoration(
+                      labelText: 'ID do Produto a Atualizar',
+                      border: OutlineInputBorder(),
+                    ),
+                    onChanged: (valor) {
+                      setState(() {
+                        produto.id = int.tryParse(valor);
+                      });
+                    },
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextField(
                     controller: nomeController,
                     decoration: const InputDecoration(
                       labelText: 'Nome do Produto',
@@ -169,6 +281,10 @@ class _CadastroProdutosState extends State<CadastroProdutos> {
                   ),
                   TextField(
                     controller: valorController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                    FilteringTextInputFormatter.digitsOnly
+                    ],
                     decoration: const InputDecoration(
                       labelText: 'Valor',
                       border: OutlineInputBorder(),
@@ -208,6 +324,10 @@ class _CadastroProdutosState extends State<CadastroProdutos> {
                   ),
                   TextField(
                     controller: parcelasController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                    FilteringTextInputFormatter.digitsOnly
+                    ],
                     decoration: const InputDecoration(
                       labelText: 'Quantidade máxima de parcelas',
                       border: OutlineInputBorder(),
@@ -251,15 +371,42 @@ class _CadastroProdutosState extends State<CadastroProdutos> {
                   const SizedBox(
                     height: 10,
                   ),
-                  ElevatedButton(
-                    onPressed: () async {
-                      final XFile? imagemSelecionada = await ImagePicker().pickImage(source: ImageSource.gallery);
+                  TextField(
+                    controller: imagemController,
+                    decoration: const InputDecoration(
+                      labelText: 'Caminho da imagem',
+                      border: OutlineInputBorder(),
+                    ),
+                    onChanged: (valor) {
                       setState(() {
-                        this.imagemSelecionada = imagemSelecionada;
+                        produto.imagem = valor;
                       });
                     },
-                    child: const Text("Selecionar Imagem"),
                   ),
+
+
+                  // TextButton(
+                  //       onPressed: () async {
+                  //         // Lógica para selecionar a imagem
+                  //         final XFile? imagemSelecionada = await ImagePicker()
+                  //         .pickImage(source:ImageSource.gallery);
+                  //         if (imagemSelecionada != null) {
+                  //           setState(() {
+                  //             this.imagemSelecionada = imagemSelecionada;
+                  //           });
+                  //         }
+                  //       },
+                  //       style: TextButton.styleFrom(
+                  //         foregroundColor: Colors.pink, // Cor do texto
+                  //       ),
+                  //       child: Text('Selecionar Imagem'),
+                  //     ),
+                    // TextFormField(
+                    //     decoration: const InputDecoration(labelText: "Imagem"),
+                    //     readOnly: true,
+                    //     controller: TextEditingController(text: imagemSelecionada),
+                    // ),
+
                   const SizedBox(
                     height: 20,
                   ),
@@ -268,6 +415,40 @@ class _CadastroProdutosState extends State<CadastroProdutos> {
                       cadastrarProduto(produto);
                     },
                     child: const Text("Cadastrar"),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                 ElevatedButton(
+                  onPressed: () {
+                    if (produto.id != null) {
+                      atualizarProduto(produto.id, produto);
+                    } else {
+                      print('ID do produto inválido');
+                    }
+                  },
+                  child: const Text("Atualizar Produto"),
+                ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     final productId = int.tryParse(idController.text);
+                  //     if (productId != null) {
+                  //       removerProduto(productId);
+                  //     } else {
+                  //       print('ID do produto inválido');
+                  //     }
+                  //   },
+                  //   child: const Text("Remover Produto"),
+                  // ),
+
+                  ElevatedButton(
+                    onPressed: () {
+                      confirmarRemocaoProduto();
+                    },
+                    child: const Text("Remover Produto"),
                   ),
                 ],
               ),
@@ -279,32 +460,25 @@ class _CadastroProdutosState extends State<CadastroProdutos> {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return const CircularProgressIndicator();
                   } else if (snapshot.hasError) {
-                    return  Text('${snapshot.error?.toString()}');
+                    return Text('${snapshot.error?.toString()}');
                   } else {
-                    final List<Produto>? products = snapshot.data;
-                    if (products == null || products.isEmpty) {
+                    final List<Produto>? produtos = snapshot.data;
+                    if (produtos == null || produtos.isEmpty) {
                       return const Text('Nenhum produto cadastrado.');
                     } else {
                       return ListView.builder(
-                        itemCount: products.length,
+                        itemCount: produtos.length,
                         itemBuilder: (context, index) {
-                          final product = products[index];
+                          final product = produtos[index];
                           return ListTile(
                             title: Text(product.nome ?? ''),
                             subtitle: Text(product.categoria ?? ''),
-                            // leading: product.imagem != null
-                            //     ? Image.network(
-                            //         'http://localhost:8000/api/${product.imagem}',
-                            //         width: 50,
-                            //         height: 50,
-                            //       )
-                            //     : const SizedBox.shrink(),
                             onTap: () {
-                              // print(product.toJS);
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => DetalhesProduto(productData: product),
+                                  builder: (context) =>
+                                      DetalhesProduto(productData: product),
                                 ),
                               );
                             },
