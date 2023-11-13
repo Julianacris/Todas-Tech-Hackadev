@@ -23,13 +23,19 @@ class PortateisPg extends StatefulWidget {
 }
 
 class PortateisPgState extends State<PortateisPg> {
+    String searchText = '';
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment:
           CrossAxisAlignment.stretch, // Estende as seções horizontalmente
       children: [
-        const AppSearchBar(),
+        AppSearchBar(onSearch: (text) {
+            setState(() {
+              searchText = text;
+            });
+          }),//Barra de pesquisa
         Categorias(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao),
         const SizedBox(height: 20),
         Flexible(child: Portateis(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao)),

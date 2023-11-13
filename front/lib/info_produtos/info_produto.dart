@@ -34,6 +34,8 @@ class InfoProduto extends StatefulWidget {
 }
 
 class _InfoProdutoState extends State<InfoProduto> {
+    String searchText = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +55,11 @@ class _InfoProdutoState extends State<InfoProduto> {
                   ),
                 ],
               ),
-              const AppSearchBar(),
+              AppSearchBar(onSearch: (text) {
+                setState(() {
+                  searchText = text;
+                });
+              }), //Barra de pesquisa,
               Info(
                 imagem: widget.imagem,
                 nome: widget.nome,

@@ -87,7 +87,7 @@ class ConteudoCarrinho extends State<Carrinho> {
                                   onTap: () {
                                     CarrinhoDeCompras.removerProduto(p);
                                   },
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.delete,
                                   ),
                                 ),
@@ -134,7 +134,7 @@ class ConteudoCarrinho extends State<Carrinho> {
                               ],
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           )
                         ],

@@ -18,13 +18,19 @@ class TvsPg extends StatefulWidget {
 }
 
 class TvsPgState extends State<TvsPg> {
+    String searchText = '';
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment:
           CrossAxisAlignment.stretch, // Estende as seções horizontalmente
       children: [
-        const AppSearchBar(),
+        AppSearchBar(onSearch: (text) {
+            setState(() {
+              searchText = text;
+            });
+          }),//Barra de pesquisa
         Categorias(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao),
         const SizedBox(height: 20),
         Flexible(child: Tvs(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao)),

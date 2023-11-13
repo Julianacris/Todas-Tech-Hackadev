@@ -24,13 +24,19 @@ class Produtos extends StatefulWidget {
 }
 
 class ProdutosState extends State<Produtos> {
+    String searchText = '';
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment:
           CrossAxisAlignment.stretch, // Estende as seções horizontalmente
       children: [
-        const AppSearchBar(),
+        AppSearchBar(onSearch: (text) {
+            setState(() {
+              searchText = text;
+            });
+          }),//Barra de pesquisa
         Categorias(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao),
         const SizedBox(height: 20),
         Flexible(child: TodosProd(opcaoSelecionadaFuncao: widget.opcaoSelecionadaFuncao)),

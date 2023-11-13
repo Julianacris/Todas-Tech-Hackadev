@@ -17,13 +17,19 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
+  String searchText = '';
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment:
           CrossAxisAlignment.stretch, // Estende as seções horizontalmente
       children: [
-        const AppSearchBar(), //Barra de pesquisa
+        AppSearchBar(onSearch: (text) {
+            setState(() {
+              searchText = text;
+            });
+          }),//Barra de pesquisa
         const SizedBox(
           height: 25,
         ),
