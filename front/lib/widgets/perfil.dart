@@ -33,7 +33,7 @@ class ConteudoPerfil extends State {
           child: ElevatedButton(
             onPressed: _navigateToSecondPage,
             child: const Text(
-              'Cadastrar Produtos',
+              'Banco de Dados',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
